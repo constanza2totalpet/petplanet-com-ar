@@ -1,24 +1,11 @@
-import clasicoImg from "@/assets/crystal-cat-clasico.jpg";
-import lavandaImg from "@/assets/crystal-cat-lavanda.jpg";
-import ultraImg from "@/assets/crystal-cat-ultra.jpg";
-import { PawPrint, Sparkles, Quote } from "lucide-react";
+import bolsaImg from "@/assets/bolsa-crystalcat.png";
+import crystalcatLogo from "@/assets/crystalcat-logo.png";
+import { PawPrint, Quote, Droplets, Wind, CalendarCheck } from "lucide-react";
 
-const crystalProducts = [
-  {
-    name: "Crystal Cat Clásico",
-    desc: "Piedras sanitarias de sílica con máxima absorción y control de olores.",
-    img: clasicoImg,
-  },
-  {
-    name: "Crystal Cat Lavanda",
-    desc: "Fórmula con fragancia a lavanda para un ambiente fresco y agradable.",
-    img: lavandaImg,
-  },
-  {
-    name: "Crystal Cat Ultra Absorbente",
-    desc: "Tecnología de ultra absorción para hogares con múltiples gatos.",
-    img: ultraImg,
-  },
+const features = [
+  { icon: Droplets, label: "Alta absorción" },
+  { icon: Wind, label: "Neutraliza olores" },
+  { icon: CalendarCheck, label: "Mayor rendimiento" },
 ];
 
 const ProductsSection = () => (
@@ -32,21 +19,24 @@ const ProductsSection = () => (
         Trabajamos con marcas líderes para ofrecer lo mejor en cuidado de mascotas.
       </p>
 
-      {/* Brands grid – two columns like reference */}
+      {/* Brands grid */}
       <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
         {/* ── Crystal Cat ── */}
         <div className="flex flex-col">
-          {/* Brand header */}
           <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
             Pet Planet
           </p>
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
-              <Sparkles className="w-7 h-7 text-primary" />
-            </div>
-            <h3 className="text-2xl md:text-3xl font-heading font-extrabold text-foreground">
-              Crystal Cat
-            </h3>
+
+          {/* Logo */}
+          <div className="mb-6">
+            <img
+              src={crystalcatLogo}
+              alt="Crystalcat logo"
+              loading="lazy"
+              width={1024}
+              height={512}
+              className="h-12 w-auto"
+            />
           </div>
 
           {/* Quote */}
@@ -63,39 +53,43 @@ const ProductsSection = () => (
             cuidado e higiene de tu gato.
           </p>
 
-          {/* Product cards */}
-          <div className="grid gap-4">
-            {crystalProducts.map((p) => (
-              <div
-                key={p.name}
-                className="group flex items-center gap-4 rounded-xl border bg-card shadow-sm hover:shadow-md transition-shadow p-3"
-              >
-                <div className="w-20 h-20 rounded-lg bg-muted overflow-hidden shrink-0">
-                  <img
-                    src={p.img}
-                    alt={p.name}
-                    loading="lazy"
-                    width={160}
-                    height={160}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+          {/* Features */}
+          <div className="flex gap-4 mb-8">
+            {features.map((f) => (
+              <div key={f.label} className="flex items-center gap-2 text-sm text-muted-foreground">
+                <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center">
+                  <f.icon className="w-4 h-4 text-primary" />
                 </div>
-                <div>
-                  <h4 className="font-heading font-bold text-sm mb-0.5">{p.name}</h4>
-                  <p className="text-xs text-muted-foreground leading-snug">{p.desc}</p>
-                </div>
+                <span className="font-medium">{f.label}</span>
               </div>
             ))}
+          </div>
+
+          {/* Product image card */}
+          <div className="group rounded-xl border bg-card shadow-sm hover:shadow-md transition-shadow p-4 flex flex-col items-center">
+            <div className="w-full max-w-xs aspect-square rounded-lg bg-muted overflow-hidden mb-4">
+              <img
+                src={bolsaImg}
+                alt="Crystal Cat - Piedras Sanitarias 3.8L"
+                loading="lazy"
+                width={400}
+                height={400}
+                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <h4 className="font-heading font-bold text-base mb-1">Crystal Cat 3.8L</h4>
+            <p className="text-sm text-muted-foreground text-center">
+              Piedras sanitarias de sílica. Liviano y fácil de manipular. 100% natural.
+            </p>
           </div>
         </div>
 
         {/* ── Segunda Marca (Próximamente) ── */}
         <div className="flex flex-col">
-          {/* Brand header */}
           <p className="text-xs font-semibold tracking-widest uppercase text-coming-soon mb-3">
             Pet Planet
           </p>
-          <div className="flex items-center gap-3 mb-4">
+          <div className="flex items-center gap-3 mb-6">
             <div className="w-14 h-14 rounded-full bg-coming-soon/20 flex items-center justify-center">
               <PawPrint className="w-7 h-7 text-coming-soon" />
             </div>
@@ -104,7 +98,6 @@ const ProductsSection = () => (
             </h3>
           </div>
 
-          {/* Quote */}
           <div className="flex gap-3 mb-6">
             <Quote className="w-8 h-8 text-coming-soon/40 shrink-0 mt-1" />
             <p className="text-lg font-heading font-semibold text-foreground/60 italic">
