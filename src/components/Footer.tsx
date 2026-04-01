@@ -1,4 +1,5 @@
-import { PawPrint, Instagram, Facebook, Twitter } from "lucide-react";
+import { Instagram, Facebook, Twitter } from "lucide-react";
+import petplanetLogo from "@/assets/petplanet-logo.png";
 
 const Footer = () => (
   <footer className="border-t bg-card py-12">
