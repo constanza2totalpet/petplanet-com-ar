@@ -7,9 +7,8 @@ const Footer = () => (
       <div className="grid sm:grid-cols-3 gap-8">
         {/* Brand */}
         <div>
-          <a href="#inicio" className="flex items-center gap-2 text-primary font-heading font-extrabold text-lg mb-2">
-            <PawPrint className="w-6 h-6" />
-            Pet Planet
+          <a href="#inicio" className="flex items-center gap-1 mb-2">
+            <img src={petplanetLogo} alt="Pet Planet" className="h-9" />
           </a>
           <p className="text-sm text-muted-foreground">Distribuidora de productos para mascotas</p>
         </div>
