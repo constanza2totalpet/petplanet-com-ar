@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Menu, X, PawPrint } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import petplanetLogo from "@/assets/petplanet-logo.png";
 
 const navLinks = [
   { label: "Inicio", href: "#inicio" },
