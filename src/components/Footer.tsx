@@ -8,7 +8,7 @@ const Footer = () => (
         {/* Brand */}
         <div>
           <a href="#inicio" className="flex items-center gap-1 mb-2">
-            <img src={petplanetLogo} alt="Pet Planet" className="h-9" />
+            <img src={petplanetLogo} alt="Pet Planet" className="h-12" />
           </a>
           <p className="text-sm text-muted-foreground">Distribuidora de productos para mascotas</p>
         </div>

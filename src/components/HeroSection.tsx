@@ -12,7 +12,7 @@ const HeroSection = () => (
       width={1920}
       height={800}
     />
-    <div className="absolute inset-0 bg-[hsl(var(--hero-overlay)/0.55)]" />
+    <div className="absolute inset-0 bg-[hsl(var(--hero-overlay)/0.45)]" />
 
     <div className="relative z-10 text-center px-6 py-20 max-w-3xl animate-fade-in-up">
       <h1 className="text-4xl md:text-5xl font-heading font-extrabold text-primary-foreground leading-tight mb-4">
