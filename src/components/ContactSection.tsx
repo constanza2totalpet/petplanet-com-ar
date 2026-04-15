@@ -20,7 +20,7 @@ const ContactSection = () => {
           Trabajemos juntos
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-xl mx-auto">
-          Si tenés un negocio en el mundo pet y buscás sumar propuestas sólidas, dejanos tus datos y nos ponemos en contacto.
+          Si te interesa conocer más sobre nuestras marcas, completá tus datos a continuación y nos ponemos en contacto.
         </p>
 
         <div className="grid md:grid-cols-2 gap-12">
