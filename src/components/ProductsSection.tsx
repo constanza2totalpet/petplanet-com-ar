@@ -26,8 +26,8 @@ const ProductsSection = () => (
       <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
         {/* ── Crystal Cat ── */}
         <div className="flex flex-col">
-          <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3">
-            Marca Pet Planet
+        <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3">
+            Pet Planet presenta
           </p>
 
           {/* Logo */}
