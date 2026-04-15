@@ -6,7 +6,6 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // placeholder – no backend yet
     alert("¡Gracias por tu mensaje! Nos pondremos en contacto pronto.");
     setForm({ nombre: "", email: "", mensaje: "" });
   };
@@ -14,11 +13,14 @@ const ContactSection = () => {
   return (
     <section id="contacto" className="py-20 bg-background">
       <div className="container max-w-4xl">
+        <p className="text-xs font-semibold tracking-widest uppercase text-primary text-center mb-2">
+          Hablemos
+        </p>
         <h2 className="text-3xl md:text-4xl font-heading font-extrabold text-center mb-4">
-          Contacto
+          Trabajemos juntos
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-xl mx-auto">
-          ¿Querés vender nuestros productos o hacer una consulta? Escribinos
+          Si tenés un negocio en el mundo pet y buscás sumar propuestas sólidas, dejanos tus datos y nos ponemos en contacto.
         </p>
 
         <div className="grid md:grid-cols-2 gap-12">
@@ -33,7 +35,7 @@ const ContactSection = () => {
               <MessageCircle className="w-6 h-6 text-whatsapp" />
               <div>
                 <p className="font-heading font-bold text-sm">WhatsApp</p>
-                <p className="text-xs text-muted-foreground">Chateá con nosotros</p>
+                <p className="text-xs text-muted-foreground">Escribinos por chat</p>
               </div>
             </a>
 
@@ -68,7 +70,7 @@ const ContactSection = () => {
               className="rounded-lg border bg-card px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
             />
             <textarea
-              placeholder="Mensaje"
+              placeholder="Contanos sobre tu negocio o consulta"
               required
               rows={4}
               value={form.mensaje}
@@ -80,7 +82,7 @@ const ContactSection = () => {
               className="flex items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 font-heading font-bold text-primary-foreground hover:opacity-90 transition-opacity"
             >
               <Send className="w-4 h-4" />
-              Enviar
+              Enviar mensaje
             </button>
           </form>
         </div>
