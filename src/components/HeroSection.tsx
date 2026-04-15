@@ -3,7 +3,7 @@ import heroPets from "@/assets/hero-pets.jpg";
 const HeroSection = () => (
   <section
     id="inicio"
-    className="relative min-h-[520px] flex items-center justify-center overflow-hidden"
+    className="relative min-h-[calc(100vh-3.5rem)] md:min-h-[520px] flex items-center justify-center overflow-hidden"
   >
     <img
       src={heroPets}
