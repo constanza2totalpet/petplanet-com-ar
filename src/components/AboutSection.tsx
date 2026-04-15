@@ -1,13 +1,13 @@
 const AboutSection = () => (
-  <section id="nosotros" className="py-20 bg-muted/30">
-    <div className="container max-w-3xl text-center">
-      <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-2">
+  <section id="nosotros" className="py-14 md:py-20 bg-crystal-light">
+    <div className="container max-w-3xl text-center px-5">
+      <p className="text-xs font-semibold tracking-widest uppercase text-crystal mb-2">
         Sobre nosotros
       </p>
-      <h2 className="text-3xl md:text-4xl font-heading font-extrabold mb-6">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold mb-5 md:mb-6">
         Quiénes somos
       </h2>
-      <div className="space-y-4 text-muted-foreground leading-relaxed">
+      <div className="space-y-4 text-muted-foreground leading-relaxed text-sm sm:text-base">
         <p>
           En Pet Planet desarrollamos y acompañamos marcas dentro del mundo pet, con foco en la calidad, la identidad y el crecimiento a largo plazo.
         </p>
