@@ -13,9 +13,6 @@ const ContactSection = () => {
   return (
     <section id="contacto" className="py-20 bg-background">
       <div className="container max-w-4xl">
-        <p className="text-xs font-semibold tracking-widest uppercase text-primary text-center mb-2">
-          Hablemos
-        </p>
         <h2 className="text-3xl md:text-4xl font-heading font-extrabold text-center mb-4">
           Trabajemos juntos
         </h2>
