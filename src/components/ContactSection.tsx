@@ -82,8 +82,11 @@ const ContactSection = () => {
               className="flex items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 font-heading font-bold text-primary-foreground hover:opacity-90 transition-opacity"
             >
               <Send className="w-4 h-4" />
-              Enviar mensaje
+              Quiero recibir más información
             </button>
+            <p className="text-xs text-muted-foreground text-center">
+              Dejanos tus datos a continuación y te contactamos.
+            </p>
           </form>
         </div>
       </div>
