@@ -10,15 +10,17 @@ const Footer = () => (
           <a href="#inicio" className="flex items-center gap-1 mb-2">
             <img src={petplanetLogo} alt="Pet Planet" className="h-12" />
           </a>
-          <p className="text-sm text-muted-foreground">Distribuidora de productos para mascotas</p>
+          <p className="text-sm text-muted-foreground">
+            Desarrollo y distribución de marcas para el mundo pet.
+          </p>
         </div>
 
         {/* Links */}
         <div>
-          <h4 className="font-heading font-bold text-sm mb-3">Enlaces</h4>
+          <h4 className="font-heading font-bold text-sm mb-3">Navegación</h4>
           <ul className="space-y-2 text-sm text-muted-foreground">
-            <li><a href="#productos" className="hover:text-primary transition-colors">Productos</a></li>
-            <li><a href="#marcas" className="hover:text-primary transition-colors">Marcas</a></li>
+            <li><a href="#inicio" className="hover:text-primary transition-colors">Inicio</a></li>
+            <li><a href="#productos" className="hover:text-primary transition-colors">Marcas</a></li>
             <li><a href="#contacto" className="hover:text-primary transition-colors">Contacto</a></li>
           </ul>
         </div>

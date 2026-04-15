@@ -4,7 +4,7 @@ import { PawPrint, Quote, Droplets, Wind, CalendarCheck } from "lucide-react";
 
 const features = [
   { icon: Droplets, label: "Alta absorción" },
-  { icon: Wind, label: "Neutraliza olores" },
+  { icon: Wind, label: "Control de olores" },
   { icon: CalendarCheck, label: "Mayor rendimiento" },
 ];
 
@@ -12,26 +12,29 @@ const ProductsSection = () => (
   <section id="productos" className="py-20 bg-background">
     <div className="container">
       {/* Section header */}
+      <p className="text-xs font-semibold tracking-widest uppercase text-primary text-center mb-2">
+        Nuestro portfolio
+      </p>
       <h2 className="text-3xl md:text-4xl font-heading font-extrabold text-center mb-4">
-        Nuestros Productos
+        Marcas Pet Planet
       </h2>
       <p className="text-center text-muted-foreground mb-16 max-w-xl mx-auto">
-        Trabajamos con marcas líderes para ofrecer lo mejor en cuidado de mascotas.
+        Cada marca que desarrollamos nace con un propósito claro: ofrecer productos consistentes, confiables y pensados para el día a día.
       </p>
 
       {/* Brands grid */}
       <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
         {/* ── Crystal Cat ── */}
         <div className="flex flex-col">
-          <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
-            Pet Planet
+          <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3">
+            Marca Pet Planet
           </p>
 
           {/* Logo */}
           <div className="mb-6">
             <img
               src={crystalcatLogo}
-              alt="Crystalcat logo"
+              alt="Crystal Cat logo"
               loading="lazy"
               width={1024}
               height={512}
@@ -43,14 +46,14 @@ const ProductsSection = () => (
           <div className="flex gap-3 mb-6">
             <Quote className="w-8 h-8 text-primary/40 shrink-0 mt-1" />
             <p className="text-lg font-heading font-semibold text-foreground/80 italic">
-              Piedras sanitarias de sílica de alta absorción para gatos.
+              Piedras sanitarias de sílica premium para gatos exigentes.
             </p>
           </div>
 
           <p className="text-muted-foreground mb-8 leading-relaxed">
-            Crystal Cat es un producto de calidad premium, elaborado con sílica gel de alta pureza.
-            Su gran poder de absorción y control de olores lo convierte en la mejor opción para el
-            cuidado e higiene de tu gato.
+            Crystal Cat es nuestra primera marca, desarrollada con sílica gel de alta pureza.
+            Un producto liviano, higiénico y de larga duración, pensado para simplificar
+            el cuidado diario de tu gato.
           </p>
 
           {/* Features */}
@@ -79,15 +82,15 @@ const ProductsSection = () => (
             </div>
             <h4 className="font-heading font-bold text-base mb-1">Crystal Cat 3.8L</h4>
             <p className="text-sm text-muted-foreground text-center">
-              Piedras sanitarias de sílica. Liviano y fácil de manipular. 100% natural.
+              Piedras sanitarias de sílica. Liviano, natural y fácil de usar.
             </p>
           </div>
         </div>
 
-        {/* ── Segunda Marca (Próximamente) ── */}
+        {/* ── Próxima marca ── */}
         <div className="flex flex-col">
           <p className="text-xs font-semibold tracking-widest uppercase text-coming-soon mb-3">
-            Pet Planet
+            En desarrollo
           </p>
           <div className="flex items-center gap-3 mb-6">
             <div className="w-14 h-14 rounded-full bg-coming-soon/20 flex items-center justify-center">
@@ -101,13 +104,14 @@ const ProductsSection = () => (
           <div className="flex gap-3 mb-6">
             <Quote className="w-8 h-8 text-coming-soon/40 shrink-0 mt-1" />
             <p className="text-lg font-heading font-semibold text-foreground/60 italic">
-              Nueva marca en desarrollo para nuestro catálogo.
+              Nuevas marcas en camino, con la misma visión de calidad.
             </p>
           </div>
 
           <p className="text-muted-foreground mb-8 leading-relaxed">
-            Estamos trabajando para incorporar nuevas marcas a nuestro catálogo. Pronto tendrás
-            más opciones de productos de calidad para el cuidado de tus mascotas.
+            Estamos desarrollando nuevas propuestas para sumar a nuestro portfolio.
+            Cada marca que creamos pasa por un proceso de diseño, testeo y validación
+            antes de llegar al mercado.
           </p>
 
           {/* Placeholder cards */}

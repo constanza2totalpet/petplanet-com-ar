@@ -4,7 +4,7 @@ import petplanetLogo from "@/assets/petplanet-logo.png";
 
 const navLinks = [
   { label: "Inicio", href: "#inicio" },
-  { label: "Productos", href: "#productos" },
+  { label: "Marcas", href: "#productos" },
   { label: "Contacto", href: "#contacto" },
 ];
 
