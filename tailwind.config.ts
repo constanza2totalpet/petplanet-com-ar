@@ -54,6 +54,7 @@ export default {
         crystal: {
           DEFAULT: "hsl(var(--crystal))",
           light: "hsl(var(--crystal-light))",
+          dark: "hsl(var(--crystal-dark))",
         },
         whatsapp: "hsl(var(--whatsapp))",
         "coming-soon": "hsl(var(--coming-soon))",
