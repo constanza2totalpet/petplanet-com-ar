@@ -14,7 +14,7 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-card/90 backdrop-blur-md border-b">
-      <div className="container flex items-center justify-between h-20">
+      <div className="container flex items-center justify-between h-14 md:h-20">
         <a href="#inicio" className="flex items-center gap-1">
           <img src={petplanetLogo} alt="Pet Planet" className="h-14" />
         </a>

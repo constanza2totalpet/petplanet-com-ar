@@ -3,7 +3,7 @@ import heroPets from "@/assets/hero-pets.jpg";
 const HeroSection = () => (
   <section
     id="inicio"
-    className="relative min-h-[520px] flex items-center justify-center overflow-hidden"
+    className="relative min-h-[calc(100vh-3.5rem)] md:min-h-[520px] flex items-center justify-center overflow-hidden"
   >
     <img
       src={heroPets}
@@ -14,7 +14,7 @@ const HeroSection = () => (
     />
     <div className="absolute inset-0 bg-[hsl(var(--hero-overlay)/0.45)]" />
 
-    <div className="relative z-10 text-center px-6 py-20 max-w-3xl animate-fade-in-up">
+    <div className="relative z-10 text-center px-6 py-12 md:py-20 max-w-3xl animate-fade-in-up">
       <p className="text-sm md:text-base font-medium tracking-widest uppercase text-primary-foreground/70 mb-4">
         Desarrollo · Construcción · Distribución
       </p>
