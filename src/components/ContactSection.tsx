@@ -24,7 +24,7 @@ const ContactSection = () => {
           {/* Info */}
           <div className="flex flex-col gap-6 justify-center">
             <a
-              href="https://wa.me/"
+              href="https://wa.me/5491123190096"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 rounded-lg border p-4 hover:shadow-sm transition-shadow"
