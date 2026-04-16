@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import bolsaImg from "@/assets/bolsa-crystalcat.png";
 import crystalcatLogo from "@/assets/crystalcat-logo.png";
-import { PawPrint, Quote, Droplets, Wind, CalendarCheck } from "lucide-react";
+import { PawPrint, Quote, Droplets, Wind, CalendarCheck, ArrowRight } from "lucide-react";
 
 const features = [
   { icon: Droplets, label: "Alta absorción" },
