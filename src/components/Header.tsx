@@ -3,10 +3,10 @@ import { Menu, X } from "lucide-react";
 import petplanetLogo from "@/assets/petplanet-logo.png";
 
 const navLinks = [
-  { label: "Inicio", href: "#inicio" },
-  { label: "Nosotros", href: "#nosotros" },
-  { label: "Marcas", href: "#productos" },
-  { label: "Contacto", href: "#contacto" },
+  { label: "Inicio", href: "/#inicio" },
+  { label: "Nosotros", href: "/#nosotros" },
+  { label: "Marcas", href: "/#productos" },
+  { label: "Contacto", href: "/#contacto" },
 ];
 
 const Header = () => {
@@ -15,7 +15,7 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 bg-card/90 backdrop-blur-md border-b">
       <div className="container flex items-center justify-between h-14 md:h-16 px-5">
-        <a href="#inicio" className="flex items-center gap-1">
+        <a href="/" className="flex items-center gap-1">
           <img src={petplanetLogo} alt="Pet Planet" className="h-10 md:h-14" />
         </a>
 

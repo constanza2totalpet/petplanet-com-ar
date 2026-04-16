@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import bolsaImg from "@/assets/bolsa-crystalcat.png";
 import crystalcatLogo from "@/assets/crystalcat-logo.png";
-import { PawPrint, Quote, Droplets, Wind, CalendarCheck } from "lucide-react";
+import { PawPrint, Quote, Droplets, Wind, CalendarCheck, ArrowRight } from "lucide-react";
 
 const features = [
   { icon: Droplets, label: "Alta absorción" },
@@ -69,7 +70,10 @@ const ProductsSection = () => (
           </div>
 
           {/* Product image card */}
-          <div className="group rounded-xl border bg-card shadow-sm hover:shadow-md hover:border-crystal/30 transition-all p-4 flex flex-col items-center">
+          <Link
+            to="/crystal-cat"
+            className="group rounded-xl border bg-card shadow-sm hover:shadow-md hover:border-crystal/30 transition-all p-4 flex flex-col items-center"
+          >
             <div className="w-full max-w-xs aspect-square rounded-lg bg-muted overflow-hidden mb-4">
               <img
                 src={bolsaImg}
@@ -81,10 +85,13 @@ const ProductsSection = () => (
               />
             </div>
             <h4 className="font-heading font-bold text-base mb-1">Crystal Cat 3.8L</h4>
-            <p className="text-sm text-muted-foreground text-center">
+            <p className="text-sm text-muted-foreground text-center mb-3">
               Piedras sanitarias de sílica. Liviano, natural y fácil de usar.
             </p>
-          </div>
+            <span className="inline-flex items-center gap-1 text-sm font-heading font-semibold text-crystal group-hover:gap-2 transition-all">
+              Ver producto <ArrowRight className="w-4 h-4" />
+            </span>
+          </Link>
         </div>
 
         {/* ── Próxima marca ── */}
