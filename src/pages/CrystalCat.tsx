@@ -3,7 +3,7 @@ import {
   Droplets,
   Wind,
   Leaf,
-  Sparkles,
+  CalendarCheck,
   Package,
   Feather,
   Hand,
@@ -13,17 +13,22 @@ import {
   RefreshCw,
   Lightbulb,
   ArrowLeft,
+  ShoppingCart,
+  Sparkles,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
 import bolsaImg from "@/assets/bolsa-crystalcat.png";
 import crystalcatLogo from "@/assets/crystalcat-logo.png";
-import heroPets from "@/assets/hero-pets.jpg";
+import crystalCatHero from "@/assets/crystal-cat-hero.jpg";
+
+const ML_URL =
+  "https://www.mercadolibre.com.ar/piedras-sanitarias-silica-crystalcat-para-gatos-x-38l/p/MLA24808114?pdp_filters=item_id:MLA1757027613";
 
 const benefits = [
   {
-    icon: CalendarIcon,
+    icon: CalendarCheck,
     title: "Rinden más",
     desc: "Hasta 30 días de duración por carga.",
     color: "orange",
@@ -48,10 +53,6 @@ const benefits = [
   },
 ];
 
-function CalendarIcon(props: React.SVGProps<SVGSVGElement>) {
-  return <Sparkles {...props} />;
-}
-
 const productDetails = [
   { icon: Package, label: "3,8 L" },
   { icon: Feather, label: "Liviano" },
@@ -69,6 +70,24 @@ const tips = [
   "Mezclá Crystal Cat con la arena anterior durante los primeros días para facilitar la transición.",
   "Si tenés más de un gato, cambiá el contenido con mayor frecuencia para mantener la higiene.",
 ];
+
+const colorMap: Record<string, string> = {
+  orange: "bg-brand-orange/10 text-brand-orange",
+  blue: "bg-crystal/10 text-crystal",
+  green: "bg-brand-green/10 text-brand-green",
+};
+
+const MercadoLibreButton = ({ className = "" }: { className?: string }) => (
+  <a
+    href={ML_URL}
+    target="_blank"
+    rel="noopener noreferrer"
+    className={`inline-flex items-center gap-2 rounded-lg bg-brand-yellow px-7 py-3 font-heading font-bold text-foreground shadow-lg hover:brightness-95 transition-all ${className}`}
+  >
+    <ShoppingCart className="w-5 h-5" />
+    Comprar en Mercado Libre
+  </a>
+);
 
 const CrystalCat = () => (
   <div className="min-h-screen flex flex-col">
@@ -94,34 +113,37 @@ const CrystalCat = () => (
               <img
                 src={crystalcatLogo}
                 alt="Crystal Cat"
-                className="h-10 sm:h-12 w-auto mb-5 md:mb-6"
+                className="h-16 sm:h-20 md:h-24 w-auto mb-6 md:mb-8"
               />
-              <p className="text-xs font-semibold tracking-widest uppercase text-[hsl(25_95%_55%)] mb-3">
+              <p className="text-xs font-semibold tracking-widest uppercase text-brand-orange mb-3">
                 Pet Planet presenta
               </p>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold leading-tight mb-3 md:mb-4">
-                Piedras sanitarias de sílica para gatos
+                Piedras sanitarias de <span className="text-crystal">sílica</span> para gatos
               </h1>
               <p className="text-base sm:text-lg text-muted-foreground mb-6 md:mb-8 max-w-lg">
                 Alta absorción, mayor duración y máximo control de olores.
               </p>
-              <a
-                href="#contacto"
-                className="inline-block rounded-lg bg-crystal px-7 py-3 font-heading font-bold text-white shadow-lg hover:bg-crystal-dark transition-colors"
-              >
-                Quiero recibir más información
-              </a>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="#contacto"
+                  className="inline-block rounded-lg bg-crystal px-7 py-3 font-heading font-bold text-white shadow-lg hover:bg-crystal-dark transition-colors"
+                >
+                  Quiero recibir más información
+                </a>
+                <MercadoLibreButton />
+              </div>
             </div>
 
             <div className="order-1 md:order-2 relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-[hsl(25_95%_55%/0.1)] via-crystal/10 to-[hsl(142_60%_45%/0.1)] rounded-3xl blur-2xl" />
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-orange/15 via-crystal/10 to-brand-green/15 rounded-3xl blur-2xl" />
               <div className="relative aspect-square rounded-2xl overflow-hidden bg-muted">
                 <img
-                  src={heroPets}
-                  alt="Gato feliz con Crystal Cat"
+                  src={crystalCatHero}
+                  alt="Gato blanco junto a litera con piedras Crystal Cat"
                   className="w-full h-full object-cover"
-                  width={800}
-                  height={800}
+                  width={1536}
+                  height={1280}
                 />
               </div>
             </div>
@@ -132,7 +154,7 @@ const CrystalCat = () => (
       {/* BENEFICIOS */}
       <section className="py-14 md:py-20 bg-muted/30">
         <div className="container px-5">
-          <p className="text-xs font-semibold tracking-widest uppercase text-crystal text-center mb-2">
+          <p className="text-xs font-semibold tracking-widest uppercase text-brand-orange text-center mb-2">
             Beneficios
           </p>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold text-center mb-10 md:mb-14">
@@ -140,27 +162,20 @@ const CrystalCat = () => (
           </h2>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {benefits.map((b) => {
-              const colorMap: Record<string, string> = {
-                orange: "bg-[hsl(25_95%_55%/0.12)] text-[hsl(25_95%_45%)]",
-                blue: "bg-crystal/10 text-crystal",
-                green: "bg-[hsl(142_60%_45%/0.12)] text-[hsl(142_60%_35%)]",
-              };
-              return (
+            {benefits.map((b) => (
+              <div
+                key={b.title}
+                className="rounded-xl border bg-card p-5 sm:p-6 hover:shadow-md hover:border-crystal/30 transition-all"
+              >
                 <div
-                  key={b.title}
-                  className="rounded-xl border bg-card p-5 sm:p-6 hover:shadow-md hover:border-crystal/30 transition-all"
+                  className={`w-12 h-12 rounded-full flex items-center justify-center mb-4 ${colorMap[b.color]}`}
                 >
-                  <div
-                    className={`w-12 h-12 rounded-full flex items-center justify-center mb-4 ${colorMap[b.color]}`}
-                  >
-                    <b.icon className="w-6 h-6" />
-                  </div>
-                  <h3 className="font-heading font-bold text-base mb-1">{b.title}</h3>
-                  <p className="text-sm text-muted-foreground">{b.desc}</p>
+                  <b.icon className="w-6 h-6" />
                 </div>
-              );
-            })}
+                <h3 className="font-heading font-bold text-base mb-1">{b.title}</h3>
+                <p className="text-sm text-muted-foreground">{b.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -169,7 +184,7 @@ const CrystalCat = () => (
       <section className="py-14 md:py-20 bg-background">
         <div className="container px-5">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-            <div className="rounded-2xl bg-gradient-to-br from-crystal/5 to-[hsl(25_95%_55%/0.05)] p-6 sm:p-10 flex items-center justify-center">
+            <div className="rounded-2xl bg-gradient-to-br from-crystal/5 to-brand-orange/5 p-6 sm:p-10 flex items-center justify-center">
               <img
                 src={bolsaImg}
                 alt="Crystal Cat 3.8L packaging"
@@ -209,7 +224,7 @@ const CrystalCat = () => (
       {/* INSTRUCCIONES DE USO */}
       <section className="py-14 md:py-20 bg-muted/30">
         <div className="container px-5">
-          <p className="text-xs font-semibold tracking-widest uppercase text-crystal text-center mb-2">
+          <p className="text-xs font-semibold tracking-widest uppercase text-brand-orange text-center mb-2">
             Modo de uso
           </p>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold text-center mb-10 md:mb-14">
@@ -222,7 +237,7 @@ const CrystalCat = () => (
                 key={step.title}
                 className="relative rounded-xl border bg-card p-5 sm:p-6"
               >
-                <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-crystal text-white font-heading font-bold text-sm flex items-center justify-center shadow-md">
+                <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-brand-orange text-white font-heading font-bold text-sm flex items-center justify-center shadow-md">
                   {i + 1}
                 </div>
                 <div className="w-12 h-12 rounded-full bg-crystal/10 flex items-center justify-center mb-4">
@@ -240,8 +255,8 @@ const CrystalCat = () => (
       <section className="py-14 md:py-20 bg-background">
         <div className="container px-5 max-w-4xl">
           <div className="flex items-center gap-3 mb-6 md:mb-8 justify-center">
-            <div className="w-12 h-12 rounded-full bg-[hsl(142_60%_45%/0.12)] flex items-center justify-center">
-              <Lightbulb className="w-6 h-6 text-[hsl(142_60%_35%)]" />
+            <div className="w-12 h-12 rounded-full bg-brand-green/10 flex items-center justify-center">
+              <Lightbulb className="w-6 h-6 text-brand-green" />
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold">
               Consejos
@@ -252,12 +267,38 @@ const CrystalCat = () => (
             {tips.map((tip, i) => (
               <div
                 key={i}
-                className="rounded-xl border bg-card p-5 sm:p-6 hover:border-crystal/30 transition-colors"
+                className="rounded-xl border bg-card p-5 sm:p-6 hover:border-brand-green/30 transition-colors"
               >
                 <p className="text-sm sm:text-base text-foreground/80 leading-relaxed">{tip}</p>
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* EXPECTATIVA — novedad */}
+      <section className="py-14 md:py-20 bg-gradient-to-br from-crystal/5 via-background to-brand-orange/5">
+        <div className="container px-5 max-w-2xl text-center">
+          <Sparkles className="w-8 h-8 text-brand-orange mx-auto mb-5 opacity-70" />
+          <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3">
+            Próximamente
+          </p>
+          <p className="text-xl sm:text-2xl md:text-3xl font-heading font-semibold text-foreground/85 leading-snug italic">
+            Estamos trabajando en nuevas formas de mejorar la experiencia Crystal Cat.
+          </p>
+        </div>
+      </section>
+
+      {/* CTA Mercado Libre final */}
+      <section className="py-14 md:py-20 bg-background">
+        <div className="container px-5 max-w-2xl text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold mb-4">
+            Conseguilo ahora
+          </h2>
+          <p className="text-muted-foreground mb-7 text-sm sm:text-base">
+            Crystal Cat 3,8 L disponible para envío a todo el país.
+          </p>
+          <MercadoLibreButton className="text-base" />
         </div>
       </section>
 

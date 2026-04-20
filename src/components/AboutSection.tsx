@@ -12,7 +12,7 @@ const AboutSection = () => (
           En Pet Planet desarrollamos y acompañamos marcas dentro del mundo pet, con foco en la calidad, la identidad y el crecimiento a largo plazo.
         </p>
         <p>
-          Desde hace más de 5 años en el rubro, trabajamos en la creación de productos que aporten valor real, cuidando cada detalle desde su desarrollo hasta su llegada al mercado.
+          Desde hace más de 10 años en el rubro, trabajamos en la creación de productos que aporten valor real, cuidando cada detalle desde su desarrollo hasta su llegada al mercado.
         </p>
         <p>
           Nuestro objetivo es construir propuestas sólidas, pensadas tanto para quienes conviven con mascotas como para los negocios que buscan diferenciarse dentro del rubro.

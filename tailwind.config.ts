@@ -56,6 +56,16 @@ export default {
           light: "hsl(var(--crystal-light))",
           dark: "hsl(var(--crystal-dark))",
         },
+        "brand-orange": {
+          DEFAULT: "hsl(var(--brand-orange))",
+          light: "hsl(var(--brand-orange-light))",
+        },
+        "brand-green": {
+          DEFAULT: "hsl(var(--brand-green))",
+          light: "hsl(var(--brand-green-light))",
+        },
+        "brand-yellow": "hsl(var(--brand-yellow))",
+        "brand-pink": "hsl(var(--brand-pink))",
         whatsapp: "hsl(var(--whatsapp))",
         "coming-soon": "hsl(var(--coming-soon))",
         sidebar: {

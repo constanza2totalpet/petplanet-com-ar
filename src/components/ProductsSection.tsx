@@ -1,7 +1,16 @@
 import { Link } from "react-router-dom";
 import bolsaImg from "@/assets/bolsa-crystalcat.png";
 import crystalcatLogo from "@/assets/crystalcat-logo.png";
-import { PawPrint, Quote, Droplets, Wind, CalendarCheck, ArrowRight } from "lucide-react";
+import {
+  PawPrint,
+  Quote,
+  Droplets,
+  Wind,
+  CalendarCheck,
+  ArrowRight,
+  Gamepad2,
+  Sparkles,
+} from "lucide-react";
 
 const features = [
   { icon: Droplets, label: "Alta absorción" },
@@ -12,128 +21,160 @@ const features = [
 const ProductsSection = () => (
   <section id="productos" className="py-14 md:py-20 bg-background">
     <div className="container px-5">
-      {/* Section header */}
-      <p className="text-xs font-semibold tracking-widest uppercase text-crystal text-center mb-2">
-        Nuestro portfolio
-      </p>
       <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold text-center mb-4">
-        Marcas Pet Planet
+        Nuestras marcas
       </h2>
       <p className="text-center text-muted-foreground mb-10 md:mb-16 max-w-xl mx-auto text-sm sm:text-base">
-        Cada marca que desarrollamos nace con un propósito claro: ofrecer productos consistentes, confiables y pensados para el día a día.
+        Cada marca que desarrollamos o distribuimos nace con un propósito claro: ofrecer productos consistentes, confiables y pensados para el día a día.
       </p>
 
-      {/* Brands grid */}
-      <div className="grid md:grid-cols-2 gap-10 lg:gap-16">
+      {/* Grid 3 marcas */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
         {/* ── Crystal Cat ── */}
-        <div className="flex flex-col">
-          <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3">
-            Pet Planet presenta
+        <Link
+          to="/crystal-cat"
+          className="group rounded-2xl border bg-card p-6 sm:p-7 flex flex-col hover:shadow-lg hover:border-crystal/40 transition-all"
+        >
+          <p className="text-xs font-semibold tracking-widest uppercase text-brand-orange mb-3">
+            Marca propia
           </p>
-
-          {/* Logo */}
-          <div className="mb-5 md:mb-6">
+          <div className="mb-5">
             <img
               src={crystalcatLogo}
-              alt="Crystal Cat logo"
+              alt="Crystal Cat"
               loading="lazy"
-              width={1024}
-              height={512}
               className="h-10 sm:h-12 w-auto"
             />
           </div>
 
-          {/* Quote */}
-          <div className="flex gap-3 mb-5 md:mb-6">
-            <Quote className="w-7 h-7 sm:w-8 sm:h-8 text-crystal/40 shrink-0 mt-1" />
-            <p className="text-base sm:text-lg font-heading font-semibold text-foreground/80 italic">
+          <div className="flex gap-2 mb-4">
+            <Quote className="w-6 h-6 text-crystal/40 shrink-0" />
+            <p className="text-sm sm:text-base font-heading font-semibold text-foreground/80 italic">
               Piedras sanitarias de sílica premium para gatos exigentes.
             </p>
           </div>
 
-          <p className="text-muted-foreground mb-6 md:mb-8 leading-relaxed text-sm sm:text-base">
-            Crystal Cat es nuestra primera marca, desarrollada con sílica gel de alta pureza.
-            Un producto liviano, higiénico y de larga duración, pensado para simplificar
-            el cuidado diario de tu gato.
+          <p className="text-sm text-muted-foreground mb-5 leading-relaxed">
+            Sílica gel de alta pureza. Liviano, higiénico y de larga duración.
           </p>
 
-          {/* Features */}
-          <div className="flex flex-wrap gap-3 sm:gap-4 mb-6 md:mb-8">
+          <div className="flex flex-wrap gap-2 mb-5">
             {features.map((f) => (
-              <div key={f.label} className="flex items-center gap-2 text-sm text-muted-foreground">
-                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-crystal/10 flex items-center justify-center">
-                  <f.icon className="w-4 h-4 text-crystal" />
-                </div>
+              <div
+                key={f.label}
+                className="flex items-center gap-1.5 text-xs text-muted-foreground bg-crystal/8 rounded-full px-3 py-1.5"
+              >
+                <f.icon className="w-3.5 h-3.5 text-crystal" />
                 <span className="font-medium">{f.label}</span>
               </div>
             ))}
           </div>
 
-          {/* Product image card */}
-          <Link
-            to="/crystal-cat"
-            className="group rounded-xl border bg-card shadow-sm hover:shadow-md hover:border-crystal/30 transition-all p-4 flex flex-col items-center"
-          >
-            <div className="w-full max-w-xs aspect-square rounded-lg bg-muted overflow-hidden mb-4">
-              <img
-                src={bolsaImg}
-                alt="Crystal Cat - Piedras Sanitarias 3.8L"
-                loading="lazy"
-                width={400}
-                height={400}
-                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            <h4 className="font-heading font-bold text-base mb-1">Crystal Cat 3.8L</h4>
-            <p className="text-sm text-muted-foreground text-center mb-3">
-              Piedras sanitarias de sílica. Liviano, natural y fácil de usar.
-            </p>
-            <span className="inline-flex items-center gap-1 text-sm font-heading font-semibold text-crystal group-hover:gap-2 transition-all">
-              Ver producto <ArrowRight className="w-4 h-4" />
-            </span>
-          </Link>
-        </div>
+          <div className="aspect-square rounded-xl bg-gradient-to-br from-crystal/5 to-brand-orange/5 overflow-hidden mb-4 flex-1 flex items-center justify-center p-4">
+            <img
+              src={bolsaImg}
+              alt="Crystal Cat 3.8L"
+              loading="lazy"
+              className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+            />
+          </div>
 
-        {/* ── Próxima marca ── */}
-        <div className="flex flex-col">
-          <p className="text-xs font-semibold tracking-widest uppercase text-coming-soon mb-3">
-            En desarrollo
+          <span className="inline-flex items-center gap-1 text-sm font-heading font-bold text-crystal group-hover:gap-2 transition-all">
+            Ver producto <ArrowRight className="w-4 h-4" />
+          </span>
+        </Link>
+
+        {/* ── Furaçao Pet ── */}
+        <div className="rounded-2xl border bg-card p-6 sm:p-7 flex flex-col">
+          <p className="text-xs font-semibold tracking-widest uppercase text-brand-pink mb-3">
+            Marca importada
           </p>
-          <div className="flex items-center gap-3 mb-5 md:mb-6">
-            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-coming-soon/20 flex items-center justify-center">
-              <PawPrint className="w-6 h-6 sm:w-7 sm:h-7 text-coming-soon" />
+
+          <div className="flex items-center gap-3 mb-5">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-pink/20 to-brand-yellow/20 flex items-center justify-center">
+              <Gamepad2 className="w-6 h-6 text-brand-pink" />
             </div>
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-heading font-extrabold text-coming-soon">
-              Próximamente
+            <h3 className="text-2xl font-heading font-extrabold text-foreground">
+              Furaçao Pet
             </h3>
           </div>
 
-          <div className="flex gap-3 mb-5 md:mb-6">
-            <Quote className="w-7 h-7 sm:w-8 sm:h-8 text-coming-soon/40 shrink-0 mt-1" />
-            <p className="text-base sm:text-lg font-heading font-semibold text-foreground/60 italic">
-              Nuevas marcas en camino, con la misma visión de calidad.
+          <div className="flex gap-2 mb-4">
+            <Quote className="w-6 h-6 text-brand-pink/40 shrink-0" />
+            <p className="text-sm sm:text-base font-heading font-semibold text-foreground/80 italic">
+              Diversión y juego para acompañar cada momento.
             </p>
           </div>
 
-          <p className="text-muted-foreground mb-6 md:mb-8 leading-relaxed text-sm sm:text-base">
-            Estamos desarrollando nuevas propuestas para sumar a nuestro portfolio.
-            Cada marca que creamos pasa por un proceso de diseño, testeo y validación
-            antes de llegar al mercado.
+          <p className="text-sm text-muted-foreground mb-5 leading-relaxed">
+            Importamos y distribuimos juguetes para mascotas, sumando variedad y color al rubro pet.
           </p>
 
-          {/* Placeholder cards */}
-          <div className="grid gap-3 sm:gap-4">
+          <div className="aspect-square rounded-xl bg-gradient-to-br from-brand-pink/10 via-brand-yellow/10 to-brand-orange/10 mb-4 flex-1 flex items-center justify-center relative overflow-hidden">
+            <div className="absolute inset-0 grid grid-cols-3 gap-3 p-6 opacity-90">
+              {[
+                "bg-brand-pink/30",
+                "bg-brand-yellow/40",
+                "bg-brand-orange/30",
+                "bg-brand-green/30",
+                "bg-crystal/30",
+                "bg-brand-pink/40",
+                "bg-brand-orange/40",
+                "bg-brand-yellow/30",
+                "bg-brand-green/40",
+              ].map((c, i) => (
+                <div
+                  key={i}
+                  className={`rounded-full ${c} aspect-square`}
+                />
+              ))}
+            </div>
+            <Gamepad2 className="w-16 h-16 text-brand-pink/70 relative z-10" strokeWidth={1.5} />
+          </div>
+
+          <span className="inline-flex items-center gap-1 text-sm font-heading font-bold text-brand-pink">
+            Próximamente más info
+          </span>
+        </div>
+
+        {/* ── Marca en desarrollo ── */}
+        <div className="rounded-2xl border border-dashed bg-muted/20 p-6 sm:p-7 flex flex-col">
+          <p className="text-xs font-semibold tracking-widest uppercase text-coming-soon mb-3">
+            En desarrollo
+          </p>
+
+          <div className="flex items-center gap-3 mb-5">
+            <div className="w-12 h-12 rounded-xl bg-coming-soon/15 flex items-center justify-center">
+              <Sparkles className="w-6 h-6 text-coming-soon" />
+            </div>
+            <h3 className="text-2xl font-heading font-extrabold text-foreground/70">
+              Marca en desarrollo
+            </h3>
+          </div>
+
+          <div className="flex gap-2 mb-4">
+            <Quote className="w-6 h-6 text-coming-soon/40 shrink-0" />
+            <p className="text-sm sm:text-base font-heading font-semibold text-foreground/60 italic">
+              Nuevas propuestas en camino, con la misma visión de calidad.
+            </p>
+          </div>
+
+          <p className="text-sm text-muted-foreground mb-5 leading-relaxed">
+            Estamos diseñando, testeando y validando nuevas marcas para sumar a nuestro portfolio.
+          </p>
+
+          <div className="grid gap-3 flex-1">
             {[1, 2, 3].map((i) => (
               <div
                 key={i}
-                className="flex items-center gap-4 rounded-xl border border-dashed bg-muted/40 p-3 opacity-50"
+                className="flex items-center gap-3 rounded-xl border border-dashed bg-background/40 p-3 opacity-70"
               >
-                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg bg-coming-soon/15 flex items-center justify-center shrink-0">
-                  <span className="text-coming-soon font-heading font-bold text-xl sm:text-2xl">?</span>
+                <div className="w-12 h-12 rounded-lg bg-coming-soon/10 flex items-center justify-center shrink-0">
+                  <PawPrint className="w-5 h-5 text-coming-soon" />
                 </div>
                 <div className="flex-1">
-                  <div className="h-3 sm:h-3.5 w-3/4 rounded bg-coming-soon/25 mb-2" />
-                  <div className="h-2.5 w-1/2 rounded bg-coming-soon/15" />
+                  <div className="h-2.5 w-3/4 rounded bg-coming-soon/20 mb-2" />
+                  <div className="h-2 w-1/2 rounded bg-coming-soon/15" />
                 </div>
               </div>
             ))}
