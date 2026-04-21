@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import bolsaImg from "@/assets/bolsa-crystalcat.png";
 import crystalcatLogo from "@/assets/crystalcat-logo.png";
+import furacaoLogo from "@/assets/furacao-pet-logo.png";
 import {
   PawPrint,
   Quote,
@@ -90,13 +91,13 @@ const ProductsSection = () => (
             Marca importada
           </p>
 
-          <div className="flex items-center gap-3 mb-5">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-pink/20 to-brand-yellow/20 flex items-center justify-center">
-              <Gamepad2 className="w-6 h-6 text-brand-pink" />
-            </div>
-            <h3 className="text-2xl font-heading font-extrabold text-foreground">
-              Furaçao Pet
-            </h3>
+          <div className="mb-5">
+            <img
+              src={furacaoLogo}
+              alt="Furaçao Pet"
+              loading="lazy"
+              className="h-10 sm:h-12 w-auto"
+            />
           </div>
 
           <div className="flex gap-2 mb-4">
@@ -110,26 +111,13 @@ const ProductsSection = () => (
             Importamos y distribuimos juguetes para mascotas, sumando variedad y color al rubro pet.
           </p>
 
-          <div className="aspect-square rounded-xl bg-gradient-to-br from-brand-pink/10 via-brand-yellow/10 to-brand-orange/10 mb-4 flex-1 flex items-center justify-center relative overflow-hidden">
-            <div className="absolute inset-0 grid grid-cols-3 gap-3 p-6 opacity-90">
-              {[
-                "bg-brand-pink/30",
-                "bg-brand-yellow/40",
-                "bg-brand-orange/30",
-                "bg-brand-green/30",
-                "bg-crystal/30",
-                "bg-brand-pink/40",
-                "bg-brand-orange/40",
-                "bg-brand-yellow/30",
-                "bg-brand-green/40",
-              ].map((c, i) => (
-                <div
-                  key={i}
-                  className={`rounded-full ${c} aspect-square`}
-                />
-              ))}
-            </div>
-            <Gamepad2 className="w-16 h-16 text-brand-pink/70 relative z-10" strokeWidth={1.5} />
+          <div className="aspect-square rounded-xl bg-gradient-to-br from-brand-pink/10 via-brand-yellow/10 to-brand-orange/10 mb-4 flex-1 flex items-center justify-center relative overflow-hidden p-6">
+            <img
+              src={furacaoLogo}
+              alt="Furaçao Pet"
+              loading="lazy"
+              className="w-3/4 h-auto object-contain relative z-10"
+            />
           </div>
 
           <span className="inline-flex items-center gap-1 text-sm font-heading font-bold text-brand-pink">
