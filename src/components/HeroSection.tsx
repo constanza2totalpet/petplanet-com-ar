@@ -10,44 +10,49 @@ import heroFuracao from "@/assets/hero-furacao.jpg";
 type Slide = {
   image: string;
   eyebrow: string;
-  title: string;
+  titleLine1: string;
+  titleLine2: string;
   subtitle: string;
   accent: string;
-  cta?: { label: string; href: string };
+  cta: { label: string; href: string };
 };
 
 const slides: Slide[] = [
   {
     image: heroPets,
-    eyebrow: "Pet Planet",
-    title: "Creamos marcas para el mundo pet",
-    subtitle: "Desarrollo, identidad y distribución.",
+    eyebrow: "PET PLANET",
+    titleLine1: "Creamos marcas",
+    titleLine2: "para el mundo pet",
+    subtitle: "Desarrollo, identidad y distribución",
     accent: "bg-crystal hover:bg-crystal-dark",
     cta: { label: "Conocer marcas", href: "#productos" },
   },
   {
     image: heroCrystal,
-    eyebrow: "Marca propia",
-    title: "Crystal Cat",
-    subtitle: "Alta absorción. Mayor duración. Control de olores.",
+    eyebrow: "CRYSTAL CAT",
+    titleLine1: "Piedras sanitarias",
+    titleLine2: "de sílica",
+    subtitle: "Alta absorción. Mayor duración. Control de olores",
     accent: "bg-brand-orange hover:bg-brand-orange/90",
     cta: { label: "Ver más", href: "/crystal-cat" },
   },
   {
-    image: heroBusiness,
-    eyebrow: "Para tu negocio",
-    title: "Sumá nuevas propuestas a tu negocio",
-    subtitle: "Marcas pensadas para crecer en el mercado pet.",
-    accent: "bg-brand-green hover:bg-brand-green/90",
-    cta: { label: "Quiero más información", href: "#contacto" },
-  },
-  {
     image: heroFuracao,
-    eyebrow: "Marca importada",
-    title: "Furaçao Pet",
-    subtitle: "Juguetes importados para mascotas.",
+    eyebrow: "FURAÇAO PET",
+    titleLine1: "Juguetes importados",
+    titleLine2: "para mascotas",
+    subtitle: "Diseñados para el juego y la actividad",
     accent: "bg-brand-pink hover:bg-brand-pink/90",
     cta: { label: "Conocer más", href: "#productos" },
+  },
+  {
+    image: heroBusiness,
+    eyebrow: "PARA TU NEGOCIO",
+    titleLine1: "Sumá nuevas propuestas",
+    titleLine2: "a tu negocio",
+    subtitle: "Marcas pensadas para crecer en el mercado pet",
+    accent: "bg-brand-green hover:bg-brand-green/90",
+    cta: { label: "Quiero más información", href: "#contacto" },
   },
 ];
 
@@ -88,7 +93,7 @@ const HeroSection = () => {
             >
               <img
                 src={s.image}
-                alt={s.title}
+                alt={`${s.titleLine1} ${s.titleLine2}`}
                 className="absolute inset-0 w-full h-full object-cover"
                 width={1920}
                 height={1080}
@@ -100,27 +105,26 @@ const HeroSection = () => {
                   {s.eyebrow}
                 </p>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-primary-foreground leading-tight mb-3 md:mb-4">
-                  {s.title}
+                  <span className="block">{s.titleLine1}</span>
+                  <span className="block">{s.titleLine2}</span>
                 </h1>
                 <p className="text-base sm:text-lg md:text-xl text-primary-foreground/85 mb-6 md:mb-8 max-w-xl mx-auto">
                   {s.subtitle}
                 </p>
-                {s.cta && (
-                  <div className="flex flex-wrap justify-center gap-3 md:gap-4">
-                    <a
-                      href={s.cta.href}
-                      className={`inline-block rounded-lg ${s.accent} px-7 py-3 font-heading font-bold text-white shadow-lg transition-colors`}
-                    >
-                      {s.cta.label}
-                    </a>
-                    <a
-                      href="#contacto"
-                      className="inline-block rounded-lg border border-primary-foreground/30 px-7 py-3 font-heading font-bold text-primary-foreground hover:bg-primary-foreground/10 transition-colors"
-                    >
-                      Contacto
-                    </a>
-                  </div>
-                )}
+                <div className="flex flex-wrap justify-center gap-3 md:gap-4">
+                  <a
+                    href={s.cta.href}
+                    className={`inline-block rounded-lg ${s.accent} px-7 py-3 font-heading font-bold text-white shadow-lg transition-colors`}
+                  >
+                    {s.cta.label}
+                  </a>
+                  <a
+                    href="#contacto"
+                    className="inline-block rounded-lg border border-primary-foreground/30 px-7 py-3 font-heading font-bold text-primary-foreground hover:bg-primary-foreground/10 transition-colors"
+                  >
+                    Contacto
+                  </a>
+                </div>
               </div>
             </div>
           ))}
