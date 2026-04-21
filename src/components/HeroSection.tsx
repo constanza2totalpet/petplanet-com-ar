@@ -46,10 +46,8 @@ const slides: Slide[] = [
     cta: { label: "Ver más", href: "/crystal-cat" },
   },
   {
-    variant: "split",
-    productImage: furacaoProducts,
-    productAlt: "Juguetes Furaçao Pet - pelotas, mordillos y anillos",
-    bgClass: "bg-gradient-to-br from-pink-50 via-white to-yellow-50",
+    variant: "scene",
+    image: furacaoScene,
     eyebrow: "FURAÇAO PET",
     titleLine1: "Juguetes importados",
     titleLine2: "para mascotas",
