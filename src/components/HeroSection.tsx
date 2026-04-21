@@ -3,22 +3,30 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import heroPets from "@/assets/hero-pets.jpg";
-import heroCrystal from "@/assets/hero-crystalcat.jpg";
 import heroBusiness from "@/assets/hero-business.jpg";
-import heroFuracao from "@/assets/hero-furacao.jpg";
+import crystalCatPack from "@/assets/crystal-cat-pack.png";
+import furacaoProducts from "@/assets/furacao-products.png";
 
 type Slide = {
-  image: string;
   eyebrow: string;
   titleLine1: string;
   titleLine2: string;
   subtitle: string;
   accent: string;
   cta: { label: string; href: string };
+  // Layout variant
+  variant: "centered" | "split";
+  // For centered variant
+  image?: string;
+  // For split variant
+  productImage?: string;
+  productAlt?: string;
+  bgClass?: string; // background for split variant
 };
 
 const slides: Slide[] = [
   {
+    variant: "centered",
     image: heroPets,
     eyebrow: "PET PLANET",
     titleLine1: "Creamos marcas",
@@ -28,7 +36,10 @@ const slides: Slide[] = [
     cta: { label: "Conocer marcas", href: "#productos" },
   },
   {
-    image: heroCrystal,
+    variant: "split",
+    productImage: crystalCatPack,
+    productAlt: "Packaging Crystal Cat - Piedras sanitarias de sílica",
+    bgClass: "bg-gradient-to-br from-orange-50 via-white to-blue-50",
     eyebrow: "CRYSTAL CAT",
     titleLine1: "Piedras sanitarias",
     titleLine2: "de sílica",
@@ -37,7 +48,10 @@ const slides: Slide[] = [
     cta: { label: "Ver más", href: "/crystal-cat" },
   },
   {
-    image: heroFuracao,
+    variant: "split",
+    productImage: furacaoProducts,
+    productAlt: "Juguetes Furaçao Pet - pelotas, mordillos y anillos",
+    bgClass: "bg-gradient-to-br from-pink-50 via-white to-yellow-50",
     eyebrow: "FURAÇAO PET",
     titleLine1: "Juguetes importados",
     titleLine2: "para mascotas",
@@ -46,6 +60,7 @@ const slides: Slide[] = [
     cta: { label: "Conocer más", href: "#productos" },
   },
   {
+    variant: "centered",
     image: heroBusiness,
     eyebrow: "PARA TU NEGOCIO",
     titleLine1: "Sumá nuevas propuestas",
@@ -91,41 +106,87 @@ const HeroSection = () => {
               key={i}
               className="relative flex-[0_0_100%] min-h-[80svh] md:min-h-[560px] flex items-center justify-center"
             >
-              <img
-                src={s.image}
-                alt={`${s.titleLine1} ${s.titleLine2}`}
-                className="absolute inset-0 w-full h-full object-cover"
-                width={1920}
-                height={1080}
-                loading={i === 0 ? "eager" : "lazy"}
-              />
-              <div className="absolute inset-0 bg-[hsl(var(--hero-overlay)/0.5)]" />
-              <div className="relative z-10 text-center px-5 py-10 md:py-20 max-w-3xl mx-auto animate-fade-in-up">
-                <p className="text-xs sm:text-sm md:text-base font-medium tracking-widest uppercase text-primary-foreground/80 mb-3 md:mb-4">
-                  {s.eyebrow}
-                </p>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-primary-foreground leading-tight mb-3 md:mb-4">
-                  <span className="block">{s.titleLine1}</span>
-                  <span className="block">{s.titleLine2}</span>
-                </h1>
-                <p className="text-base sm:text-lg md:text-xl text-primary-foreground/85 mb-6 md:mb-8 max-w-xl mx-auto">
-                  {s.subtitle}
-                </p>
-                <div className="flex flex-wrap justify-center gap-3 md:gap-4">
-                  <a
-                    href={s.cta.href}
-                    className={`inline-block rounded-lg ${s.accent} px-7 py-3 font-heading font-bold text-white shadow-lg transition-colors`}
-                  >
-                    {s.cta.label}
-                  </a>
-                  <a
-                    href="#contacto"
-                    className="inline-block rounded-lg border border-primary-foreground/30 px-7 py-3 font-heading font-bold text-primary-foreground hover:bg-primary-foreground/10 transition-colors"
-                  >
-                    Contacto
-                  </a>
-                </div>
-              </div>
+              {s.variant === "centered" ? (
+                <>
+                  <img
+                    src={s.image}
+                    alt={`${s.titleLine1} ${s.titleLine2}`}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    width={1920}
+                    height={1080}
+                    loading={i === 0 ? "eager" : "lazy"}
+                  />
+                  <div className="absolute inset-0 bg-[hsl(var(--hero-overlay)/0.5)]" />
+                  <div className="relative z-10 text-center px-5 py-10 md:py-20 max-w-3xl mx-auto animate-fade-in-up">
+                    <p className="text-xs sm:text-sm md:text-base font-medium tracking-widest uppercase text-primary-foreground/80 mb-3 md:mb-4">
+                      {s.eyebrow}
+                    </p>
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-primary-foreground leading-tight mb-3 md:mb-4">
+                      <span className="block">{s.titleLine1}</span>
+                      <span className="block">{s.titleLine2}</span>
+                    </h1>
+                    <p className="text-base sm:text-lg md:text-xl text-primary-foreground/85 mb-6 md:mb-8 max-w-xl mx-auto">
+                      {s.subtitle}
+                    </p>
+                    <div className="flex flex-wrap justify-center gap-3 md:gap-4">
+                      <a
+                        href={s.cta.href}
+                        className={`inline-block rounded-lg ${s.accent} px-7 py-3 font-heading font-bold text-white shadow-lg transition-colors`}
+                      >
+                        {s.cta.label}
+                      </a>
+                      <a
+                        href="#contacto"
+                        className="inline-block rounded-lg border border-primary-foreground/30 px-7 py-3 font-heading font-bold text-primary-foreground hover:bg-primary-foreground/10 transition-colors"
+                      >
+                        Contacto
+                      </a>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className={`absolute inset-0 ${s.bgClass}`} />
+                  <div className="relative z-10 w-full max-w-7xl mx-auto px-5 py-10 md:py-16 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center animate-fade-in-up">
+                    {/* Text side */}
+                    <div className="text-center md:text-left order-2 md:order-1">
+                      <p className="text-xs sm:text-sm md:text-base font-medium tracking-widest uppercase text-foreground/60 mb-3 md:mb-4">
+                        {s.eyebrow}
+                      </p>
+                      <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-foreground leading-tight mb-3 md:mb-4">
+                        <span className="block">{s.titleLine1}</span>
+                        <span className="block">{s.titleLine2}</span>
+                      </h1>
+                      <p className="text-base sm:text-lg md:text-xl text-foreground/75 mb-6 md:mb-8 max-w-xl mx-auto md:mx-0">
+                        {s.subtitle}
+                      </p>
+                      <div className="flex flex-wrap justify-center md:justify-start gap-3 md:gap-4">
+                        <a
+                          href={s.cta.href}
+                          className={`inline-block rounded-lg ${s.accent} px-7 py-3 font-heading font-bold text-white shadow-lg transition-colors`}
+                        >
+                          {s.cta.label}
+                        </a>
+                        <a
+                          href="#contacto"
+                          className="inline-block rounded-lg border border-foreground/20 px-7 py-3 font-heading font-bold text-foreground hover:bg-foreground/5 transition-colors"
+                        >
+                          Contacto
+                        </a>
+                      </div>
+                    </div>
+                    {/* Product side */}
+                    <div className="order-1 md:order-2 flex items-center justify-center">
+                      <img
+                        src={s.productImage}
+                        alt={s.productAlt}
+                        className="max-h-[260px] sm:max-h-[340px] md:max-h-[460px] w-auto object-contain drop-shadow-2xl"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
           ))}
         </div>
@@ -135,14 +196,14 @@ const HeroSection = () => {
       <button
         onClick={() => emblaApi?.scrollPrev()}
         aria-label="Anterior"
-        className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/15 backdrop-blur hover:bg-white/30 text-white items-center justify-center transition-colors"
+        className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-foreground/15 backdrop-blur hover:bg-foreground/30 text-white items-center justify-center transition-colors"
       >
         <ChevronLeft className="w-6 h-6" />
       </button>
       <button
         onClick={() => emblaApi?.scrollNext()}
         aria-label="Siguiente"
-        className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/15 backdrop-blur hover:bg-white/30 text-white items-center justify-center transition-colors"
+        className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-foreground/15 backdrop-blur hover:bg-foreground/30 text-white items-center justify-center transition-colors"
       >
         <ChevronRight className="w-6 h-6" />
       </button>
@@ -156,7 +217,7 @@ const HeroSection = () => {
             data-active={i === 0 ? "true" : "false"}
             onClick={() => emblaApi?.scrollTo(i)}
             aria-label={`Ir al slide ${i + 1}`}
-            className="w-2.5 h-2.5 rounded-full bg-white/40 data-[active=true]:bg-white data-[active=true]:w-7 transition-all"
+            className="w-2.5 h-2.5 rounded-full bg-foreground/30 data-[active=true]:bg-foreground data-[active=true]:w-7 transition-all"
           />
         ))}
       </div>
