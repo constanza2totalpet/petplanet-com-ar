@@ -4,7 +4,7 @@ import Autoplay from "embla-carousel-autoplay";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import heroPets from "@/assets/hero-pets.jpg";
 import heroBusiness from "@/assets/hero-business.jpg";
-import crystalCatPack from "@/assets/crystal-cat-pack.png";
+import crystalCatScene from "@/assets/crystal-cat-scene.jpg";
 import furacaoProducts from "@/assets/furacao-products.png";
 
 type Slide = {
@@ -36,10 +36,8 @@ const slides: Slide[] = [
     cta: { label: "Conocer marcas", href: "#productos" },
   },
   {
-    variant: "split",
-    productImage: crystalCatPack,
-    productAlt: "Packaging Crystal Cat - Piedras sanitarias de sílica",
-    bgClass: "bg-[radial-gradient(ellipse_at_70%_60%,hsl(210_60%_94%)_0%,hsl(30_50%_96%)_45%,hsl(0_0%_100%)_100%)]",
+    variant: "centered",
+    image: crystalCatScene,
     eyebrow: "CRYSTAL CAT",
     titleLine1: "Piedras sanitarias",
     titleLine2: "de sílica",
