@@ -10,44 +10,49 @@ import heroFuracao from "@/assets/hero-furacao.jpg";
 type Slide = {
   image: string;
   eyebrow: string;
-  title: string;
+  titleLine1: string;
+  titleLine2: string;
   subtitle: string;
   accent: string;
-  cta?: { label: string; href: string };
+  cta: { label: string; href: string };
 };
 
 const slides: Slide[] = [
   {
     image: heroPets,
-    eyebrow: "Pet Planet",
-    title: "Creamos marcas para el mundo pet",
-    subtitle: "Desarrollo, identidad y distribución.",
+    eyebrow: "PET PLANET",
+    titleLine1: "Creamos marcas",
+    titleLine2: "para el mundo pet",
+    subtitle: "Desarrollo, identidad y distribución",
     accent: "bg-crystal hover:bg-crystal-dark",
     cta: { label: "Conocer marcas", href: "#productos" },
   },
   {
     image: heroCrystal,
-    eyebrow: "Marca propia",
-    title: "Crystal Cat",
-    subtitle: "Alta absorción. Mayor duración. Control de olores.",
+    eyebrow: "CRYSTAL CAT",
+    titleLine1: "Piedras sanitarias",
+    titleLine2: "de sílica",
+    subtitle: "Alta absorción. Mayor duración. Control de olores",
     accent: "bg-brand-orange hover:bg-brand-orange/90",
     cta: { label: "Ver más", href: "/crystal-cat" },
   },
   {
-    image: heroBusiness,
-    eyebrow: "Para tu negocio",
-    title: "Sumá nuevas propuestas a tu negocio",
-    subtitle: "Marcas pensadas para crecer en el mercado pet.",
-    accent: "bg-brand-green hover:bg-brand-green/90",
-    cta: { label: "Quiero más información", href: "#contacto" },
-  },
-  {
     image: heroFuracao,
-    eyebrow: "Marca importada",
-    title: "Furaçao Pet",
-    subtitle: "Juguetes importados para mascotas.",
+    eyebrow: "FURAÇAO PET",
+    titleLine1: "Juguetes importados",
+    titleLine2: "para mascotas",
+    subtitle: "Diseñados para el juego y la actividad",
     accent: "bg-brand-pink hover:bg-brand-pink/90",
     cta: { label: "Conocer más", href: "#productos" },
+  },
+  {
+    image: heroBusiness,
+    eyebrow: "PARA TU NEGOCIO",
+    titleLine1: "Sumá nuevas propuestas",
+    titleLine2: "a tu negocio",
+    subtitle: "Marcas pensadas para crecer en el mercado pet",
+    accent: "bg-brand-green hover:bg-brand-green/90",
+    cta: { label: "Quiero más información", href: "#contacto" },
   },
 ];
 
