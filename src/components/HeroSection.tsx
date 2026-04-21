@@ -15,8 +15,8 @@ type Slide = {
   accent: string;
   cta: { label: string; href: string };
   // Layout variant
-  variant: "centered" | "split";
-  // For centered variant
+  variant: "centered" | "split" | "scene";
+  // For centered & scene variant
   image?: string;
   // For split variant
   productImage?: string;
@@ -36,7 +36,7 @@ const slides: Slide[] = [
     cta: { label: "Conocer marcas", href: "#productos" },
   },
   {
-    variant: "centered",
+    variant: "scene",
     image: crystalCatScene,
     eyebrow: "CRYSTAL CAT",
     titleLine1: "Piedras sanitarias",
