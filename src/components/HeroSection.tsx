@@ -39,7 +39,7 @@ const slides: Slide[] = [
     variant: "split",
     productImage: crystalCatPack,
     productAlt: "Packaging Crystal Cat - Piedras sanitarias de sílica",
-    bgClass: "bg-gradient-to-br from-orange-50 via-white to-blue-50",
+    bgClass: "bg-[radial-gradient(ellipse_at_70%_60%,hsl(210_60%_94%)_0%,hsl(30_50%_96%)_45%,hsl(0_0%_100%)_100%)]",
     eyebrow: "CRYSTAL CAT",
     titleLine1: "Piedras sanitarias",
     titleLine2: "de sílica",
@@ -176,12 +176,20 @@ const HeroSection = () => {
                       </div>
                     </div>
                     {/* Product side - integrated, no frame */}
-                    <div className="order-1 md:order-2 flex items-center justify-center md:justify-end">
+                    <div className="order-1 md:order-2 relative flex items-center justify-center md:justify-end">
+                      {/* Soft ground shadow to anchor the product */}
+                      <div
+                        aria-hidden
+                        className="absolute bottom-2 md:bottom-4 left-1/2 md:left-auto md:right-8 -translate-x-1/2 md:translate-x-0 w-[60%] md:w-[55%] h-4 md:h-6 rounded-[50%] bg-foreground/25 blur-2xl"
+                      />
                       <img
                         src={s.productImage}
                         alt={s.productAlt}
-                        className="max-h-[220px] sm:max-h-[320px] md:max-h-[440px] w-auto object-contain"
-                        style={{ filter: "drop-shadow(0 25px 25px rgb(0 0 0 / 0.18))" }}
+                        className="relative max-h-[220px] sm:max-h-[320px] md:max-h-[440px] w-auto object-contain"
+                        style={{
+                          filter:
+                            "drop-shadow(0 18px 18px rgb(0 0 0 / 0.18)) drop-shadow(0 6px 6px rgb(0 0 0 / 0.12))",
+                        }}
                         loading="lazy"
                       />
                     </div>
