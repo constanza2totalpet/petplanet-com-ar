@@ -3,8 +3,9 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import heroPets from "@/assets/hero-pets.jpg";
-import heroProducts from "@/assets/hero-products.jpg";
+import heroCrystal from "@/assets/hero-crystalcat.jpg";
 import heroBusiness from "@/assets/hero-business.jpg";
+import heroFuracao from "@/assets/hero-furacao.jpg";
 
 type Slide = {
   image: string;
@@ -12,6 +13,7 @@ type Slide = {
   title: string;
   subtitle: string;
   accent: string;
+  cta?: { label: string; href: string };
 };
 
 const slides: Slide[] = [
@@ -19,25 +21,33 @@ const slides: Slide[] = [
     image: heroPets,
     eyebrow: "Pet Planet",
     title: "Creamos marcas para el mundo pet",
-    subtitle:
-      "Desarrollo, construcción y distribución de marcas pensadas para crecer junto a tu negocio.",
+    subtitle: "Desarrollo, identidad y distribución.",
     accent: "bg-crystal hover:bg-crystal-dark",
+    cta: { label: "Conocer marcas", href: "#productos" },
   },
   {
-    image: heroProducts,
-    eyebrow: "Innovación",
-    title: "Soluciones innovadoras para el mundo pet",
-    subtitle:
-      "Productos consistentes, confiables y diseñados con propósito desde su origen.",
+    image: heroCrystal,
+    eyebrow: "Marca propia",
+    title: "Crystal Cat",
+    subtitle: "Alta absorción. Mayor duración. Control de olores.",
     accent: "bg-brand-orange hover:bg-brand-orange/90",
+    cta: { label: "Ver más", href: "/crystal-cat" },
   },
   {
     image: heroBusiness,
     eyebrow: "Para tu negocio",
-    title: "Marcas pensadas para crecer junto a tu negocio",
-    subtitle:
-      "Sumamos valor a cada punto de venta con productos que se diferencian.",
+    title: "Sumá nuevas propuestas a tu negocio",
+    subtitle: "Marcas pensadas para crecer en el mercado pet.",
     accent: "bg-brand-green hover:bg-brand-green/90",
+    cta: { label: "Quiero más información", href: "#contacto" },
+  },
+  {
+    image: heroFuracao,
+    eyebrow: "Marca importada",
+    title: "Furaçao Pet",
+    subtitle: "Juguetes importados para mascotas.",
+    accent: "bg-brand-pink hover:bg-brand-pink/90",
+    cta: { label: "Conocer más", href: "#productos" },
   },
 ];
 
@@ -47,13 +57,9 @@ const HeroSection = () => {
   );
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [autoplay.current]);
 
-  // Re-render dots on select
-  const tick = useRef(0);
   useEffect(() => {
     if (!emblaApi) return;
     const onSelect = () => {
-      tick.current++;
-      // force update via state? simpler: query DOM
       document.querySelectorAll("[data-hero-dot]").forEach((el, idx) => {
         el.setAttribute(
           "data-active",
@@ -99,20 +105,22 @@ const HeroSection = () => {
                 <p className="text-base sm:text-lg md:text-xl text-primary-foreground/85 mb-6 md:mb-8 max-w-xl mx-auto">
                   {s.subtitle}
                 </p>
-                <div className="flex flex-wrap justify-center gap-3 md:gap-4">
-                  <a
-                    href="#productos"
-                    className={`inline-block rounded-lg ${s.accent} px-7 py-3 font-heading font-bold text-white shadow-lg transition-colors`}
-                  >
-                    Conocer marcas
-                  </a>
-                  <a
-                    href="#contacto"
-                    className="inline-block rounded-lg border border-primary-foreground/30 px-7 py-3 font-heading font-bold text-primary-foreground hover:bg-primary-foreground/10 transition-colors"
-                  >
-                    Contacto
-                  </a>
-                </div>
+                {s.cta && (
+                  <div className="flex flex-wrap justify-center gap-3 md:gap-4">
+                    <a
+                      href={s.cta.href}
+                      className={`inline-block rounded-lg ${s.accent} px-7 py-3 font-heading font-bold text-white shadow-lg transition-colors`}
+                    >
+                      {s.cta.label}
+                    </a>
+                    <a
+                      href="#contacto"
+                      className="inline-block rounded-lg border border-primary-foreground/30 px-7 py-3 font-heading font-bold text-primary-foreground hover:bg-primary-foreground/10 transition-colors"
+                    >
+                      Contacto
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
           ))}

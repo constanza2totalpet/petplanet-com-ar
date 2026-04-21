@@ -48,16 +48,14 @@ const ProductsSection = () => (
             />
           </div>
 
-          <div className="flex gap-2 mb-4">
-            <Quote className="w-6 h-6 text-crystal/40 shrink-0" />
-            <p className="text-sm sm:text-base font-heading font-semibold text-foreground/80 italic">
-              Piedras sanitarias de sílica premium para gatos exigentes.
+          <div className="mb-4">
+            <p className="text-sm sm:text-base font-heading font-semibold text-foreground/80">
+              Piedras sanitarias de sílica
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Desarrollo e importación
             </p>
           </div>
-
-          <p className="text-sm text-muted-foreground mb-5 leading-relaxed">
-            Sílica gel de alta pureza. Liviano, higiénico y de larga duración.
-          </p>
 
           <div className="flex flex-wrap gap-2 mb-5">
             {features.map((f) => (
@@ -100,16 +98,11 @@ const ProductsSection = () => (
             />
           </div>
 
-          <div className="flex gap-2 mb-4">
-            <Quote className="w-6 h-6 text-brand-pink/40 shrink-0" />
-            <p className="text-sm sm:text-base font-heading font-semibold text-foreground/80 italic">
-              Diversión y juego para acompañar cada momento.
+          <div className="mb-5">
+            <p className="text-sm sm:text-base font-heading font-semibold text-foreground/80">
+              Juguetes importados para mascotas
             </p>
           </div>
-
-          <p className="text-sm text-muted-foreground mb-5 leading-relaxed">
-            Importamos y distribuimos juguetes para mascotas, sumando variedad y color al rubro pet.
-          </p>
 
           <div className="aspect-square rounded-xl bg-gradient-to-br from-brand-pink/10 via-brand-yellow/10 to-brand-orange/10 mb-4 flex-1 flex items-center justify-center relative overflow-hidden p-6">
             <img
@@ -140,15 +133,8 @@ const ProductsSection = () => (
             </h3>
           </div>
 
-          <div className="flex gap-2 mb-4">
-            <Quote className="w-6 h-6 text-coming-soon/40 shrink-0" />
-            <p className="text-sm sm:text-base font-heading font-semibold text-foreground/60 italic">
-              Nuevas propuestas en camino, con la misma visión de calidad.
-            </p>
-          </div>
-
-          <p className="text-sm text-muted-foreground mb-5 leading-relaxed">
-            Estamos diseñando, testeando y validando nuevas marcas para sumar a nuestro portfolio.
+          <p className="text-sm sm:text-base font-heading font-semibold text-foreground/70 mb-5">
+            Próximamente
           </p>
 
           <div className="grid gap-3 flex-1">
