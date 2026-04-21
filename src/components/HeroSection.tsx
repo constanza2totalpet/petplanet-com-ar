@@ -147,7 +147,7 @@ const HeroSection = () => {
               ) : (
                 <>
                   <div className={`absolute inset-0 ${s.bgClass}`} />
-                  <div className="relative z-10 w-full max-w-7xl mx-auto px-5 py-10 md:py-16 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center animate-fade-in-up">
+                  <div className="relative z-10 w-full max-w-6xl mx-auto px-12 md:px-20 py-10 md:py-16 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 items-center animate-fade-in-up">
                     {/* Text side */}
                     <div className="text-center md:text-left order-2 md:order-1">
                       <p className="text-xs sm:text-sm md:text-base font-medium tracking-widest uppercase text-foreground/60 mb-3 md:mb-4">
@@ -175,12 +175,13 @@ const HeroSection = () => {
                         </a>
                       </div>
                     </div>
-                    {/* Product side */}
-                    <div className="order-1 md:order-2 flex items-center justify-center">
+                    {/* Product side - integrated, no frame */}
+                    <div className="order-1 md:order-2 flex items-center justify-center md:justify-end">
                       <img
                         src={s.productImage}
                         alt={s.productAlt}
-                        className="max-h-[260px] sm:max-h-[340px] md:max-h-[460px] w-auto object-contain drop-shadow-2xl"
+                        className="max-h-[220px] sm:max-h-[320px] md:max-h-[440px] w-auto object-contain"
+                        style={{ filter: "drop-shadow(0 25px 25px rgb(0 0 0 / 0.18))" }}
                         loading="lazy"
                       />
                     </div>
@@ -192,20 +193,20 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Arrows */}
+      {/* Arrows - placed at the very edges so they don't overlap content */}
       <button
         onClick={() => emblaApi?.scrollPrev()}
         aria-label="Anterior"
-        className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-foreground/15 backdrop-blur hover:bg-foreground/30 text-white items-center justify-center transition-colors"
+        className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-foreground/20 backdrop-blur hover:bg-foreground/40 text-white items-center justify-center transition-colors"
       >
-        <ChevronLeft className="w-6 h-6" />
+        <ChevronLeft className="w-5 h-5" />
       </button>
       <button
         onClick={() => emblaApi?.scrollNext()}
         aria-label="Siguiente"
-        className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-foreground/15 backdrop-blur hover:bg-foreground/30 text-white items-center justify-center transition-colors"
+        className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-foreground/20 backdrop-blur hover:bg-foreground/40 text-white items-center justify-center transition-colors"
       >
-        <ChevronRight className="w-6 h-6" />
+        <ChevronRight className="w-5 h-5" />
       </button>
 
       {/* Dots */}
