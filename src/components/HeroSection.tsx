@@ -3,7 +3,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import heroPets from "@/assets/hero-pets.jpg";
-import heroBusiness from "@/assets/hero-business.jpg";
+import heroBusiness from "@/assets/hero-business-shelf.jpg";
 import crystalCatScene from "@/assets/crystal-cat-scene.jpg";
 import furacaoScene from "@/assets/furacao-scene.jpg";
 
