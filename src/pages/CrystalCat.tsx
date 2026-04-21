@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import {
-  Droplets,
-  Wind,
+  Droplet,
+  Waves,
   Leaf,
-  CalendarCheck,
+  Clock,
   Package,
   Feather,
   Hand,
@@ -15,12 +15,13 @@ import {
   ArrowLeft,
   ShoppingCart,
   Sparkles,
+  MessageCircle,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
 import bolsaImg from "@/assets/bolsa-crystalcat.png";
-import crystalcatLogo from "@/assets/crystalcat-logo.png";
+import crystalcatLogo from "@/assets/crystalcat-logo-hd.png";
 import crystalCatHero from "@/assets/crystal-cat-hero.jpg";
 
 const ML_URL =
@@ -28,13 +29,13 @@ const ML_URL =
 
 const benefits = [
   {
-    icon: CalendarCheck,
+    icon: Clock,
     title: "Rinden más",
     desc: "Hasta 30 días de duración por carga.",
     color: "orange",
   },
   {
-    icon: Droplets,
+    icon: Droplet,
     title: "Alta absorción",
     desc: "Libre de polvo, limpio y seguro.",
     color: "blue",
@@ -46,7 +47,7 @@ const benefits = [
     color: "green",
   },
   {
-    icon: Wind,
+    icon: Waves,
     title: "Neutraliza olores",
     desc: "Control superior de aromas.",
     color: "blue",
@@ -113,12 +114,12 @@ const CrystalCat = () => (
               <img
                 src={crystalcatLogo}
                 alt="Crystal Cat"
-                className="h-16 sm:h-20 md:h-24 w-auto mb-6 md:mb-8"
+                className="h-24 sm:h-28 md:h-36 w-auto mb-8 md:mb-10 drop-shadow-sm"
               />
               <p className="text-xs font-semibold tracking-widest uppercase text-brand-orange mb-3">
                 Pet Planet presenta
               </p>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold leading-tight mb-3 md:mb-4">
+              <h1 className="text-3xl sm:text-4xl md:text-6xl font-heading font-extrabold leading-tight mb-3 md:mb-4">
                 Piedras sanitarias de <span className="text-crystal">sílica</span> para gatos
               </h1>
               <p className="text-base sm:text-lg text-muted-foreground mb-6 md:mb-8 max-w-lg">
@@ -276,29 +277,56 @@ const CrystalCat = () => (
         </div>
       </section>
 
-      {/* EXPECTATIVA — novedad */}
+      {/* PRÓXIMAMENTE */}
       <section className="py-14 md:py-20 bg-gradient-to-br from-crystal/5 via-background to-brand-orange/5">
         <div className="container px-5 max-w-2xl text-center">
-          <Sparkles className="w-8 h-8 text-brand-orange mx-auto mb-5 opacity-70" />
-          <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3">
+          <div className="relative inline-flex items-center justify-center mb-6">
+            <div className="absolute inset-0 bg-brand-orange/20 blur-2xl rounded-full" />
+            <div className="relative w-14 h-14 rounded-full bg-brand-orange/10 flex items-center justify-center">
+              <Sparkles className="w-7 h-7 text-brand-orange" />
+            </div>
+          </div>
+          <p className="text-xs font-semibold tracking-widest uppercase text-brand-orange mb-3">
             Próximamente
           </p>
-          <p className="text-xl sm:text-2xl md:text-3xl font-heading font-semibold text-foreground/85 leading-snug italic">
-            Estamos trabajando en nuevas formas de mejorar la experiencia Crystal Cat.
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold mb-4">
+            Una nueva presentación está en camino
+          </h2>
+          <p className="text-base sm:text-lg text-muted-foreground mb-2 leading-relaxed">
+            Muy pronto, una nueva presentación de Crystal Cat para seguir mejorando la experiencia.
+          </p>
+          <p className="text-sm sm:text-base font-heading font-semibold text-crystal">
+            Más opciones. Mismo rendimiento.
           </p>
         </div>
       </section>
 
-      {/* CTA Mercado Libre final */}
-      <section className="py-14 md:py-20 bg-background">
-        <div className="container px-5 max-w-2xl text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold mb-4">
-            Conseguilo ahora
-          </h2>
-          <p className="text-muted-foreground mb-7 text-sm sm:text-base">
-            Crystal Cat 3,8 L disponible para envío a todo el país.
+      {/* CTA FINAL — para negocios */}
+      <section className="py-16 md:py-24 bg-gradient-to-br from-crystal to-crystal-dark text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10 pointer-events-none">
+          <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-brand-orange blur-3xl" />
+          <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-brand-yellow blur-3xl" />
+        </div>
+        <div className="container px-5 max-w-3xl text-center relative">
+          <p className="text-xs font-semibold tracking-widest uppercase text-brand-yellow mb-3">
+            Para tu negocio
           </p>
-          <MercadoLibreButton className="text-base" />
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold mb-5 leading-tight">
+            Sumá Crystal Cat a tu negocio
+          </h2>
+          <p className="text-base sm:text-lg text-white/85 mb-8 max-w-xl mx-auto leading-relaxed">
+            Ofrecé un producto de alto rendimiento y fácil rotación en tu punto de venta.
+          </p>
+          <div className="flex flex-wrap gap-3 justify-center">
+            <a
+              href="#contacto"
+              className="inline-flex items-center gap-2 rounded-lg bg-white px-7 py-3 font-heading font-bold text-crystal shadow-lg hover:bg-white/95 transition-all"
+            >
+              <MessageCircle className="w-5 h-5" />
+              Quiero más información
+            </a>
+            <MercadoLibreButton />
+          </div>
         </div>
       </section>
 
