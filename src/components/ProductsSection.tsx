@@ -37,7 +37,7 @@ const ProductsSection = () => (
           className="group rounded-2xl border bg-card p-6 sm:p-7 flex flex-col hover:shadow-lg hover:border-crystal/40 transition-all"
         >
           <p className="text-xs font-semibold tracking-widest uppercase text-brand-orange mb-3">
-            Marca propia
+            Marca importada
           </p>
           <div className="mb-5">
             <img
