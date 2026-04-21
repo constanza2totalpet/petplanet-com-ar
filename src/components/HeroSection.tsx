@@ -5,7 +5,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import heroPets from "@/assets/hero-pets.jpg";
 import heroBusiness from "@/assets/hero-business.jpg";
 import crystalCatScene from "@/assets/crystal-cat-scene.jpg";
-import furacaoProducts from "@/assets/furacao-products.png";
+import furacaoScene from "@/assets/furacao-scene.jpg";
 
 type Slide = {
   eyebrow: string;
