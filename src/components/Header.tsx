@@ -14,9 +14,16 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-card/90 backdrop-blur-md border-b">
-      <div className="container flex items-center justify-between h-14 md:h-16 px-5">
-        <a href="/" className="flex items-center gap-1">
-          <img src={petplanetLogo} alt="Pet Planet" className="h-12 md:h-16" />
+      <div className="container flex items-center justify-between h-16 md:h-20 px-5">
+        <a href="/" className="flex items-center gap-2 md:gap-3">
+          <img
+            src={petplanetLogo}
+            alt="Pet Planet"
+            className="h-12 md:h-16 w-auto shrink-0"
+          />
+          <span className="font-heading font-extrabold tracking-tight text-foreground text-xl md:text-3xl leading-none">
+            Pet Planet
+          </span>
         </a>
 
         {/* Desktop nav */}
