@@ -2,15 +2,15 @@ import { Link } from "react-router-dom";
 import bolsaImg from "@/assets/bolsa-crystalcat.png";
 import crystalcatLogo from "@/assets/crystalcat-logo.png";
 import furacaoLogo from "@/assets/furacao-pet-logo.png";
+import furacaoProducts from "@/assets/furacao-products-card.png";
 import {
   PawPrint,
-  Quote,
   Droplets,
   Wind,
   CalendarCheck,
   ArrowRight,
-  Gamepad2,
   Sparkles,
+  Check,
 } from "lucide-react";
 
 const features = [
@@ -98,24 +98,44 @@ const ProductsSection = () => (
             />
           </div>
 
-          <div className="mb-5">
+          <div className="mb-4">
             <p className="text-sm sm:text-base font-heading font-semibold text-foreground/80">
               Juguetes importados para mascotas
             </p>
+            <p className="text-sm text-muted-foreground">
+              Importación directa
+            </p>
           </div>
 
-          <div className="aspect-square rounded-xl bg-gradient-to-br from-brand-pink/10 via-brand-yellow/10 to-brand-orange/10 mb-4 flex-1 flex items-center justify-center relative overflow-hidden p-6">
+          <p className="text-sm text-foreground/70 mb-4">
+            Juguetes de goma, soga y estimulación
+          </p>
+
+          <ul className="space-y-2 mb-5">
+            {[
+              "Alta resistencia",
+              "Diseñados para el juego activo",
+              "Variedad de formatos y tamaños",
+            ].map((b) => (
+              <li key={b} className="flex items-start gap-2 text-sm text-muted-foreground">
+                <Check className="w-4 h-4 text-brand-pink shrink-0 mt-0.5" />
+                <span>{b}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div className="aspect-square mb-4 flex-1 flex items-center justify-center p-2">
             <img
-              src={furacaoLogo}
-              alt="Furaçao Pet"
+              src={furacaoProducts}
+              alt="Juguetes Furaçao Pet"
               loading="lazy"
-              className="w-3/4 h-auto object-contain relative z-10"
+              className="w-full h-full object-contain drop-shadow-lg"
             />
           </div>
 
-          <span className="inline-flex items-center gap-1 text-sm font-heading font-bold text-brand-pink">
-            Próximamente más info
-          </span>
+          <p className="text-xs text-muted-foreground italic mb-2">
+            Ideal para pet shops
+          </p>
         </div>
 
         {/* ── Marca en desarrollo ── */}
