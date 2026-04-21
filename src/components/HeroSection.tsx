@@ -93,7 +93,7 @@ const HeroSection = () => {
             >
               <img
                 src={s.image}
-                alt={s.title}
+                alt={`${s.titleLine1} ${s.titleLine2}`}
                 className="absolute inset-0 w-full h-full object-cover"
                 width={1920}
                 height={1080}
@@ -105,27 +105,26 @@ const HeroSection = () => {
                   {s.eyebrow}
                 </p>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-primary-foreground leading-tight mb-3 md:mb-4">
-                  {s.title}
+                  <span className="block">{s.titleLine1}</span>
+                  <span className="block">{s.titleLine2}</span>
                 </h1>
                 <p className="text-base sm:text-lg md:text-xl text-primary-foreground/85 mb-6 md:mb-8 max-w-xl mx-auto">
                   {s.subtitle}
                 </p>
-                {s.cta && (
-                  <div className="flex flex-wrap justify-center gap-3 md:gap-4">
-                    <a
-                      href={s.cta.href}
-                      className={`inline-block rounded-lg ${s.accent} px-7 py-3 font-heading font-bold text-white shadow-lg transition-colors`}
-                    >
-                      {s.cta.label}
-                    </a>
-                    <a
-                      href="#contacto"
-                      className="inline-block rounded-lg border border-primary-foreground/30 px-7 py-3 font-heading font-bold text-primary-foreground hover:bg-primary-foreground/10 transition-colors"
-                    >
-                      Contacto
-                    </a>
-                  </div>
-                )}
+                <div className="flex flex-wrap justify-center gap-3 md:gap-4">
+                  <a
+                    href={s.cta.href}
+                    className={`inline-block rounded-lg ${s.accent} px-7 py-3 font-heading font-bold text-white shadow-lg transition-colors`}
+                  >
+                    {s.cta.label}
+                  </a>
+                  <a
+                    href="#contacto"
+                    className="inline-block rounded-lg border border-primary-foreground/30 px-7 py-3 font-heading font-bold text-primary-foreground hover:bg-primary-foreground/10 transition-colors"
+                  >
+                    Contacto
+                  </a>
+                </div>
               </div>
             </div>
           ))}
