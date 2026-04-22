@@ -34,7 +34,7 @@ const ProductsSection = () => (
         {/* ── Crystal Cat ── */}
         <Link
           to="/crystal-cat"
-          className="group rounded-2xl border bg-gradient-to-br from-sky-50 via-card to-amber-50/40 dark:from-sky-950/20 dark:via-card dark:to-amber-950/10 p-6 sm:p-7 flex flex-col hover:shadow-xl hover:border-crystal/40 transition-all"
+          className="group rounded-2xl border bg-gradient-to-br from-crystal/10 via-card to-brand-orange/5 p-6 sm:p-7 flex flex-col hover:shadow-xl hover:border-crystal/40 transition-all"
         >
           <p className="text-xs font-semibold tracking-widest uppercase text-brand-orange mb-3">
             Marca importada
@@ -86,7 +86,7 @@ const ProductsSection = () => (
         </Link>
 
         {/* ── Furaçao Pet ── */}
-        <div className="group rounded-2xl border bg-gradient-to-br from-orange-50 via-card to-emerald-50/40 dark:from-orange-950/20 dark:via-card dark:to-emerald-950/10 p-6 sm:p-7 flex flex-col hover:shadow-xl hover:border-brand-pink/40 transition-all">
+        <div className="group rounded-2xl border bg-gradient-to-br from-brand-orange/10 via-card to-brand-pink/5 p-6 sm:p-7 flex flex-col hover:shadow-xl hover:border-brand-pink/40 transition-all">
           <p className="text-xs font-semibold tracking-widest uppercase text-brand-pink mb-3">
             Marca importada
           </p>
