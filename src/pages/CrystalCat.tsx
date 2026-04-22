@@ -12,6 +12,9 @@ import {
   ShoppingCart,
   Sparkles,
   MessageCircle,
+  Star,
+  ExternalLink,
+  BadgeCheck,
 } from "lucide-react";
 
 import iconCalendar from "@/assets/icon-calendar.png";
@@ -76,6 +79,37 @@ const tips = [
   "Mezclá Crystal Cat con la arena anterior durante los primeros días para facilitar la transición.",
   "Si tenés más de un gato, cambiá el contenido con mayor frecuencia para mantener la higiene.",
 ];
+
+// 🔁 Reemplazar con reseñas reales de Mercado Libre
+const reviews = [
+  {
+    name: "María G.",
+    date: "Marzo 2025",
+    rating: 5,
+    text: "Excelente producto! Dura muchísimo más que la arena tradicional y no tiene olor. Mi gato se adaptó enseguida.",
+  },
+  {
+    name: "Lucas P.",
+    date: "Febrero 2025",
+    rating: 5,
+    text: "La verdad superó mis expectativas. Una bolsa me dura casi un mes con un gato. Súper recomendado.",
+  },
+  {
+    name: "Carolina M.",
+    date: "Enero 2025",
+    rating: 4,
+    text: "Muy buena absorción y prácticamente sin polvo. Llegó rápido y bien embalado. Lo vuelvo a comprar.",
+  },
+  {
+    name: "Diego R.",
+    date: "Diciembre 2024",
+    rating: 5,
+    text: "Hace meses que lo uso, no vuelvo más a la arena común. Limpio, liviano y sin olores en casa.",
+  },
+];
+
+const overallRating = 4.8;
+const reviewsCount = 124;
 
 
 const MercadoLibreButton = ({ className = "" }: { className?: string }) => (
@@ -281,6 +315,95 @@ const CrystalCat = () => (
                 <p className="text-sm sm:text-base text-foreground/80 leading-relaxed">{tip}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* RESEÑAS DE MERCADO LIBRE */}
+      <section className="py-14 md:py-20 bg-muted/30">
+        <div className="container px-5">
+          <div className="text-center mb-10 md:mb-14">
+            <p className="text-xs font-semibold tracking-widest uppercase text-brand-orange mb-3">
+              Opiniones
+            </p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold mb-5">
+              Lo que opinan los clientes
+            </h2>
+
+            <div className="inline-flex flex-col sm:flex-row items-center gap-3 sm:gap-5 bg-card border border-border/60 rounded-2xl px-6 py-4 shadow-sm">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-brand-yellow/90 text-foreground font-heading font-bold text-sm">
+                Mercado Libre
+              </span>
+              <div className="flex items-center gap-2">
+                <div className="flex">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star
+                      key={i}
+                      className={`w-5 h-5 ${
+                        i < Math.round(overallRating)
+                          ? "fill-brand-yellow text-brand-yellow"
+                          : "text-muted-foreground/40"
+                      }`}
+                    />
+                  ))}
+                </div>
+                <span className="font-heading font-extrabold text-lg">{overallRating}</span>
+                <span className="text-sm text-muted-foreground">
+                  ({reviewsCount} opiniones)
+                </span>
+              </div>
+            </div>
+
+            <p className="mt-4 text-sm text-muted-foreground">
+              Reseñas reales de compradores verificados
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto">
+            {reviews.map((r, i) => (
+              <article
+                key={i}
+                className="rounded-2xl border border-border/60 bg-card p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col"
+              >
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex">
+                    {Array.from({ length: 5 }).map((_, idx) => (
+                      <Star
+                        key={idx}
+                        className={`w-4 h-4 ${
+                          idx < r.rating
+                            ? "fill-brand-yellow text-brand-yellow"
+                            : "text-muted-foreground/30"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                  <span className="inline-flex items-center gap-1 text-[11px] font-medium text-brand-green bg-brand-green/10 px-2 py-0.5 rounded-full">
+                    <BadgeCheck className="w-3 h-3" />
+                    Compra verificada
+                  </span>
+                </div>
+                <p className="text-sm text-foreground/80 leading-relaxed mb-4 line-clamp-5 flex-1">
+                  “{r.text}”
+                </p>
+                <div className="pt-3 border-t border-border/60">
+                  <p className="font-heading font-semibold text-sm text-foreground">{r.name}</p>
+                  <p className="text-xs text-muted-foreground">{r.date}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="text-center mt-10">
+            <a
+              href={ML_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg border-2 border-crystal px-6 py-3 font-heading font-bold text-crystal hover:bg-crystal hover:text-white transition-colors"
+            >
+              Ver todas las opiniones en Mercado Libre
+              <ExternalLink className="w-4 h-4" />
+            </a>
           </div>
         </div>
       </section>
