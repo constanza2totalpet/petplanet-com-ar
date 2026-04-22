@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import crystalcatScene from "@/assets/crystalcat-scene.jpg";
-import crystalcatLogo from "@/assets/crystalcat-logo.png";
-import furacaoLogo from "@/assets/furacao-pet-logo.png";
+import crystalcatLogo from "@/assets/crystalcat-logo-transparent.png";
+import furacaoLogo from "@/assets/furacao-pet-logo-transparent.png";
 import furacaoScene from "@/assets/furacao-scene.jpg";
 import {
   PawPrint,
@@ -39,12 +39,12 @@ const ProductsSection = () => (
           <p className="text-xs font-semibold tracking-widest uppercase text-brand-orange mb-3">
             Marca importada
           </p>
-          <div className="mb-5">
+          <div className="mb-5 py-2">
             <img
               src={crystalcatLogo}
               alt="Crystal Cat"
               loading="lazy"
-              className="h-10 sm:h-12 w-auto"
+              className="h-12 sm:h-14 w-auto drop-shadow-sm"
             />
           </div>
 
@@ -91,12 +91,12 @@ const ProductsSection = () => (
             Marca importada
           </p>
 
-          <div className="mb-5">
+          <div className="mb-5 py-2">
             <img
               src={furacaoLogo}
               alt="Furaçao Pet"
               loading="lazy"
-              className="h-10 sm:h-12 w-auto"
+              className="h-12 sm:h-14 w-auto drop-shadow-sm"
             />
           </div>
 
