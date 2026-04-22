@@ -1,5 +1,6 @@
 const AboutSection = () => (
-  <section id="nosotros" className="py-14 md:py-20 bg-crystal-light">
+  <section id="nosotros" className="py-14 md:py-20 bg-gradient-to-b from-brand-orange-light via-background to-crystal-light relative">
+    <div aria-hidden className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-brand-orange via-crystal to-brand-green" />
     <div className="container max-w-3xl text-center px-5">
       <p className="text-xs font-semibold tracking-widest uppercase text-crystal mb-2">
         Sobre nosotros

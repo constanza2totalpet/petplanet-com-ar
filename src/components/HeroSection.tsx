@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import heroPets from "@/assets/hero-pets.jpg";
+import heroPets from "@/assets/hero-pets-dog-cat.jpg";
 import heroBusiness from "@/assets/hero-business-shelf.jpg";
 import crystalCatScene from "@/assets/crystal-cat-scene.jpg";
 import furacaoScene from "@/assets/furacao-scene.jpg";
@@ -112,7 +112,8 @@ const HeroSection = () => {
                     height={1080}
                     loading={i === 0 ? "eager" : "lazy"}
                   />
-                  <div className="absolute inset-0 bg-[hsl(var(--hero-overlay)/0.5)]" />
+                  {/* Soft warm gradient overlay: keeps pets visible on the sides, darkens center for legibility */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-foreground/55 via-foreground/35 to-foreground/55" />
                   <div className="relative z-10 text-center px-5 py-10 md:py-20 max-w-3xl mx-auto animate-fade-in-up">
                     <p className="text-xs sm:text-sm md:text-base font-medium tracking-widest uppercase text-primary-foreground/80 mb-3 md:mb-4">
                       {s.eyebrow}
