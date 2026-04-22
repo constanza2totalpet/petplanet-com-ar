@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import {
-  Droplet,
-  Waves,
+  Droplets,
+  Wind,
   Leaf,
-  Clock,
+  CalendarCheck,
   Package,
   Feather,
   Hand,
@@ -29,16 +29,16 @@ const ML_URL =
 
 const benefits = [
   {
-    icon: Clock,
+    icon: CalendarCheck,
     title: "Rinden más",
     desc: "Hasta 30 días de duración por carga.",
-    color: "orange",
+    color: "pink",
   },
   {
-    icon: Droplet,
+    icon: Droplets,
     title: "Alta absorción",
     desc: "Libre de polvo, limpio y seguro.",
-    color: "blue",
+    color: "orange",
   },
   {
     icon: Leaf,
@@ -47,10 +47,10 @@ const benefits = [
     color: "green",
   },
   {
-    icon: Waves,
+    icon: Wind,
     title: "Neutraliza olores",
     desc: "Control superior de aromas.",
-    color: "blue",
+    color: "purple",
   },
 ];
 
@@ -72,10 +72,11 @@ const tips = [
   "Si tenés más de un gato, cambiá el contenido con mayor frecuencia para mantener la higiene.",
 ];
 
-const colorMap: Record<string, string> = {
-  orange: "bg-brand-orange/10 text-brand-orange",
-  blue: "bg-crystal/10 text-crystal",
-  green: "bg-brand-green/10 text-brand-green",
+const colorMap: Record<string, { bg: string; ring: string; border: string }> = {
+  pink: { bg: "bg-brand-pink/10 text-brand-pink", ring: "bg-brand-pink/20", border: "hover:border-brand-pink/40" },
+  orange: { bg: "bg-brand-orange/10 text-brand-orange", ring: "bg-brand-orange/20", border: "hover:border-brand-orange/40" },
+  green: { bg: "bg-brand-green/10 text-brand-green", ring: "bg-brand-green/20", border: "hover:border-brand-green/40" },
+  purple: { bg: "bg-brand-purple/10 text-brand-purple", ring: "bg-brand-purple/20", border: "hover:border-brand-purple/40" },
 };
 
 const MercadoLibreButton = ({ className = "" }: { className?: string }) => (
@@ -170,20 +171,24 @@ const CrystalCat = () => (
           </h2>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {benefits.map((b) => (
-              <div
-                key={b.title}
-                className="rounded-xl border bg-card p-5 sm:p-6 hover:shadow-md hover:border-crystal/30 transition-all"
-              >
+            {benefits.map((b) => {
+              const c = colorMap[b.color];
+              return (
                 <div
-                  className={`w-12 h-12 rounded-full flex items-center justify-center mb-4 ${colorMap[b.color]}`}
+                  key={b.title}
+                  className={`group rounded-2xl border border-border/60 bg-card p-6 sm:p-7 shadow-sm hover:shadow-md transition-all ${c.border}`}
                 >
-                  <b.icon className="w-6 h-6" />
+                  <div className="relative w-14 h-14 mb-5">
+                    <div className={`absolute inset-0 rounded-full blur-xl ${c.ring} opacity-70 group-hover:opacity-100 transition-opacity`} />
+                    <div className={`relative w-14 h-14 rounded-full flex items-center justify-center ${c.bg}`}>
+                      <b.icon className="w-7 h-7" strokeWidth={2} />
+                    </div>
+                  </div>
+                  <h3 className="font-heading font-bold text-lg mb-1.5 text-foreground">{b.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
                 </div>
-                <h3 className="font-heading font-bold text-base mb-1">{b.title}</h3>
-                <p className="text-sm text-muted-foreground">{b.desc}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
