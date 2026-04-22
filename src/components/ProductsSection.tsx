@@ -20,7 +20,8 @@ const features = [
 ];
 
 const ProductsSection = () => (
-  <section id="productos" className="py-14 md:py-20 bg-gradient-to-b from-background via-muted/30 to-background">
+  <section id="productos" className="py-14 md:py-20 bg-gradient-to-b from-crystal-light/50 via-background to-brand-orange-light/40 relative">
+    <div aria-hidden className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-brand-green via-brand-orange to-crystal" />
     <div className="container px-5">
       <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold text-center mb-4">
         Nuestras marcas

@@ -11,7 +11,8 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contacto" className="py-14 md:py-20 bg-background">
+    <section id="contacto" className="py-14 md:py-20 bg-gradient-to-b from-background via-brand-orange-light/40 to-crystal-light/60 relative">
+      <div aria-hidden className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-crystal via-brand-green to-brand-orange" />
       <div className="container max-w-4xl px-5">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold text-center mb-3 md:mb-4">
           Trabajemos juntos
@@ -76,7 +77,7 @@ const ContactSection = () => {
             />
             <button
               type="submit"
-              className="flex items-center justify-center gap-2 rounded-lg bg-crystal px-6 py-3 font-heading font-bold text-white hover:bg-crystal-dark transition-colors"
+              className="flex items-center justify-center gap-2 rounded-lg bg-brand-green px-6 py-3 font-heading font-bold text-white hover:bg-brand-green/90 shadow-md hover:shadow-lg transition-all"
             >
               <Send className="w-4 h-4" />
               Quiero recibir más información
