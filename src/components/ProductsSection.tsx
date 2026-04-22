@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import bolsaImg from "@/assets/bolsa-crystalcat.png";
+import crystalcatScene from "@/assets/crystalcat-scene.jpg";
 import crystalcatLogo from "@/assets/crystalcat-logo.png";
 import furacaoLogo from "@/assets/furacao-pet-logo.png";
-import furacaoProducts from "@/assets/furacao-products-card.png";
+import furacaoScene from "@/assets/furacao-scene.jpg";
 import {
   PawPrint,
   Droplets,
@@ -20,7 +20,7 @@ const features = [
 ];
 
 const ProductsSection = () => (
-  <section id="productos" className="py-14 md:py-20 bg-background">
+  <section id="productos" className="py-14 md:py-20 bg-gradient-to-b from-background via-muted/30 to-background">
     <div className="container px-5">
       <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold text-center mb-4">
         Nuestras marcas
@@ -34,7 +34,7 @@ const ProductsSection = () => (
         {/* ── Crystal Cat ── */}
         <Link
           to="/crystal-cat"
-          className="group rounded-2xl border bg-card p-6 sm:p-7 flex flex-col hover:shadow-lg hover:border-crystal/40 transition-all"
+          className="group rounded-2xl border bg-gradient-to-br from-crystal/10 via-card to-brand-orange/5 p-6 sm:p-7 flex flex-col hover:shadow-xl hover:border-crystal/40 transition-all"
         >
           <p className="text-xs font-semibold tracking-widest uppercase text-brand-orange mb-3">
             Marca importada
@@ -69,12 +69,14 @@ const ProductsSection = () => (
             ))}
           </div>
 
-          <div className="aspect-square rounded-xl bg-gradient-to-br from-crystal/5 to-brand-orange/5 overflow-hidden mb-4 flex-1 flex items-center justify-center p-4">
+          <div className="aspect-square rounded-xl overflow-hidden mb-4 flex-1 shadow-md ring-1 ring-black/5">
             <img
-              src={bolsaImg}
-              alt="Crystal Cat 3.8L"
+              src={crystalcatScene}
+              alt="Crystal Cat piedras de sílica en uso"
               loading="lazy"
-              className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+              width={1024}
+              height={1024}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
           </div>
 
@@ -84,7 +86,7 @@ const ProductsSection = () => (
         </Link>
 
         {/* ── Furaçao Pet ── */}
-        <div className="rounded-2xl border bg-card p-6 sm:p-7 flex flex-col">
+        <div className="group rounded-2xl border bg-gradient-to-br from-brand-orange/10 via-card to-brand-pink/5 p-6 sm:p-7 flex flex-col hover:shadow-xl hover:border-brand-pink/40 transition-all">
           <p className="text-xs font-semibold tracking-widest uppercase text-brand-pink mb-3">
             Marca importada
           </p>
@@ -124,12 +126,14 @@ const ProductsSection = () => (
             ))}
           </ul>
 
-          <div className="aspect-square mb-4 flex-1 flex items-center justify-center p-2">
+          <div className="aspect-square rounded-xl overflow-hidden mb-4 flex-1 shadow-md ring-1 ring-black/5">
             <img
-              src={furacaoProducts}
-              alt="Juguetes Furaçao Pet"
+              src={furacaoScene}
+              alt="Juguetes Furaçao Pet en escena de hogar"
               loading="lazy"
-              className="w-full h-full object-contain drop-shadow-lg"
+              width={1024}
+              height={1024}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
           </div>
 
@@ -139,7 +143,7 @@ const ProductsSection = () => (
         </div>
 
         {/* ── Marca en desarrollo ── */}
-        <div className="rounded-2xl border border-dashed bg-muted/20 p-6 sm:p-7 flex flex-col">
+        <div className="rounded-2xl border border-dashed bg-gradient-to-br from-muted/40 to-muted/10 p-6 sm:p-7 flex flex-col">
           <p className="text-xs font-semibold tracking-widest uppercase text-coming-soon mb-3">
             En desarrollo
           </p>
