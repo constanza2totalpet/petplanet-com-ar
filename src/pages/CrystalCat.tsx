@@ -123,7 +123,7 @@ const CrystalCat = () => (
             <img
               src={crystalcatLogo}
               alt="Crystal Cat"
-              className="h-20 sm:h-24 md:h-28 w-auto mx-auto mb-5 md:mb-6 drop-shadow-sm"
+              className="h-12 sm:h-14 md:h-16 w-auto mx-auto mb-3 md:mb-4 drop-shadow-sm"
             />
             <h1 className="text-3xl sm:text-5xl md:text-6xl font-heading font-extrabold leading-tight mb-4 md:mb-5">
               Piedras sanitarias de <span className="text-crystal">sílica</span> para gatos
