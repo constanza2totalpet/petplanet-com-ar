@@ -33,21 +33,29 @@ const benefits = [
     icon: iconCalendar,
     title: "Rinden más",
     desc: "Hasta 30 días de duración por carga.",
+    bg: "bg-brand-pink",
+    ring: "bg-brand-pink/25",
   },
   {
     icon: iconDrops,
     title: "Alta absorción",
     desc: "Libre de polvo, limpio y seguro.",
+    bg: "bg-brand-orange",
+    ring: "bg-brand-orange/25",
   },
   {
     icon: iconLeaf,
     title: "Natural e hipoalergénico",
     desc: "Apto para gatos sensibles.",
+    bg: "bg-brand-green",
+    ring: "bg-brand-green/25",
   },
   {
     icon: iconWaves,
     title: "Neutraliza olores",
     desc: "Control superior de aromas.",
+    bg: "bg-brand-purple",
+    ring: "bg-brand-purple/25",
   },
 ];
 
@@ -167,12 +175,22 @@ const CrystalCat = () => (
                 key={b.title}
                 className="group rounded-2xl border border-border/60 bg-card p-6 sm:p-7 shadow-sm hover:shadow-md transition-all"
               >
-                <img
-                  src={b.icon}
-                  alt={b.title}
-                  className="w-20 h-20 mb-5 object-contain"
-                  loading="lazy"
-                />
+                <div className="relative w-20 h-20 mb-5">
+                  <div
+                    aria-hidden
+                    className={`absolute inset-1 rounded-full blur-xl opacity-60 ${b.ring}`}
+                  />
+                  <div
+                    className={`relative w-20 h-20 rounded-full ${b.bg} flex items-center justify-center shadow-md overflow-hidden`}
+                  >
+                    <img
+                      src={b.icon}
+                      alt={b.title}
+                      className="w-[78%] h-[78%] object-contain"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
                 <h3 className="font-heading font-bold text-lg mb-1.5 text-foreground">{b.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
               </div>
