@@ -14,72 +14,10 @@ import {
   MessageCircle,
 } from "lucide-react";
 
-// Iconos replicando la referencia visual de Crystal Cat
-const CalendarIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 64 64" fill="none" {...props}>
-    {/* Anillas superiores cortas */}
-    <rect x="20" y="6" width="3.5" height="9" rx="1.5" fill="currentColor" />
-    <rect x="40.5" y="6" width="3.5" height="9" rx="1.5" fill="currentColor" />
-    {/* Cuerpo redondeado del calendario */}
-    <rect x="11" y="12" width="42" height="42" rx="4" fill="currentColor" />
-    {/* Área blanca interna */}
-    <rect x="14.5" y="22" width="35" height="28" rx="1.5" fill="white" />
-    {/* Check grueso */}
-    <path
-      d="M21.5 36.5 L29 44 L43 30"
-      stroke="currentColor"
-      strokeWidth="5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-    />
-  </svg>
-);
-
-const DropsIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 64 64" fill="currentColor" {...props}>
-    {/* Gota superior izquierda */}
-    <path d="M22 8 C22 8, 13 22, 13 31 a9 9 0 1 0 18 0 C31 22, 22 8, 22 8 Z" />
-    {/* Gota superior derecha */}
-    <path d="M42 14 C42 14, 33 28, 33 37 a9 9 0 1 0 18 0 C51 28, 42 14, 42 14 Z" />
-    {/* Gota pequeña inferior */}
-    <path d="M28 36 C28 36, 22 45, 22 50 a6 6 0 1 0 12 0 C34 45, 28 36, 28 36 Z" />
-  </svg>
-);
-
-const LeafIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 64 64" {...props}>
-    {/* Hoja: punta superior derecha, base inferior izquierda */}
-    <path
-      d="M54 8 C54 8, 26 8, 14 26 C6 38, 12 54, 24 56 C40 56, 56 38, 54 8 Z"
-      fill="currentColor"
-    />
-    {/* Vena central curva visible (blanca) */}
-    <path
-      d="M20 52 C30 38, 42 24, 50 14"
-      stroke="white"
-      strokeWidth="2.5"
-      strokeLinecap="round"
-      fill="none"
-    />
-  </svg>
-);
-
-const OdorWavesIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg
-    viewBox="0 0 64 64"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="4.5"
-    strokeLinecap="round"
-    {...props}
-  >
-    {/* Tres ondas verticales en zigzag suave */}
-    <path d="M16 10 Q11 16 16 22 Q21 28 16 34 Q11 40 16 46 Q21 52 16 56" />
-    <path d="M32 10 Q27 16 32 22 Q37 28 32 34 Q27 40 32 46 Q37 52 32 56" />
-    <path d="M48 10 Q43 16 48 22 Q53 28 48 34 Q43 40 48 46 Q53 52 48 56" />
-  </svg>
-);
+import iconCalendar from "@/assets/icon-calendar.png";
+import iconDrops from "@/assets/icon-drops.png";
+import iconLeaf from "@/assets/icon-leaf.png";
+import iconWaves from "@/assets/icon-waves.png";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
