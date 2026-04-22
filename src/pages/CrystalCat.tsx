@@ -73,12 +73,6 @@ const tips = [
   "Si tenés más de un gato, cambiá el contenido con mayor frecuencia para mantener la higiene.",
 ];
 
-const colorMap: Record<string, { bg: string; ring: string; border: string }> = {
-  pink: { bg: "bg-brand-pink text-white", ring: "bg-brand-pink/30", border: "hover:border-brand-pink/40" },
-  orange: { bg: "bg-brand-orange text-white", ring: "bg-brand-orange/30", border: "hover:border-brand-orange/40" },
-  green: { bg: "bg-brand-green text-white", ring: "bg-brand-green/30", border: "hover:border-brand-green/40" },
-  purple: { bg: "bg-brand-purple text-white", ring: "bg-brand-purple/30", border: "hover:border-brand-purple/40" },
-};
 
 const MercadoLibreButton = ({ className = "" }: { className?: string }) => (
   <a
