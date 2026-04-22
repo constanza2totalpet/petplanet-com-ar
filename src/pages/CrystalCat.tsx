@@ -108,45 +108,57 @@ const CrystalCat = () => (
 
       {/* HERO */}
       <section className="relative overflow-hidden">
-        <div className="container px-5 py-10 md:py-16">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-            <div className="order-2 md:order-1 animate-fade-in-up">
-              <img
-                src={crystalcatLogo}
-                alt="Crystal Cat"
-                className="h-36 sm:h-44 md:h-56 w-auto mb-6 md:mb-8 drop-shadow-md"
-              />
-              <p className="text-xs font-semibold tracking-widest uppercase text-brand-orange mb-3">
-                Pet Planet presenta
-              </p>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold leading-tight mb-3 md:mb-4">
-                Piedras sanitarias de <span className="text-crystal">sílica</span> para gatos
-              </h1>
-              <p className="text-base sm:text-lg text-muted-foreground mb-6 md:mb-8 max-w-lg">
-                Alta absorción, mayor duración y máximo control de olores.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <a
-                  href="#contacto"
-                  className="inline-block rounded-lg bg-crystal px-7 py-3 font-heading font-bold text-white shadow-lg hover:bg-crystal-dark transition-colors"
-                >
-                  Quiero recibir más información
-                </a>
-                <MercadoLibreButton />
-              </div>
-            </div>
+        {/* Soft brand gradient backdrop */}
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-gradient-to-b from-brand-orange-light via-background to-crystal-light/60"
+        />
+        <div
+          aria-hidden
+          className="absolute -top-24 left-1/2 -translate-x-1/2 w-[680px] h-[680px] rounded-full bg-gradient-to-br from-brand-orange/20 via-crystal/15 to-brand-green/15 blur-3xl opacity-70"
+        />
 
-            <div className="order-1 md:order-2 relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-orange/15 via-crystal/10 to-brand-green/15 rounded-3xl blur-2xl" />
-              <div className="relative aspect-square rounded-2xl overflow-hidden bg-muted">
-                <img
-                  src={crystalCatHero}
-                  alt="Gato blanco junto a litera con piedras Crystal Cat"
-                  className="w-full h-full object-cover"
-                  width={1536}
-                  height={1280}
-                />
-              </div>
+        <div className="container relative px-5 py-12 md:py-20">
+          <div className="max-w-3xl mx-auto text-center animate-fade-in-up">
+            <img
+              src={crystalcatLogo}
+              alt="Crystal Cat"
+              className="h-40 sm:h-48 md:h-60 w-auto mx-auto mb-6 md:mb-8 drop-shadow-md"
+            />
+            <p className="text-xs font-semibold tracking-widest uppercase text-brand-orange mb-3">
+              Pet Planet presenta
+            </p>
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-heading font-extrabold leading-tight mb-4 md:mb-5">
+              Piedras sanitarias de <span className="text-crystal">sílica</span> para gatos
+            </h1>
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-7 md:mb-9 max-w-xl mx-auto">
+              Alta absorción · Mayor duración · Control de olores
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
+              <a
+                href="#contacto"
+                className="inline-block rounded-lg bg-crystal px-7 py-3 font-heading font-bold text-white shadow-lg hover:bg-crystal-dark transition-colors"
+              >
+                Quiero recibir más información
+              </a>
+              <MercadoLibreButton />
+            </div>
+          </div>
+
+          {/* Imagen principal integrada al fondo */}
+          <div className="relative mt-12 md:mt-16 max-w-4xl mx-auto">
+            <div
+              aria-hidden
+              className="absolute -inset-6 bg-gradient-to-br from-brand-orange/15 via-crystal/10 to-brand-green/10 blur-3xl rounded-[3rem]"
+            />
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl ring-1 ring-foreground/5">
+              <img
+                src={crystalCatHero}
+                alt="Gato blanco junto a litera con piedras Crystal Cat"
+                className="w-full h-auto object-cover"
+                width={1536}
+                height={1024}
+              />
             </div>
           </div>
         </div>
