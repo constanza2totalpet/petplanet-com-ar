@@ -1,9 +1,5 @@
 import { Link } from "react-router-dom";
 import {
-  Droplets,
-  Wind,
-  Leaf,
-  CalendarCheck,
   Package,
   Feather,
   Hand,
@@ -17,6 +13,34 @@ import {
   Sparkles,
   MessageCircle,
 } from "lucide-react";
+
+// Filled icons matching Crystal Cat reference artwork
+const CalendarIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <path d="M7 2a1 1 0 0 1 1 1v1h8V3a1 1 0 1 1 2 0v1h1a2 2 0 0 1 2 2v3H3V6a2 2 0 0 1 2-2h1V3a1 1 0 0 1 1-1Zm14 9v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-9h18Zm-4.3 3.3a1 1 0 0 0-1.4-1.4L11 17.17l-2.3-2.3a1 1 0 1 0-1.4 1.42l3 3a1 1 0 0 0 1.4 0l5-5Z"/>
+  </svg>
+);
+
+const DropsIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <path d="M8 2.5c.5 0 .9.3 1.1.7C10 5 12 8.2 12 11a4 4 0 1 1-8 0c0-2.8 2-6 2.9-7.8.2-.4.6-.7 1.1-.7Zm9 7c.4 0 .8.2 1 .6.7 1.4 2 3.7 2 5.4a3 3 0 1 1-6 0c0-1.7 1.3-4 2-5.4.2-.4.6-.6 1-.6Z"/>
+  </svg>
+);
+
+const LeafIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <path d="M20.5 3.5c.3 0 .5.2.5.5 0 8-4 16-12 16a6.5 6.5 0 0 1-6.5-6.5C2.5 7.5 11 3.5 20 3.5h.5ZM6 18l8-8" stroke="currentColor" strokeWidth="0" />
+    <path d="M20.5 3c.6 0 1 .4 1 1 0 8.4-4.2 17-12.5 17A7 7 0 0 1 2 14C2 6.6 11 3 20 3h.5Zm-2 2.4C12 6.4 5 9.4 5 14a4.6 4.6 0 0 0 1.7 3.6l8.6-8.6a1 1 0 1 1 1.4 1.4l-8.6 8.6c.6.4 1.3.6 2 .6 5 0 8.2-5.4 8.4-13.2Z"/>
+  </svg>
+);
+
+const OdorWavesIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <path d="M7 21c0-2 1.5-2.5 1.5-4.5S7 14 7 12s1.5-2.5 1.5-4.5S7 5 7 3"/>
+    <path d="M12 21c0-2 1.5-2.5 1.5-4.5S12 14 12 12s1.5-2.5 1.5-4.5S12 5 12 3"/>
+    <path d="M17 21c0-2 1.5-2.5 1.5-4.5S17 14 17 12s1.5-2.5 1.5-4.5S17 5 17 3"/>
+  </svg>
+);
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
@@ -29,25 +53,25 @@ const ML_URL =
 
 const benefits = [
   {
-    icon: CalendarCheck,
+    icon: CalendarIcon,
     title: "Rinden más",
     desc: "Hasta 30 días de duración por carga.",
     color: "pink",
   },
   {
-    icon: Droplets,
+    icon: DropsIcon,
     title: "Alta absorción",
     desc: "Libre de polvo, limpio y seguro.",
     color: "orange",
   },
   {
-    icon: Leaf,
+    icon: LeafIcon,
     title: "Natural e hipoalergénico",
     desc: "Apto para gatos sensibles.",
     color: "green",
   },
   {
-    icon: Wind,
+    icon: OdorWavesIcon,
     title: "Neutraliza olores",
     desc: "Control superior de aromas.",
     color: "purple",
@@ -73,10 +97,10 @@ const tips = [
 ];
 
 const colorMap: Record<string, { bg: string; ring: string; border: string }> = {
-  pink: { bg: "bg-brand-pink/10 text-brand-pink", ring: "bg-brand-pink/20", border: "hover:border-brand-pink/40" },
-  orange: { bg: "bg-brand-orange/10 text-brand-orange", ring: "bg-brand-orange/20", border: "hover:border-brand-orange/40" },
-  green: { bg: "bg-brand-green/10 text-brand-green", ring: "bg-brand-green/20", border: "hover:border-brand-green/40" },
-  purple: { bg: "bg-brand-purple/10 text-brand-purple", ring: "bg-brand-purple/20", border: "hover:border-brand-purple/40" },
+  pink: { bg: "bg-brand-pink text-white", ring: "bg-brand-pink/30", border: "hover:border-brand-pink/40" },
+  orange: { bg: "bg-brand-orange text-white", ring: "bg-brand-orange/30", border: "hover:border-brand-orange/40" },
+  green: { bg: "bg-brand-green text-white", ring: "bg-brand-green/30", border: "hover:border-brand-green/40" },
+  purple: { bg: "bg-brand-purple text-white", ring: "bg-brand-purple/30", border: "hover:border-brand-purple/40" },
 };
 
 const MercadoLibreButton = ({ className = "" }: { className?: string }) => (
@@ -178,10 +202,10 @@ const CrystalCat = () => (
                   key={b.title}
                   className={`group rounded-2xl border border-border/60 bg-card p-6 sm:p-7 shadow-sm hover:shadow-md transition-all ${c.border}`}
                 >
-                  <div className="relative w-14 h-14 mb-5">
-                    <div className={`absolute inset-0 rounded-full blur-xl ${c.ring} opacity-70 group-hover:opacity-100 transition-opacity`} />
-                    <div className={`relative w-14 h-14 rounded-full flex items-center justify-center ${c.bg}`}>
-                      <b.icon className="w-7 h-7" strokeWidth={2} />
+                  <div className="relative w-16 h-16 mb-5">
+                    <div className={`absolute inset-0 rounded-full blur-xl ${c.ring} opacity-80 group-hover:opacity-100 transition-opacity`} />
+                    <div className={`relative w-16 h-16 rounded-full flex items-center justify-center shadow-sm ${c.bg}`}>
+                      <b.icon className="w-8 h-8" />
                     </div>
                   </div>
                   <h3 className="font-heading font-bold text-lg mb-1.5 text-foreground">{b.title}</h3>
