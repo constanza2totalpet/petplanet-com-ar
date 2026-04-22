@@ -33,21 +33,29 @@ const benefits = [
     icon: iconCalendar,
     title: "Rinden más",
     desc: "Hasta 30 días de duración por carga.",
+    bg: "bg-brand-pink",
+    ring: "bg-brand-pink/25",
   },
   {
     icon: iconDrops,
     title: "Alta absorción",
     desc: "Libre de polvo, limpio y seguro.",
+    bg: "bg-brand-orange",
+    ring: "bg-brand-orange/25",
   },
   {
     icon: iconLeaf,
     title: "Natural e hipoalergénico",
     desc: "Apto para gatos sensibles.",
+    bg: "bg-brand-green",
+    ring: "bg-brand-green/25",
   },
   {
     icon: iconWaves,
     title: "Neutraliza olores",
     desc: "Control superior de aromas.",
+    bg: "bg-brand-purple",
+    ring: "bg-brand-purple/25",
   },
 ];
 
