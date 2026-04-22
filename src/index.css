@@ -50,13 +50,13 @@
     --crystal-light: 199 70% 96%;
     --crystal-dark: 199 85% 35%;
 
-    --brand-orange: 22 95% 55%;      /* Crystal Cat orange */
-    --brand-orange-light: 22 95% 96%;
-    --brand-green: 142 60% 42%;      /* Natural */
-    --brand-green-light: 142 50% 95%;
+    --brand-orange: 28 92% 55%;      /* Crystal Cat orange (absorción) */
+    --brand-orange-light: 28 92% 96%;
+    --brand-green: 95 50% 55%;       /* Lima/verde natural */
+    --brand-green-light: 95 50% 95%;
     --brand-yellow: 42 95% 55%;      /* Furaçao vibrant */
-    --brand-pink: 340 85% 60%;       /* Furaçao toys */
-    --brand-purple: 290 55% 50%;     /* Crystal Cat olores */
+    --brand-pink: 325 70% 50%;       /* Magenta (rinden más) */
+    --brand-purple: 290 70% 40%;     /* Púrpura (olores) */
 
     --hero-overlay: 0 0% 8%;
     --coming-soon: 0 0% 65%;
