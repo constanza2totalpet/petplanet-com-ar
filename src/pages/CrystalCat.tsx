@@ -12,6 +12,9 @@ import {
   ShoppingCart,
   Sparkles,
   MessageCircle,
+  Star,
+  ExternalLink,
+  BadgeCheck,
 } from "lucide-react";
 
 import iconCalendar from "@/assets/icon-calendar.png";
