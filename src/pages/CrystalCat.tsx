@@ -14,31 +14,50 @@ import {
   MessageCircle,
 } from "lucide-react";
 
-// Filled icons matching Crystal Cat reference artwork
+// Iconos replicando exactamente la referencia visual de Crystal Cat
 const CalendarIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-    <path d="M7 2a1 1 0 0 1 1 1v1h8V3a1 1 0 1 1 2 0v1h1a2 2 0 0 1 2 2v3H3V6a2 2 0 0 1 2-2h1V3a1 1 0 0 1 1-1Zm14 9v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-9h18Zm-4.3 3.3a1 1 0 0 0-1.4-1.4L11 17.17l-2.3-2.3a1 1 0 1 0-1.4 1.42l3 3a1 1 0 0 0 1.4 0l5-5Z"/>
+  <svg viewBox="0 0 64 64" fill="none" {...props}>
+    <rect x="18" y="8" width="4" height="10" rx="1.5" fill="currentColor" />
+    <rect x="42" y="8" width="4" height="10" rx="1.5" fill="currentColor" />
+    <rect x="10" y="14" width="44" height="40" rx="3" fill="currentColor" />
+    <rect x="13" y="22" width="38" height="29" rx="1" fill="white" />
+    <path
+      d="M22 36 L29 43 L44 28"
+      stroke="currentColor"
+      strokeWidth="4.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+    />
   </svg>
 );
 
 const DropsIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-    <path d="M8 2.5c.5 0 .9.3 1.1.7C10 5 12 8.2 12 11a4 4 0 1 1-8 0c0-2.8 2-6 2.9-7.8.2-.4.6-.7 1.1-.7Zm9 7c.4 0 .8.2 1 .6.7 1.4 2 3.7 2 5.4a3 3 0 1 1-6 0c0-1.7 1.3-4 2-5.4.2-.4.6-.6 1-.6Z"/>
+  <svg viewBox="0 0 64 64" fill="currentColor" {...props}>
+    <path d="M22 10 C22 10, 12 24, 12 33 a10 10 0 0 0 20 0 C32 24, 22 10, 22 10 Z" />
+    <path d="M42 18 C42 18, 33 30, 33 38 a9 9 0 0 0 18 0 C51 30, 42 18, 42 18 Z" />
+    <path d="M27 36 C27 36, 21 45, 21 50 a6 6 0 0 0 12 0 C33 45, 27 36, 27 36 Z" />
   </svg>
 );
 
 const LeafIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-    <path d="M20.5 3.5c.3 0 .5.2.5.5 0 8-4 16-12 16a6.5 6.5 0 0 1-6.5-6.5C2.5 7.5 11 3.5 20 3.5h.5ZM6 18l8-8" stroke="currentColor" strokeWidth="0" />
-    <path d="M20.5 3c.6 0 1 .4 1 1 0 8.4-4.2 17-12.5 17A7 7 0 0 1 2 14C2 6.6 11 3 20 3h.5Zm-2 2.4C12 6.4 5 9.4 5 14a4.6 4.6 0 0 0 1.7 3.6l8.6-8.6a1 1 0 1 1 1.4 1.4l-8.6 8.6c.6.4 1.3.6 2 .6 5 0 8.2-5.4 8.4-13.2Z"/>
+  <svg viewBox="0 0 64 64" fill="currentColor" {...props}>
+    <path d="M52 10 C30 10, 12 24, 12 42 C12 48, 15 53, 19 56 C19 40, 30 24, 50 18 C36 26, 26 40, 24 56 C30 56, 38 54, 44 48 C54 38, 56 22, 52 10 Z" />
   </svg>
 );
 
 const OdorWavesIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
-    <path d="M7 21c0-2 1.5-2.5 1.5-4.5S7 14 7 12s1.5-2.5 1.5-4.5S7 5 7 3"/>
-    <path d="M12 21c0-2 1.5-2.5 1.5-4.5S12 14 12 12s1.5-2.5 1.5-4.5S12 5 12 3"/>
-    <path d="M17 21c0-2 1.5-2.5 1.5-4.5S17 14 17 12s1.5-2.5 1.5-4.5S17 5 17 3"/>
+  <svg
+    viewBox="0 0 64 64"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="5"
+    strokeLinecap="round"
+    {...props}
+  >
+    <path d="M18 12 C14 18, 22 22, 18 28 C14 34, 22 38, 18 44 C14 50, 18 52, 18 54" />
+    <path d="M32 12 C28 18, 36 22, 32 28 C28 34, 36 38, 32 44 C28 50, 32 52, 32 54" />
+    <path d="M46 12 C42 18, 50 22, 46 28 C42 34, 50 38, 46 44 C42 50, 46 52, 46 54" />
   </svg>
 );
 import Header from "@/components/Header";
