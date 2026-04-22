@@ -14,17 +14,21 @@ import {
   MessageCircle,
 } from "lucide-react";
 
-// Iconos replicando exactamente la referencia visual de Crystal Cat
+// Iconos replicando la referencia visual de Crystal Cat
 const CalendarIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 64 64" fill="none" {...props}>
-    <rect x="18" y="8" width="4" height="10" rx="1.5" fill="currentColor" />
-    <rect x="42" y="8" width="4" height="10" rx="1.5" fill="currentColor" />
-    <rect x="10" y="14" width="44" height="40" rx="3" fill="currentColor" />
-    <rect x="13" y="22" width="38" height="29" rx="1" fill="white" />
+    {/* Anillas superiores cortas */}
+    <rect x="20" y="6" width="3.5" height="9" rx="1.5" fill="currentColor" />
+    <rect x="40.5" y="6" width="3.5" height="9" rx="1.5" fill="currentColor" />
+    {/* Cuerpo redondeado del calendario */}
+    <rect x="11" y="12" width="42" height="42" rx="4" fill="currentColor" />
+    {/* Área blanca interna */}
+    <rect x="14.5" y="22" width="35" height="28" rx="1.5" fill="white" />
+    {/* Check grueso */}
     <path
-      d="M22 36 L29 43 L44 28"
+      d="M21.5 36.5 L29 44 L43 30"
       stroke="currentColor"
-      strokeWidth="4.5"
+      strokeWidth="5"
       strokeLinecap="round"
       strokeLinejoin="round"
       fill="none"
@@ -34,15 +38,30 @@ const CalendarIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 const DropsIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 64 64" fill="currentColor" {...props}>
-    <path d="M22 10 C22 10, 12 24, 12 33 a10 10 0 0 0 20 0 C32 24, 22 10, 22 10 Z" />
-    <path d="M42 18 C42 18, 33 30, 33 38 a9 9 0 0 0 18 0 C51 30, 42 18, 42 18 Z" />
-    <path d="M27 36 C27 36, 21 45, 21 50 a6 6 0 0 0 12 0 C33 45, 27 36, 27 36 Z" />
+    {/* Gota superior izquierda */}
+    <path d="M22 8 C22 8, 13 22, 13 31 a9 9 0 1 0 18 0 C31 22, 22 8, 22 8 Z" />
+    {/* Gota superior derecha */}
+    <path d="M42 14 C42 14, 33 28, 33 37 a9 9 0 1 0 18 0 C51 28, 42 14, 42 14 Z" />
+    {/* Gota pequeña inferior */}
+    <path d="M28 36 C28 36, 22 45, 22 50 a6 6 0 1 0 12 0 C34 45, 28 36, 28 36 Z" />
   </svg>
 );
 
 const LeafIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 64 64" fill="currentColor" {...props}>
-    <path d="M52 10 C30 10, 12 24, 12 42 C12 48, 15 53, 19 56 C19 40, 30 24, 50 18 C36 26, 26 40, 24 56 C30 56, 38 54, 44 48 C54 38, 56 22, 52 10 Z" />
+  <svg viewBox="0 0 64 64" {...props}>
+    {/* Hoja: punta superior derecha, base inferior izquierda */}
+    <path
+      d="M54 8 C54 8, 26 8, 14 26 C6 38, 12 54, 24 56 C40 56, 56 38, 54 8 Z"
+      fill="currentColor"
+    />
+    {/* Vena central curva visible (blanca) */}
+    <path
+      d="M20 52 C30 38, 42 24, 50 14"
+      stroke="white"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      fill="none"
+    />
   </svg>
 );
 
@@ -51,13 +70,14 @@ const OdorWavesIcon = (props: React.SVGProps<SVGSVGElement>) => (
     viewBox="0 0 64 64"
     fill="none"
     stroke="currentColor"
-    strokeWidth="5"
+    strokeWidth="4.5"
     strokeLinecap="round"
     {...props}
   >
-    <path d="M18 12 C14 18, 22 22, 18 28 C14 34, 22 38, 18 44 C14 50, 18 52, 18 54" />
-    <path d="M32 12 C28 18, 36 22, 32 28 C28 34, 36 38, 32 44 C28 50, 32 52, 32 54" />
-    <path d="M46 12 C42 18, 50 22, 46 28 C42 34, 50 38, 46 44 C42 50, 46 52, 46 54" />
+    {/* Tres ondas verticales en zigzag suave */}
+    <path d="M16 10 Q11 16 16 22 Q21 28 16 34 Q11 40 16 46 Q21 52 16 56" />
+    <path d="M32 10 Q27 16 32 22 Q37 28 32 34 Q27 40 32 46 Q37 52 32 56" />
+    <path d="M48 10 Q43 16 48 22 Q53 28 48 34 Q43 40 48 46 Q53 52 48 56" />
   </svg>
 );
 import Header from "@/components/Header";
