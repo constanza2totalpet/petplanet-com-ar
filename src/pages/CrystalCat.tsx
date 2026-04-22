@@ -21,7 +21,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
 import bolsaImg from "@/assets/bolsa-crystalcat.png";
-import crystalcatLogo from "@/assets/crystalcat-logo-hd.png";
+import crystalcatLogo from "@/assets/crystalcat-logo-transparent.png";
 import crystalCatHero from "@/assets/crystal-cat-hero.jpg";
 
 const ML_URL =
@@ -114,12 +114,12 @@ const CrystalCat = () => (
               <img
                 src={crystalcatLogo}
                 alt="Crystal Cat"
-                className="h-24 sm:h-28 md:h-36 w-auto mb-8 md:mb-10 drop-shadow-sm"
+                className="h-36 sm:h-44 md:h-56 w-auto mb-6 md:mb-8 drop-shadow-md"
               />
               <p className="text-xs font-semibold tracking-widest uppercase text-brand-orange mb-3">
                 Pet Planet presenta
               </p>
-              <h1 className="text-3xl sm:text-4xl md:text-6xl font-heading font-extrabold leading-tight mb-3 md:mb-4">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold leading-tight mb-3 md:mb-4">
                 Piedras sanitarias de <span className="text-crystal">sílica</span> para gatos
               </h1>
               <p className="text-base sm:text-lg text-muted-foreground mb-6 md:mb-8 max-w-lg">
