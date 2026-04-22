@@ -30,28 +30,24 @@ const ML_URL =
 
 const benefits = [
   {
-    icon: CalendarIcon,
+    icon: iconCalendar,
     title: "Rinden más",
     desc: "Hasta 30 días de duración por carga.",
-    color: "pink",
   },
   {
-    icon: DropsIcon,
+    icon: iconDrops,
     title: "Alta absorción",
     desc: "Libre de polvo, limpio y seguro.",
-    color: "orange",
   },
   {
-    icon: LeafIcon,
+    icon: iconLeaf,
     title: "Natural e hipoalergénico",
     desc: "Apto para gatos sensibles.",
-    color: "green",
   },
   {
-    icon: OdorWavesIcon,
+    icon: iconWaves,
     title: "Neutraliza olores",
     desc: "Control superior de aromas.",
-    color: "purple",
   },
 ];
 
