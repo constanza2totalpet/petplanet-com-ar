@@ -22,7 +22,7 @@ import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
 import bolsaImg from "@/assets/bolsa-crystalcat.png";
 import crystalcatLogo from "@/assets/crystalcat-logo-transparent.png";
-import crystalCatHero from "@/assets/crystal-cat-hero.jpg";
+import crystalCatHero from "@/assets/crystal-cat-hero-product.jpg";
 
 const ML_URL =
   "https://www.mercadolibre.com.ar/piedras-sanitarias-silica-crystalcat-para-gatos-x-38l/p/MLA24808114?pdp_filters=item_id:MLA1757027613";
@@ -118,16 +118,13 @@ const CrystalCat = () => (
           className="absolute -top-24 left-1/2 -translate-x-1/2 w-[680px] h-[680px] rounded-full bg-gradient-to-br from-brand-orange/20 via-crystal/15 to-brand-green/15 blur-3xl opacity-70"
         />
 
-        <div className="container relative px-5 py-12 md:py-20">
+        <div className="container relative px-5 py-10 md:py-14">
           <div className="max-w-3xl mx-auto text-center animate-fade-in-up">
             <img
               src={crystalcatLogo}
               alt="Crystal Cat"
-              className="h-40 sm:h-48 md:h-60 w-auto mx-auto mb-6 md:mb-8 drop-shadow-md"
+              className="h-20 sm:h-24 md:h-28 w-auto mx-auto mb-5 md:mb-6 drop-shadow-sm"
             />
-            <p className="text-xs font-semibold tracking-widest uppercase text-brand-orange mb-3">
-              Pet Planet presenta
-            </p>
             <h1 className="text-3xl sm:text-5xl md:text-6xl font-heading font-extrabold leading-tight mb-4 md:mb-5">
               Piedras sanitarias de <span className="text-crystal">sílica</span> para gatos
             </h1>
@@ -145,21 +142,19 @@ const CrystalCat = () => (
             </div>
           </div>
 
-          {/* Imagen principal integrada al fondo */}
-          <div className="relative mt-12 md:mt-16 max-w-4xl mx-auto">
+          {/* Imagen producto integrada al fondo, sin recuadro */}
+          <div className="relative mt-10 md:mt-14 max-w-6xl mx-auto">
+            <img
+              src={crystalCatHero}
+              alt="Bolsa Crystal Cat con litera y piedras de sílica en un hogar"
+              className="w-full h-auto object-contain drop-shadow-2xl"
+              width={1920}
+              height={1080}
+            />
             <div
               aria-hidden
-              className="absolute -inset-6 bg-gradient-to-br from-brand-orange/15 via-crystal/10 to-brand-green/10 blur-3xl rounded-[3rem]"
+              className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-crystal-light/60 pointer-events-none"
             />
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl ring-1 ring-foreground/5">
-              <img
-                src={crystalCatHero}
-                alt="Gato blanco junto a litera con piedras Crystal Cat"
-                className="w-full h-auto object-cover"
-                width={1536}
-                height={1024}
-              />
-            </div>
           </div>
         </div>
       </section>
