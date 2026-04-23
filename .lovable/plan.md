@@ -1,51 +1,38 @@
 
 
-## Sección de reseñas de Mercado Libre (manual / curada)
+## Reseñas sin nombres de comprador
 
-Voy a crear una nueva sección **"Lo que opinan los clientes"** en la página de Crystal Cat, ubicada **entre "Consejos" y "Próximamente"**, con reseñas reales de Mercado Libre que vos me vas a pasar.
+Como no tenés los nombres, ajusto la sección de reseñas para que se vea bien sin ese dato.
 
-### Diseño
+### Opción elegida: "Comprador verificado"
 
-Encabezado con calificación general:
-- Logo/badge "Mercado Libre" + estrellas grandes (ej: ★ 4.8) + cantidad de opiniones
-- Subtítulo: "Reseñas reales de compradores verificados"
+En lugar del nombre, cada card muestra:
+- Ícono de avatar genérico (círculo con inicial o ícono `User` de lucide-react)
+- Texto **"Comprador verificado"** en lugar del nombre
+- Fecha (si la tenés) o se omite
 
-Grid de cards (3 columnas en desktop, 1 en mobile):
-- Estrellas (1–5) en amarillo
-- Texto de la reseña (con `line-clamp-5` para uniformidad)
-- Nombre del comprador + fecha
-- Pequeño badge "Compra verificada" en color suave
+Esto es lo que hacen muchos sitios cuando las reseñas son anónimas y mantiene la credibilidad.
 
-CTA al final:
-- Botón outline "Ver todas las opiniones en Mercado Libre" → abre el link del producto en nueva pestaña
+### Qué necesito de vos
 
-### Estilo visual
+Solo el **texto** de cada reseña y las **estrellas** (1–5). La fecha es opcional.
 
-- Fondo: `bg-muted/30` para alternar con la sección anterior
-- Cards: borde sutil, sombra suave al hover, esquinas redondeadas (consistente con resto de la página)
-- Estrellas con ícono `Star` de lucide-react (filled/outline)
-- Tipografías y colores existentes (`brand-yellow` para estrellas, `crystal` para acentos)
+Ejemplo del formato que me podés pasar:
 
-### Datos
-
-Mientras me pasás las reseñas reales, dejo **4 reseñas placeholder** realistas que luego vos reemplazás fácil editando un array al inicio del archivo:
-
-```ts
-const reviews = [
-  { name: "...", date: "...", rating: 5, text: "..." },
-  ...
-]
+```
+1. ★★★★★ — "Excelente producto, dura muchísimo y no huele nada."
+2. ★★★★☆ — "Muy bueno, mi gato se adaptó rápido."
+3. ★★★★★ — "La mejor piedra que probé hasta ahora."
 ```
 
-### Archivos a modificar
+### Cambios en el código
 
-- `src/pages/CrystalCat.tsx` — agregar sección `<ReviewsSection>` inline (siguiendo el patrón actual del archivo, sin crear componente separado salvo que prefieras)
-- Importar `Star` de `lucide-react`
+- `src/pages/CrystalCat.tsx`:
+  - Actualizar el array `reviews` quitando el campo `name` (o reemplazándolo por `"Comprador verificado"` fijo)
+  - En la card: reemplazar el nombre por un avatar circular pequeño + texto "Comprador verificado"
+  - La fecha queda opcional (se renderiza solo si existe)
 
-### Lo que necesito de vos después
+### Mientras tanto
 
-1. Las 4–6 reseñas reales (texto, nombre, fecha, estrellas) copiadas de la página de ML
-2. La calificación general y cantidad de opiniones que muestra ML hoy
-
-Cuando aprobes, lo implemento con placeholders y después los reemplazamos con los datos reales.
+Si querés, dejo las **4 reseñas placeholder actuales** pero ya con el formato anónimo aplicado, así ves cómo queda visualmente. Cuando me pases los textos reales los reemplazo en un toque.
 
