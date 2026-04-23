@@ -15,6 +15,7 @@ import {
   Star,
   ExternalLink,
   BadgeCheck,
+  User,
 } from "lucide-react";
 
 import iconCalendar from "@/assets/icon-calendar.png";
