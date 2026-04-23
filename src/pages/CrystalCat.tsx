@@ -81,29 +81,21 @@ const tips = [
   "Si tenés más de un gato, cambiá el contenido con mayor frecuencia para mantener la higiene.",
 ];
 
-// 🔁 Reemplazar con reseñas reales de Mercado Libre
-const reviews = [
+// 🔁 Reemplazar con reseñas reales de Mercado Libre (solo texto y rating)
+const reviews: { rating: number; text: string; date?: string }[] = [
   {
-    name: "María G.",
-    date: "Marzo 2025",
     rating: 5,
     text: "Excelente producto! Dura muchísimo más que la arena tradicional y no tiene olor. Mi gato se adaptó enseguida.",
   },
   {
-    name: "Lucas P.",
-    date: "Febrero 2025",
     rating: 5,
     text: "La verdad superó mis expectativas. Una bolsa me dura casi un mes con un gato. Súper recomendado.",
   },
   {
-    name: "Carolina M.",
-    date: "Enero 2025",
     rating: 4,
     text: "Muy buena absorción y prácticamente sin polvo. Llegó rápido y bien embalado. Lo vuelvo a comprar.",
   },
   {
-    name: "Diego R.",
-    date: "Diciembre 2024",
     rating: 5,
     text: "Hace meses que lo uso, no vuelvo más a la arena común. Limpio, liviano y sin olores en casa.",
   },
