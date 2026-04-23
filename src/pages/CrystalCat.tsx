@@ -379,9 +379,14 @@ const CrystalCat = () => (
                 <p className="text-sm text-foreground/80 leading-relaxed mb-4 line-clamp-5 flex-1">
                   “{r.text}”
                 </p>
-                <div className="pt-3 border-t border-border/60">
-                  <p className="font-heading font-semibold text-sm text-foreground">{r.name}</p>
-                  <p className="text-xs text-muted-foreground">{r.date}</p>
+                <div className="pt-3 border-t border-border/60 flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-full bg-crystal/10 text-crystal flex items-center justify-center shrink-0">
+                    <User className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <p className="font-heading font-semibold text-sm text-foreground">Comprador verificado</p>
+                    {r.date && <p className="text-xs text-muted-foreground">{r.date}</p>}
+                  </div>
                 </div>
               </article>
             ))}
