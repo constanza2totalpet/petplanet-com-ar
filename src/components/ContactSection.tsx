@@ -21,9 +21,9 @@ const ContactSection = () => {
           Si te interesa conocer más sobre nuestras marcas, completá tus datos a continuación y nos ponemos en contacto.
         </p>
 
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
           {/* Info */}
-          <div className="flex flex-col gap-4 sm:gap-6 justify-center">
+          <div className="flex flex-col gap-4 sm:gap-6">
             <a
               href="https://wa.me/5491123190096"
               target="_blank"

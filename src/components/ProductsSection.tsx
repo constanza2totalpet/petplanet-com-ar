@@ -11,7 +11,11 @@ import {
   ArrowRight,
   Sparkles,
   Check,
+  ShoppingCart,
 } from "lucide-react";
+
+const ML_URL =
+  "https://www.mercadolibre.com.ar/piedras-sanitarias-silica-crystalcat-para-gatos-x-38l/p/MLA24808114?pdp_filters=item_id:MLA1757027613";
 
 const features = [
   { icon: Droplets, label: "Alta absorción" },
@@ -81,9 +85,21 @@ const ProductsSection = () => (
             />
           </div>
 
-          <span className="inline-flex items-center gap-1 text-sm font-heading font-bold text-crystal group-hover:gap-2 transition-all">
-            Ver producto <ArrowRight className="w-4 h-4" />
-          </span>
+          <div className="flex flex-col gap-2">
+            <span className="inline-flex items-center gap-1 text-sm font-heading font-bold text-crystal group-hover:gap-2 transition-all">
+              Ver producto <ArrowRight className="w-4 h-4" />
+            </span>
+            <a
+              href={ML_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-brand-yellow px-4 py-2.5 font-heading font-bold text-sm text-foreground shadow hover:brightness-95 transition-all"
+            >
+              <ShoppingCart className="w-4 h-4" />
+              Comprar en Mercado Libre
+            </a>
+          </div>
         </Link>
 
         {/* ── Furaçao Pet ── */}
