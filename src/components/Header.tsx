@@ -1,20 +1,23 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ShoppingCart } from "lucide-react";
 import petplanetLogo from "@/assets/petplanet-logo.png";
 
 const navLinks = [
   { label: "Inicio", href: "/#inicio" },
-  { label: "Nosotros", href: "/#nosotros" },
   { label: "Marcas", href: "/#productos" },
+  { label: "Nosotros", href: "/#nosotros" },
   { label: "Contacto", href: "/#contacto" },
 ];
+
+const ML_URL =
+  "https://www.mercadolibre.com.ar/piedras-sanitarias-silica-crystalcat-para-gatos-x-38l/p/MLA24808114?pdp_filters=item_id:MLA1757027613";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 bg-card/90 backdrop-blur-md border-b">
-      <div className="container flex items-center justify-between h-16 md:h-20 px-5">
+      <div className="container flex items-center justify-between h-16 md:h-20 px-5 gap-4">
         <a href="/" className="flex items-center">
           <img
             src={petplanetLogo}
@@ -35,6 +38,17 @@ const Header = () => {
             </a>
           ))}
         </nav>
+
+        {/* Desktop CTA */}
+        <a
+          href={ML_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden md:inline-flex items-center gap-2 rounded-lg bg-brand-yellow px-4 py-2.5 font-heading font-bold text-sm text-foreground shadow hover:brightness-95 transition-all"
+        >
+          <ShoppingCart className="w-4 h-4" />
+          Comprar en Mercado Libre
+        </a>
 
         {/* Mobile toggle */}
         <button
@@ -59,6 +73,16 @@ const Header = () => {
               {l.label}
             </a>
           ))}
+          <a
+            href={ML_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setOpen(false)}
+            className="inline-flex items-center justify-center gap-2 rounded-lg bg-brand-yellow px-4 py-2.5 font-heading font-bold text-sm text-foreground shadow"
+          >
+            <ShoppingCart className="w-4 h-4" />
+            Comprar en Mercado Libre
+          </a>
         </nav>
       )}
     </header>
