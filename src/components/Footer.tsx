@@ -1,4 +1,4 @@
-import { Instagram, Facebook, Twitter } from "lucide-react";
+import { Instagram, Facebook } from "lucide-react";
 import petplanetLogo from "@/assets/petplanet-logo.png";
 
 const Footer = () => (
@@ -30,14 +30,11 @@ const Footer = () => (
         <div>
           <h4 className="font-heading font-bold text-sm mb-3">Redes sociales</h4>
           <div className="flex gap-4">
-            <a href="#" aria-label="Instagram" className="text-muted-foreground hover:text-crystal transition-colors">
+            <a href="https://www.instagram.com/petplanet" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-muted-foreground hover:text-crystal transition-colors">
               <Instagram className="w-5 h-5" />
             </a>
-            <a href="#" aria-label="Facebook" className="text-muted-foreground hover:text-crystal transition-colors">
+            <a href="https://www.facebook.com/petplanet" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-muted-foreground hover:text-crystal transition-colors">
               <Facebook className="w-5 h-5" />
-            </a>
-            <a href="#" aria-label="Twitter" className="text-muted-foreground hover:text-crystal transition-colors">
-              <Twitter className="w-5 h-5" />
             </a>
           </div>
         </div>

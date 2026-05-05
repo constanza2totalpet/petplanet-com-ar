@@ -12,6 +12,7 @@ import {
   Sparkles,
   Check,
   ShoppingCart,
+  MessageCircle,
 } from "lucide-react";
 
 const ML_URL =
@@ -154,7 +155,17 @@ const ProductsSection = () => (
             />
           </div>
 
-          <p className="text-xs text-muted-foreground italic mb-2">
+          <a
+            href="https://wa.me/5491123190096"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 rounded-lg bg-whatsapp px-4 py-2.5 font-heading font-bold text-sm text-white shadow hover:brightness-95 transition-all mb-2"
+          >
+            <MessageCircle className="w-4 h-4" />
+            Consultar por WhatsApp
+          </a>
+
+          <p className="text-xs text-muted-foreground italic">
             Ideal para pet shops
           </p>
         </div>
