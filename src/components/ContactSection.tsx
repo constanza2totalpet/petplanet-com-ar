@@ -1,13 +1,33 @@
 import { useState } from "react";
 import { Mail, MessageCircle, Send } from "lucide-react";
 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/REPLACE_WITH_YOUR_ID";
+
 const ContactSection = () => {
   const [form, setForm] = useState({ nombre: "", email: "", mensaje: "" });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert("¡Gracias por tu mensaje! Nos pondremos en contacto pronto.");
-    setForm({ nombre: "", email: "", mensaje: "" });
+    setStatus("loading");
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        setStatus("success");
+        setForm({ nombre: "", email: "", mensaje: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -53,6 +73,7 @@ const ContactSection = () => {
           <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:gap-4">
             <input
               type="text"
+              name="nombre"
               placeholder="Nombre"
               required
               value={form.nombre}
@@ -61,6 +82,7 @@ const ContactSection = () => {
             />
             <input
               type="email"
+              name="email"
               placeholder="Email"
               required
               value={form.email}
@@ -69,6 +91,7 @@ const ContactSection = () => {
             />
             <textarea
               placeholder="Contanos sobre tu negocio o consulta"
+              name="mensaje"
               required
               rows={4}
               value={form.mensaje}
@@ -77,11 +100,24 @@ const ContactSection = () => {
             />
             <button
               type="submit"
-              className="flex items-center justify-center gap-2 rounded-lg bg-brand-green px-6 py-3 font-heading font-bold text-white hover:bg-brand-green/90 shadow-md hover:shadow-lg transition-all"
+              disabled={status === "loading"}
+              className="flex items-center justify-center gap-2 rounded-lg bg-brand-green px-6 py-3 font-heading font-bold text-white hover:bg-brand-green/90 shadow-md hover:shadow-lg transition-all disabled:opacity-70 disabled:cursor-not-allowed"
             >
               <Send className="w-4 h-4" />
-              Quiero recibir más información
+              {status === "loading" ? "Enviando..." : "Quiero recibir más información"}
             </button>
+
+            {status === "success" && (
+              <p className="text-sm text-center rounded-lg border border-brand-green/40 bg-brand-green/10 text-brand-green px-4 py-3">
+                ¡Gracias por tu mensaje! Nos pondremos en contacto pronto.
+              </p>
+            )}
+            {status === "error" && (
+              <p className="text-sm text-center rounded-lg border border-destructive/40 bg-destructive/10 text-destructive px-4 py-3">
+                Hubo un error al enviar el mensaje. Intentá nuevamente.
+              </p>
+            )}
+
             <p className="text-xs text-muted-foreground text-center">
               Dejanos tus datos a continuación y te contactamos.
             </p>
