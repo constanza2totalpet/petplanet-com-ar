@@ -38,13 +38,13 @@ const ContactSection = () => {
             </a>
 
             <a
-              href="mailto:info@petplanet.com"
+              href="mailto:info@petplanet.com.ar"
               className="flex items-center gap-3 rounded-lg border p-4 hover:shadow-sm hover:border-crystal/30 transition-all"
             >
               <Mail className="w-6 h-6 text-crystal" />
               <div>
                 <p className="font-heading font-bold text-sm">Email</p>
-                <p className="text-xs text-muted-foreground">info@petplanet.com</p>
+                <p className="text-xs text-muted-foreground">info@petplanet.com.ar</p>
               </div>
             </a>
           </div>
