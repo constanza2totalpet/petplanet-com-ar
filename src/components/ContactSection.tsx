@@ -85,21 +85,15 @@ const ContactSection = () => {
             />
             <button
               type="submit"
-              disabled={status === "loading"}
-              className="flex items-center justify-center gap-2 rounded-lg bg-brand-green px-6 py-3 font-heading font-bold text-white hover:bg-brand-green/90 shadow-md hover:shadow-lg transition-all disabled:opacity-70 disabled:cursor-not-allowed"
+              className="flex items-center justify-center gap-2 rounded-lg bg-brand-green px-6 py-3 font-heading font-bold text-white hover:bg-brand-green/90 shadow-md hover:shadow-lg transition-all"
             >
               <Send className="w-4 h-4" />
-              {status === "loading" ? "Enviando..." : "Quiero recibir más información"}
+              Quiero recibir más información
             </button>
 
             {status === "success" && (
               <p className="text-sm text-center rounded-lg border border-brand-green/40 bg-brand-green/10 text-brand-green px-4 py-3">
-                ¡Gracias por tu mensaje! Nos pondremos en contacto pronto.
-              </p>
-            )}
-            {status === "error" && (
-              <p className="text-sm text-center rounded-lg border border-destructive/40 bg-destructive/10 text-destructive px-4 py-3">
-                Hubo un error al enviar el mensaje. Intentá nuevamente.
+                Se abrió tu cliente de email para enviar el mensaje. ¡Gracias!
               </p>
             )}
 
