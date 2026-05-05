@@ -1,18 +1,57 @@
 import { useState } from "react";
 import { Mail, MessageCircle, Send } from "lucide-react";
 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mwvybpvo";
+
 const ContactSection = () => {
   const [form, setForm] = useState({ nombre: "", email: "", mensaje: "" });
-  const [status, setStatus] = useState<"idle" | "success">("idle");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent("Consulta desde la web");
-    const body = encodeURIComponent(
-      `Nombre: ${form.nombre}\nEmail: ${form.email}\nMensaje: ${form.mensaje}`
-    );
-    window.location.href = `mailto:info@petplanet.com.ar?subject=${subject}&body=${body}`;
-    setStatus("success");
+
+    const nombre = form.nombre.trim();
+    const email = form.email.trim();
+    const mensaje = form.mensaje.trim();
+
+    if (!nombre || !email || !mensaje) {
+      setStatus("error");
+      setErrorMessage("Por favor completá todos los campos.");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setStatus("error");
+      setErrorMessage("Por favor ingresá un email válido.");
+      return;
+    }
+
+    setStatus("loading");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({ nombre, email, mensaje }),
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        setForm({ nombre: "", email: "", mensaje: "" });
+      } else {
+        setStatus("error");
+        setErrorMessage("Hubo un problema al enviar el mensaje. Intentá nuevamente.");
+      }
+    } catch {
+      setStatus("error");
+      setErrorMessage("No pudimos enviar tu mensaje. Verificá tu conexión e intentá de nuevo.");
+    }
   };
 
   return (
@@ -85,15 +124,22 @@ const ContactSection = () => {
             />
             <button
               type="submit"
-              className="flex items-center justify-center gap-2 rounded-lg bg-brand-green px-6 py-3 font-heading font-bold text-white hover:bg-brand-green/90 shadow-md hover:shadow-lg transition-all"
+              disabled={status === "loading"}
+              className="flex items-center justify-center gap-2 rounded-lg bg-brand-green px-6 py-3 font-heading font-bold text-white hover:bg-brand-green/90 shadow-md hover:shadow-lg transition-all disabled:opacity-60 disabled:cursor-not-allowed"
             >
               <Send className="w-4 h-4" />
-              Quiero recibir más información
+              {status === "loading" ? "Enviando..." : "Quiero recibir más información"}
             </button>
 
             {status === "success" && (
               <p className="text-sm text-center rounded-lg border border-brand-green/40 bg-brand-green/10 text-brand-green px-4 py-3">
-                Se abrió tu cliente de email para enviar el mensaje. ¡Gracias!
+                Mensaje enviado correctamente
+              </p>
+            )}
+
+            {status === "error" && (
+              <p className="text-sm text-center rounded-lg border border-destructive/40 bg-destructive/10 text-destructive px-4 py-3">
+                {errorMessage}
               </p>
             )}
 
