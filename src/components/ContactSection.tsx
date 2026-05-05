@@ -1,33 +1,18 @@
 import { useState } from "react";
 import { Mail, MessageCircle, Send } from "lucide-react";
 
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/REPLACE_WITH_YOUR_ID";
-
 const ContactSection = () => {
   const [form, setForm] = useState({ nombre: "", email: "", mensaje: "" });
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "success">("idle");
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus("loading");
-    try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(form),
-      });
-      if (res.ok) {
-        setStatus("success");
-        setForm({ nombre: "", email: "", mensaje: "" });
-      } else {
-        setStatus("error");
-      }
-    } catch {
-      setStatus("error");
-    }
+    const subject = encodeURIComponent("Consulta desde la web");
+    const body = encodeURIComponent(
+      `Nombre: ${form.nombre}\nEmail: ${form.email}\nMensaje: ${form.mensaje}`
+    );
+    window.location.href = `mailto:info@petplanet.com.ar?subject=${subject}&body=${body}`;
+    setStatus("success");
   };
 
   return (
