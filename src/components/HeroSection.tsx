@@ -33,6 +33,7 @@ const slides: Slide[] = [
   {
     variant: "centered",
     image: heroPets,
+    imageMobile: heroPetsMobile,
     eyebrow: "PET PLANET",
     titleLine1: "Creamos marcas",
     titleLine2: "para el mundo pet",
@@ -43,6 +44,7 @@ const slides: Slide[] = [
   {
     variant: "scene",
     image: crystalCatScene,
+    imageMobile: crystalCatSceneMobile,
     eyebrow: "CRYSTAL CAT",
     titleLine1: "Piedras sanitarias",
     titleLine2: "de sílica",
@@ -53,6 +55,7 @@ const slides: Slide[] = [
   {
     variant: "scene",
     image: furacaoScene,
+    imageMobile: furacaoSceneMobile,
     eyebrow: "FURAÇAO PET",
     titleLine1: "Juguetes importados",
     titleLine2: "para mascotas",
@@ -63,6 +66,7 @@ const slides: Slide[] = [
   {
     variant: "centered",
     image: heroBusiness,
+    imageMobile: heroBusinessMobile,
     eyebrow: "PARA TU NEGOCIO",
     titleLine1: "Sumá nuevas propuestas",
     titleLine2: "a tu negocio",
