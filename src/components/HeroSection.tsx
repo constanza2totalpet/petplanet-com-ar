@@ -3,9 +3,13 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import heroPets from "@/assets/hero-pets-dog-cat.jpg";
+import heroPetsMobile from "@/assets/hero-pets-dog-cat-mobile.jpg";
 import heroBusiness from "@/assets/hero-business-shelf.jpg";
+import heroBusinessMobile from "@/assets/hero-business-shelf-mobile.jpg";
 import crystalCatScene from "@/assets/crystal-cat-scene.jpg";
+import crystalCatSceneMobile from "@/assets/crystal-cat-scene-mobile.jpg";
 import furacaoScene from "@/assets/furacao-scene.jpg";
+import furacaoSceneMobile from "@/assets/furacao-scene-mobile.jpg";
 
 type Slide = {
   eyebrow: string;
@@ -18,6 +22,7 @@ type Slide = {
   variant: "centered" | "split" | "scene";
   // For centered & scene variant
   image?: string;
+  imageMobile?: string;
   // For split variant
   productImage?: string;
   productAlt?: string;
