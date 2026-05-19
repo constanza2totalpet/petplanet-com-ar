@@ -102,25 +102,28 @@ const HeroSection = () => {
   return (
     <section
       id="inicio"
-      className="relative min-h-[80svh] md:min-h-[560px] overflow-hidden"
+      className="relative min-h-[78svh] sm:min-h-[70svh] md:min-h-[560px] overflow-hidden"
     >
       <div ref={emblaRef} className="h-full">
         <div className="flex h-full">
           {slides.map((s, i) => (
             <div
               key={i}
-              className="relative flex-[0_0_100%] min-h-[80svh] md:min-h-[560px] flex items-center justify-center"
+              className="relative flex-[0_0_100%] min-h-[78svh] sm:min-h-[70svh] md:min-h-[560px] flex items-center justify-center"
             >
               {s.variant === "centered" && (
                 <>
-                  <img
-                    src={s.image}
-                    alt={`${s.titleLine1} ${s.titleLine2}`}
-                    className="absolute inset-0 w-full h-full object-cover"
-                    width={1920}
-                    height={1080}
-                    loading={i === 0 ? "eager" : "lazy"}
-                  />
+                  <picture>
+                    <source media="(max-width: 767px)" srcSet={s.imageMobile} />
+                    <img
+                      src={s.image}
+                      alt={`${s.titleLine1} ${s.titleLine2}`}
+                      className="absolute inset-0 w-full h-full object-cover"
+                      width={1920}
+                      height={1080}
+                      loading={i === 0 ? "eager" : "lazy"}
+                    />
+                  </picture>
                   {/* Soft warm gradient overlay: keeps pets visible on the sides, darkens center for legibility */}
                   <div className="absolute inset-0 bg-gradient-to-b from-foreground/55 via-foreground/35 to-foreground/55" />
                   <div className="relative z-10 text-center px-5 py-10 md:py-20 max-w-3xl mx-auto animate-fade-in-up">
@@ -155,19 +158,22 @@ const HeroSection = () => {
               {s.variant === "scene" && (
                 <>
                   {/* Full-bleed lifestyle scene */}
-                  <img
-                    src={s.image}
-                    alt={`${s.titleLine1} ${s.titleLine2}`}
-                    className="absolute inset-0 w-full h-full object-cover"
-                    width={1920}
-                    height={1080}
-                    loading={i === 0 ? "eager" : "lazy"}
-                  />
-                  {/* Side gradient: dark on the left for legibility, transparent on the right to keep the product visible */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-foreground/70 via-foreground/40 to-transparent md:from-foreground/65 md:via-foreground/25 md:to-transparent" />
-                  {/* Mobile gets a softer top-to-bottom overlay for readability over the scene */}
-                  <div className="absolute inset-0 md:hidden bg-foreground/30" />
-                  <div className="relative z-10 w-full max-w-6xl mx-auto px-6 md:px-12 py-10 md:py-16 grid grid-cols-1 md:grid-cols-2 items-center animate-fade-in-up">
+                  <picture>
+                    <source media="(max-width: 767px)" srcSet={s.imageMobile} />
+                    <img
+                      src={s.image}
+                      alt={`${s.titleLine1} ${s.titleLine2}`}
+                      className="absolute inset-0 w-full h-full object-cover"
+                      width={1920}
+                      height={1080}
+                      loading={i === 0 ? "eager" : "lazy"}
+                    />
+                  </picture>
+                  {/* Desktop: dark on the left for legibility, transparent on the right to keep the product visible */}
+                  <div className="absolute inset-0 hidden md:block bg-gradient-to-r from-foreground/65 via-foreground/25 to-transparent" />
+                  {/* Mobile: vertical gradient — dark on top behind the text, lighter at the bottom so the centered subject reads */}
+                  <div className="absolute inset-0 md:hidden bg-gradient-to-b from-foreground/75 via-foreground/35 to-foreground/55" />
+                  <div className="relative z-10 w-full max-w-6xl mx-auto px-6 md:px-12 py-10 md:py-16 grid grid-cols-1 md:grid-cols-2 items-start md:items-center animate-fade-in-up">
                     <div className="text-center md:text-left">
                       <p className="text-xs sm:text-sm md:text-base font-medium tracking-widest uppercase text-primary-foreground/85 mb-3 md:mb-4">
                         {s.eyebrow}
