@@ -15,8 +15,9 @@ import {
   MessageCircle,
 } from "lucide-react";
 
-const ML_URL =
-  "https://www.mercadolibre.com.ar/piedras-sanitarias-silica-crystalcat-para-gatos-x-38l/p/MLA24808114?pdp_filters=item_id:MLA1757027613";
+const WHATSAPP_URL =
+  "https://wa.me/5491123190096?text=" +
+  encodeURIComponent("Hola! Quiero recibir más información sobre los productos de Pet Planet.");
 
 const features = [
   { icon: Droplets, label: "Alta absorción" },
