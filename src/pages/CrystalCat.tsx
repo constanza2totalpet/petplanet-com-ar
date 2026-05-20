@@ -28,8 +28,8 @@ import bolsaImg from "@/assets/bolsa-crystalcat.png";
 import crystalcatLogo from "@/assets/crystalcat-logo-transparent.png";
 import crystalCatHero from "@/assets/crystal-cat-hero-product.jpg";
 
-const ML_URL =
-  "https://www.mercadolibre.com.ar/piedras-sanitarias-silica-crystalcat-para-gatos-x-38l/p/MLA24808114?pdp_filters=item_id:MLA1757027613";
+
+
 
 const WHATSAPP_NUMBER = "5491123190096";
 const WHATSAPP_DEFAULT_MSG = "Hola! Quiero consultar por Crystal Cat.";
