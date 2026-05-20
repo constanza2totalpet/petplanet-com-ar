@@ -92,14 +92,14 @@ const ProductsSection = () => (
               Ver producto <ArrowRight className="w-4 h-4" />
             </span>
             <a
-              href={ML_URL}
+              href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-brand-yellow px-4 py-2.5 font-heading font-bold text-sm text-foreground shadow hover:brightness-95 transition-all"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-whatsapp px-4 py-2.5 font-heading font-bold text-sm text-white shadow hover:brightness-95 transition-all"
             >
-              <ShoppingCart className="w-4 h-4" />
-              Comprar en Mercado Libre
+              <MessageCircle className="w-4 h-4" />
+              Consultar por WhatsApp
             </a>
           </div>
         </Link>
