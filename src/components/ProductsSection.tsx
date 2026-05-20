@@ -15,8 +15,9 @@ import {
   MessageCircle,
 } from "lucide-react";
 
-const ML_URL =
-  "https://www.mercadolibre.com.ar/piedras-sanitarias-silica-crystalcat-para-gatos-x-38l/p/MLA24808114?pdp_filters=item_id:MLA1757027613";
+const WHATSAPP_URL =
+  "https://wa.me/5491123190096?text=" +
+  encodeURIComponent("Hola! Quiero recibir más información sobre los productos de Pet Planet.");
 
 const features = [
   { icon: Droplets, label: "Alta absorción" },
@@ -91,14 +92,14 @@ const ProductsSection = () => (
               Ver producto <ArrowRight className="w-4 h-4" />
             </span>
             <a
-              href={ML_URL}
+              href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-brand-yellow px-4 py-2.5 font-heading font-bold text-sm text-foreground shadow hover:brightness-95 transition-all"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-whatsapp px-4 py-2.5 font-heading font-bold text-sm text-white shadow hover:brightness-95 transition-all"
             >
-              <ShoppingCart className="w-4 h-4" />
-              Comprar en Mercado Libre
+              <MessageCircle className="w-4 h-4" />
+              Consultar por WhatsApp
             </a>
           </div>
         </Link>

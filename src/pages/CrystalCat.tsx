@@ -28,8 +28,8 @@ import bolsaImg from "@/assets/bolsa-crystalcat.png";
 import crystalcatLogo from "@/assets/crystalcat-logo-transparent.png";
 import crystalCatHero from "@/assets/crystal-cat-hero-product.jpg";
 
-const ML_URL =
-  "https://www.mercadolibre.com.ar/piedras-sanitarias-silica-crystalcat-para-gatos-x-38l/p/MLA24808114?pdp_filters=item_id:MLA1757027613";
+
+
 
 const WHATSAPP_NUMBER = "5491123190096";
 const WHATSAPP_DEFAULT_MSG = "Hola! Quiero consultar por Crystal Cat.";
@@ -371,13 +371,13 @@ const CrystalCat = () => (
 
           <div className="text-center mt-10">
             <a
-              href={ML_URL}
+              href={"https://wa.me/5491123190096?text=" + encodeURIComponent("Hola! Quiero recibir más información sobre los productos de Pet Planet.")}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg border-2 border-crystal px-6 py-3 font-heading font-bold text-crystal hover:bg-crystal hover:text-white transition-colors"
+              className="inline-flex items-center gap-2 rounded-lg bg-whatsapp px-6 py-3 font-heading font-bold text-white shadow hover:brightness-95 transition-all"
             >
-              Ver todas las opiniones en Mercado Libre
-              <ExternalLink className="w-4 h-4" />
+              <MessageCircle className="w-4 h-4" />
+              Consultar por WhatsApp
             </a>
           </div>
         </div>
