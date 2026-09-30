@@ -112,7 +112,9 @@ const ProductsSection = () => (
             Marca importada
           </p>
 
-          <img src={cativaLogoGreen} alt="Cativa" loading="lazy" className="mb-5 h-12 sm:h-14 w-auto object-contain self-start" />
+          <div className="mb-5 py-2">
+            <img src={cativaLogoGreen} alt="Cativa" loading="lazy" className="h-12 sm:h-14 w-auto" />
+          </div>
 
           <div className="mb-4">
             <p className="text-sm sm:text-base font-heading font-semibold text-foreground/80">
@@ -132,14 +134,14 @@ const ProductsSection = () => (
             ))}
           </ul>
 
-          <div className="aspect-[4/3] rounded-xl overflow-hidden mb-4 shadow-md ring-1 ring-black/5">
+          <div className="aspect-square rounded-xl overflow-hidden mb-4 flex-1 shadow-md ring-1 ring-black/5">
             <img
               src={cativaCard.url}
               alt="Piedras sanitarias Cativa junto a un gato en el hogar"
               loading="lazy"
               width={1024}
               height={1024}
-              className="w-full h-full object-cover object-[center_60%] group-hover:scale-105 transition-transform duration-500"
+              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
             />
           </div>
 
