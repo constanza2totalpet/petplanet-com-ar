@@ -112,14 +112,22 @@ const ProductsSection = () => (
             Marca importada
           </p>
 
-          <div className="mb-5 rounded-lg bg-cativa px-4 py-3">
-            <img
-              src={cativaLogo.url}
-              alt="Cativa"
-              loading="lazy"
-              className="h-12 sm:h-14 w-auto object-contain"
-            />
-          </div>
+          <div
+            role="img"
+            aria-label="Cativa"
+            className="mb-5 h-12 sm:h-14 bg-cativa"
+            style={{
+              aspectRatio: "1635 / 563",
+              WebkitMaskImage: `url(${cativaLogo.url})`,
+              maskImage: `url(${cativaLogo.url})`,
+              WebkitMaskSize: "contain",
+              maskSize: "contain",
+              WebkitMaskRepeat: "no-repeat",
+              maskRepeat: "no-repeat",
+              WebkitMaskPosition: "left center",
+              maskPosition: "left center",
+            }}
+          />
 
           <div className="mb-4">
             <p className="text-sm sm:text-base font-heading font-semibold text-foreground/80">
