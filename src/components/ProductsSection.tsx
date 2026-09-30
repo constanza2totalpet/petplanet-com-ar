@@ -147,14 +147,14 @@ const ProductsSection = () => (
             ))}
           </ul>
 
-          <div className="aspect-square rounded-xl overflow-hidden mb-4 mt-auto shadow-md ring-1 ring-black/5">
+          <div className="aspect-[4/3] rounded-xl overflow-hidden mb-4 mt-auto shadow-md ring-1 ring-black/5">
             <img
               src={cativaCard.url}
               alt="Piedras sanitarias Cativa junto a un gato en el hogar"
               loading="lazy"
               width={1024}
               height={1024}
-              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+              className="w-full h-full object-cover object-[center_60%] group-hover:scale-105 transition-transform duration-500"
             />
           </div>
 
