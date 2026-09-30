@@ -4,6 +4,7 @@ import crystalcatLogo from "@/assets/crystalcat-logo-transparent.png";
 import furacaoLogo from "@/assets/furacao-pet-logo-transparent.png";
 import furacaoScene from "@/assets/furacao-scene.jpg";
 import cativaCard from "@/assets/cativa-card.png.asset.json";
+import cativaLogo from "@/assets/cativa-logo.png";
 import {
   PawPrint,
   Droplets,
@@ -111,10 +112,13 @@ const ProductsSection = () => (
             Marca importada
           </p>
 
-          <div className="mb-5 py-2 h-16 sm:h-[4.5rem] flex items-center">
-            <h3 className="text-4xl sm:text-5xl font-heading font-extrabold lowercase tracking-tight text-cativa leading-none">
-              cativa
-            </h3>
+          <div className="mb-5 py-2">
+            <img
+              src={cativaLogo}
+              alt="Cativa"
+              loading="lazy"
+              className="h-12 sm:h-14 w-auto"
+            />
           </div>
 
           <div className="mb-4">
@@ -135,14 +139,14 @@ const ProductsSection = () => (
             ))}
           </ul>
 
-          <div className="aspect-square rounded-xl overflow-hidden mb-4 flex-1 shadow-md ring-1 ring-black/5">
+          <div className="aspect-square rounded-xl overflow-hidden mb-4 mt-auto shadow-md ring-1 ring-black/5">
             <img
               src={cativaCard.url}
               alt="Piedras sanitarias Cativa junto a un gato en el hogar"
               loading="lazy"
               width={1024}
               height={1024}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
             />
           </div>
 
