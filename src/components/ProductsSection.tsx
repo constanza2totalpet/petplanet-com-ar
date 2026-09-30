@@ -4,7 +4,7 @@ import crystalcatLogo from "@/assets/crystalcat-logo-transparent.png";
 import furacaoLogo from "@/assets/furacao-pet-logo-transparent.png";
 import furacaoScene from "@/assets/furacao-scene.jpg";
 import cativaCard from "@/assets/cativa-card.png.asset.json";
-import cativaLogo from "@/assets/cativa-logo-white.png.asset.json";
+import cativaLogoGreen from "@/assets/cativa-logo-green.png";
 import {
   PawPrint,
   Droplets,
@@ -112,22 +112,7 @@ const ProductsSection = () => (
             Marca importada
           </p>
 
-          <div
-            role="img"
-            aria-label="Cativa"
-            className="mb-5 h-12 sm:h-14 bg-cativa"
-            style={{
-              aspectRatio: "1635 / 563",
-              WebkitMaskImage: `url(${cativaLogo.url})`,
-              maskImage: `url(${cativaLogo.url})`,
-              WebkitMaskSize: "contain",
-              maskSize: "contain",
-              WebkitMaskRepeat: "no-repeat",
-              maskRepeat: "no-repeat",
-              WebkitMaskPosition: "left center",
-              maskPosition: "left center",
-            }}
-          />
+          <img src={cativaLogoGreen} alt="Cativa" loading="lazy" className="mb-5 h-12 sm:h-14 w-auto object-contain self-start" />
 
           <div className="mb-4">
             <p className="text-sm sm:text-base font-heading font-semibold text-foreground/80">
@@ -147,7 +132,7 @@ const ProductsSection = () => (
             ))}
           </ul>
 
-          <div className="aspect-[4/3] rounded-xl overflow-hidden mb-4 mt-auto shadow-md ring-1 ring-black/5">
+          <div className="aspect-[4/3] rounded-xl overflow-hidden mb-4 shadow-md ring-1 ring-black/5">
             <img
               src={cativaCard.url}
               alt="Piedras sanitarias Cativa junto a un gato en el hogar"
