@@ -223,8 +223,6 @@ const ProductsSection = () => (
             Ideal para pet shops
           </p>
         </div>
-
-      </div>
       </div>
     </div>
   </section>
