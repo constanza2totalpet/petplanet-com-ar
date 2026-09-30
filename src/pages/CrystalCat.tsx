@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import {
   Package,
   Feather,
@@ -168,8 +169,34 @@ const LeadFormSection = () => {
   );
 };
 
+const SEO_TITLE = "Crystal Cat | Piedras sanitarias de sílica para gatos";
+const SEO_DESC = "Piedras sanitarias de sílica Crystal Cat 3,8 L: alta absorción, neutralizan olores, sin polvo e hipoalergénicas. Rinden hasta 30 días.";
+const SEO_URL = "https://petplanet.com.ar/crystal-cat";
+
 const CrystalCat = () => (
   <div className="min-h-screen flex flex-col">
+    <Helmet>
+      <title>{SEO_TITLE}</title>
+      <meta name="description" content={SEO_DESC} />
+      <link rel="canonical" href={SEO_URL} />
+      <meta property="og:title" content={SEO_TITLE} />
+      <meta property="og:description" content={SEO_DESC} />
+      <meta property="og:url" content={SEO_URL} />
+      <meta property="og:type" content="product" />
+      <meta name="twitter:title" content={SEO_TITLE} />
+      <meta name="twitter:description" content={SEO_DESC} />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Product",
+          name: "Crystal Cat — Piedras sanitarias de sílica 3,8 L",
+          description: SEO_DESC,
+          image: `https://petplanet.com.ar${bolsaImg}`,
+          brand: { "@type": "Brand", name: "Crystal Cat" },
+          url: SEO_URL,
+        })}
+      </script>
+    </Helmet>
     <Header />
 
     <main className="flex-1">
