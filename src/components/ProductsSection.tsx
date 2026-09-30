@@ -3,6 +3,7 @@ import crystalcatScene from "@/assets/crystalcat-scene.jpg";
 import crystalcatLogo from "@/assets/crystalcat-logo-transparent.png";
 import furacaoLogo from "@/assets/furacao-pet-logo-transparent.png";
 import furacaoScene from "@/assets/furacao-scene.jpg";
+import cativaCard from "@/assets/cativa-card.png.asset.json";
 import {
   PawPrint,
   Droplets,
@@ -104,6 +105,58 @@ const ProductsSection = () => (
           </div>
         </Link>
 
+        {/* ── Cativa ── */}
+        <div className="group rounded-2xl border bg-gradient-to-br from-cativa/10 via-card to-brand-yellow/10 p-6 sm:p-7 flex flex-col hover:shadow-xl hover:border-cativa/40 transition-all">
+          <p className="text-xs font-semibold tracking-widest uppercase text-cativa mb-3">
+            Marca importada
+          </p>
+
+          <div className="mb-5 py-2 h-16 sm:h-[4.5rem] flex items-center">
+            <h3 className="text-4xl sm:text-5xl font-heading font-extrabold lowercase tracking-tight text-cativa leading-none">
+              cativa
+            </h3>
+          </div>
+
+          <div className="mb-4">
+            <p className="text-sm sm:text-base font-heading font-semibold text-foreground/80">
+              Higiene natural para gatos
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Piedras sanitarias de mandioca
+            </p>
+          </div>
+
+          <ul className="space-y-2 mb-5">
+            {["Natural", "Biodegradable", "Control de olores", "Libre de polvo"].map((b) => (
+              <li key={b} className="flex items-start gap-2 text-sm text-muted-foreground">
+                <Check className="w-4 h-4 text-cativa shrink-0 mt-0.5" />
+                <span>{b}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div className="aspect-square rounded-xl overflow-hidden mb-4 flex-1 shadow-md ring-1 ring-black/5">
+            <img
+              src={cativaCard.url}
+              alt="Piedras sanitarias Cativa junto a un gato en el hogar"
+              loading="lazy"
+              width={1024}
+              height={1024}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 rounded-lg bg-whatsapp px-4 py-2.5 font-heading font-bold text-sm text-white shadow hover:brightness-95 transition-all"
+          >
+            <MessageCircle className="w-4 h-4" />
+            Consultar por WhatsApp
+          </a>
+        </div>
+
         {/* ── Furaçao Pet ── */}
         <div className="group rounded-2xl border bg-gradient-to-br from-brand-orange/10 via-card to-brand-pink/5 p-6 sm:p-7 flex flex-col hover:shadow-xl hover:border-brand-pink/40 transition-all">
           <p className="text-xs font-semibold tracking-widest uppercase text-brand-pink mb-3">
@@ -169,43 +222,6 @@ const ProductsSection = () => (
           <p className="text-xs text-muted-foreground italic">
             Ideal para pet shops
           </p>
-        </div>
-
-        {/* ── Marca en desarrollo ── */}
-        <div className="rounded-2xl border border-dashed bg-gradient-to-br from-muted/40 to-muted/10 p-6 sm:p-7 flex flex-col">
-          <p className="text-xs font-semibold tracking-widest uppercase text-coming-soon mb-3">
-            En desarrollo
-          </p>
-
-          <div className="flex items-center gap-3 mb-5">
-            <div className="w-12 h-12 rounded-xl bg-coming-soon/15 flex items-center justify-center">
-              <Sparkles className="w-6 h-6 text-coming-soon" />
-            </div>
-            <h3 className="text-2xl font-heading font-extrabold text-foreground/70">
-              Marca en desarrollo
-            </h3>
-          </div>
-
-          <p className="text-sm sm:text-base font-heading font-semibold text-foreground/70 mb-5">
-            Próximamente
-          </p>
-
-          <div className="grid gap-3 flex-1">
-            {[1, 2, 3].map((i) => (
-              <div
-                key={i}
-                className="flex items-center gap-3 rounded-xl border border-dashed bg-background/40 p-3 opacity-70"
-              >
-                <div className="w-12 h-12 rounded-lg bg-coming-soon/10 flex items-center justify-center shrink-0">
-                  <PawPrint className="w-5 h-5 text-coming-soon" />
-                </div>
-                <div className="flex-1">
-                  <div className="h-2.5 w-3/4 rounded bg-coming-soon/20 mb-2" />
-                  <div className="h-2 w-1/2 rounded bg-coming-soon/15" />
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </div>
