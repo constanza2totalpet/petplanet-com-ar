@@ -10,6 +10,8 @@ import crystalCatScene from "@/assets/crystal-cat-scene.jpg";
 import crystalCatSceneMobile from "@/assets/crystal-cat-scene-mobile.jpg";
 import furacaoScene from "@/assets/furacao-scene.jpg";
 import furacaoSceneMobile from "@/assets/furacao-scene-mobile.jpg";
+import cativaScene from "@/assets/cativa-scene.jpg";
+import cativaSceneMobile from "@/assets/cativa-scene-mobile.jpg";
 
 type Slide = {
   eyebrow: string;
@@ -62,6 +64,17 @@ const slides: Slide[] = [
     subtitle: "Diseñados para el juego y la actividad",
     accent: "bg-brand-pink hover:bg-brand-pink/90",
     cta: { label: "Conocer más", href: "#productos" },
+  },
+  {
+    variant: "scene",
+    image: cativaScene,
+    imageMobile: cativaSceneMobile,
+    eyebrow: "CATIVA",
+    titleLine1: "Natural para tu gato.",
+    titleLine2: "Consciente con el planeta.",
+    subtitle: "Piedras sanitarias de mandioca con una nueva forma de cuidar.",
+    accent: "bg-cativa hover:bg-cativa/90",
+    cta: { label: "Conocé Cativa", href: "#productos" },
   },
   {
     variant: "centered",
