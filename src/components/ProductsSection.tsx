@@ -112,14 +112,22 @@ const ProductsSection = () => (
             Marca importada
           </p>
 
-          <div className="mb-5 rounded-lg bg-cativa px-4 py-3">
-            <img
-              src={cativaLogo.url}
-              alt="Cativa"
-              loading="lazy"
-              className="h-12 sm:h-14 w-auto object-contain"
-            />
-          </div>
+          <div
+            role="img"
+            aria-label="Cativa"
+            className="mb-5 h-12 sm:h-14 bg-cativa"
+            style={{
+              aspectRatio: "1635 / 563",
+              WebkitMaskImage: `url(${cativaLogo.url})`,
+              maskImage: `url(${cativaLogo.url})`,
+              WebkitMaskSize: "contain",
+              maskSize: "contain",
+              WebkitMaskRepeat: "no-repeat",
+              maskRepeat: "no-repeat",
+              WebkitMaskPosition: "left center",
+              maskPosition: "left center",
+            }}
+          />
 
           <div className="mb-4">
             <p className="text-sm sm:text-base font-heading font-semibold text-foreground/80">
@@ -139,14 +147,14 @@ const ProductsSection = () => (
             ))}
           </ul>
 
-          <div className="aspect-square rounded-xl overflow-hidden mb-4 mt-auto shadow-md ring-1 ring-black/5">
+          <div className="aspect-[4/3] rounded-xl overflow-hidden mb-4 mt-auto shadow-md ring-1 ring-black/5">
             <img
               src={cativaCard.url}
               alt="Piedras sanitarias Cativa junto a un gato en el hogar"
               loading="lazy"
               width={1024}
               height={1024}
-              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+              className="w-full h-full object-cover object-[center_60%] group-hover:scale-105 transition-transform duration-500"
             />
           </div>
 
