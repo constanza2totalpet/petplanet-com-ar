@@ -91,14 +91,14 @@ const Cativa = () => {
         {/* Mobile: la marca madre ocupa una franja superior propia para no competir con la fila principal */}
         <div className="md:hidden border-b border-cativa/10 bg-cativa/5">
           <div className="container flex items-center h-12 px-5">
-            <PetPlanetLink imgClassName="h-9" />
+            <PetPlanetLink imgClassName="h-6" />
           </div>
         </div>
 
         <div className="container flex items-center justify-between h-16 md:h-20 px-5">
-          <div className="flex min-w-0 items-center gap-4 md:gap-7">
+          <div className="flex min-w-0 items-center gap-4 md:gap-6">
             {/* Marca madre: identificación y acceso de regreso al sitio principal */}
-            <PetPlanetLink imgClassName="hidden md:block h-[46px]" />
+            <PetPlanetLink imgClassName="hidden md:block h-[30px]" />
             <a href="#inicio" aria-label="Cativa, inicio" className="shrink-0">
               <Logo className="h-8 md:h-10" />
             </a>
