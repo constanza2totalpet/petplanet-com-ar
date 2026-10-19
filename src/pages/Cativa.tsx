@@ -22,8 +22,8 @@ const nav = [
 ];
 
 const benefits = [
-  { icon: Sprout, title: "Origen vegetal", text: "Elaboradas a base de mandioca." },
-  { icon: Sparkles, title: "Higiene cotidiana", text: "Pensadas para acompañar la rutina diaria de tu gato." },
+  { icon: Sprout, title: "Origen vegetal", text: "Elaborada a base de mandioca." },
+  { icon: Sparkles, title: "Higiene cotidiana", text: "Pensada para acompañar la rutina diaria de tu gato." },
   { icon: Hand, title: "Practicidad", text: "Fáciles de usar y de mantener en casa." },
   { icon: Globe2, title: "Consideración por el ambiente", text: "Una alternativa natural para un hogar más consciente." },
 ];
@@ -77,14 +77,14 @@ const Cativa = () => {
   return (
     <div className="min-h-screen flex flex-col bg-cativa-cream text-foreground">
       <Helmet>
-        <title>Cativa | Piedras sanitarias de mandioca para gatos</title>
+        <title>Cativa | Arena sanitaria para gatos a base de mandioca</title>
         <meta
           name="description"
-          content="Cativa: piedras sanitarias para gatos a base de mandioca. Una forma más natural de cuidar su higiene. Naturalmente, Cativa."
+          content="Cativa: arena sanitaria para gatos a base de mandioca. Una forma más natural de cuidar su higiene. Naturalmente, Cativa."
         />
         <link rel="canonical" href="https://petplanet.com.ar/cativa" />
         <meta property="og:title" content="Cativa | Naturalmente, Cativa." />
-        <meta property="og:description" content="Piedras sanitarias para gatos a base de mandioca." />
+        <meta property="og:description" content="Arena sanitaria para gatos a base de mandioca." />
         <meta property="og:url" content="https://petplanet.com.ar/cativa" />
       </Helmet>
 
@@ -145,7 +145,7 @@ const Cativa = () => {
                 Una forma más natural de cuidar su higiene.
               </h1>
               <p className="text-base md:text-lg text-cativa-stone mb-8">
-                Conocé Cativa, piedras sanitarias a base de mandioca, pensadas para acompañar el bienestar de tu gato y tu hogar.
+                Conocé Cativa, arena sanitaria para gatos a base de mandioca, pensada para acompañar el bienestar de tu gato y tu hogar.
               </p>
               <div className="flex flex-wrap justify-center md:justify-start gap-3">
                 <a href="#conoce" className={btnPrimary}>Descubrí Cativa</a>
@@ -164,8 +164,39 @@ const Cativa = () => {
             </h2>
             <div className="space-y-4 text-cativa-stone leading-relaxed">
               <p>Cativa nace de una idea simple: que la higiene de tu gato puede ser más natural.</p>
-              <p>Por eso elegimos la mandioca como base de nuestras piedras sanitarias, una materia prima de origen vegetal que nos permite ofrecer una alternativa cálida y consciente para el día a día en casa.</p>
+              <p>Por eso elegimos la mandioca como base de nuestra arena sanitaria, una materia prima de origen vegetal que nos permite ofrecer una alternativa cálida y consciente para el día a día en casa.</p>
             </div>
+          </div>
+        </section>
+
+        {/* Arena sanitaria de mandioca */}
+        <section id="arena-de-mandioca" aria-labelledby="arena-de-mandioca-title" className="border-t border-cativa/10 py-16 md:py-24">
+          <div className="container px-5 grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div className="space-y-8">
+              <div>
+                <h2 id="arena-de-mandioca-title" className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold text-cativa mb-5">
+                  ¿Qué es la arena sanitaria de mandioca?
+                </h2>
+                <p className="text-cativa-stone leading-relaxed">
+                  Cativa es una arena sanitaria para gatos elaborada a base de mandioca, una materia prima de origen vegetal. Es una alternativa a las arenas sanitarias tradicionales que invita a descubrir una nueva forma de cuidar la higiene diaria de tu gato.
+                </p>
+              </div>
+              <div className="border-t border-cativa/15 pt-6">
+                <h3 className="text-xl font-heading font-bold text-cativa mb-3">¿Cómo funciona?</h3>
+                <p className="text-cativa-stone leading-relaxed">
+                  La arena sanitaria se utiliza en la bandeja de tu gato para acompañar su rutina de higiene. Su composición a base de mandioca es el punto de partida de una propuesta que busca integrar practicidad y origen vegetal en el cuidado cotidiano.
+                </p>
+              </div>
+              <div className="border-t border-cativa/15 pt-6">
+                <h3 className="text-xl font-heading font-bold text-cativa mb-3">¿Por qué elegir Cativa?</h3>
+                <p className="text-cativa-stone leading-relaxed">
+                  Porque la elección de la arena sanitaria también forma parte del bienestar diario de tu gato. Con Cativa, incorporás una alternativa de origen vegetal a su rutina de higiene.
+                </p>
+              </div>
+            </div>
+            <figure className="min-w-0">
+              <img src={cativaCard.url} alt="Packaging original de Cativa en tres presentaciones, junto a un gato y su arena sanitaria de mandioca" className="w-full h-auto rounded-lg" loading="lazy" />
+            </figure>
           </div>
         </section>
 
@@ -173,7 +204,7 @@ const Cativa = () => {
         <section id="beneficios" className="py-16 md:py-24 bg-card">
           <div className="container px-5">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold text-cativa text-center mb-10 md:mb-14">
-              Pensadas para su bienestar
+              Pensada para su bienestar
             </h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
               {benefits.map(({ icon: Icon, title, text }) => (
@@ -212,9 +243,9 @@ const Cativa = () => {
             <div className="order-2 md:order-1 text-center md:text-left">
               <p className="text-xs font-semibold tracking-widest uppercase text-cativa-sage mb-3">El producto</p>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold text-cativa mb-5">
-                Piedras sanitarias de mandioca
+                Arena sanitaria para gatos a base de mandioca
               </h2>
-              <p className="text-cativa-stone mb-6">Disponibles en tres presentaciones:</p>
+              <p className="text-cativa-stone mb-6">Disponible en tres presentaciones:</p>
               <ul className="space-y-3 mb-8 inline-block text-left">
                 {presentations.map((p) => (
                   <li key={p.name} className="flex items-center gap-3 font-medium">
