@@ -12,6 +12,8 @@ const WHATSAPP_URL =
   "https://wa.me/5491123190096?text=" +
   encodeURIComponent("Hola! Quiero recibir más información sobre Cativa.");
 
+const INSTAGRAM_URL = "https://www.instagram.com/cativa.ar/";
+
 const nav = [
   { label: "Inicio", href: "#inicio" },
   { label: "Conocé Cativa", href: "#conoce" },
@@ -247,9 +249,14 @@ const Cativa = () => {
                 </div>
               ))}
             </div>
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-whatsapp px-7 py-3 font-heading font-bold text-primary-foreground shadow-md hover:brightness-95">
-              <MessageCircle className="w-5 h-5" /> Consultar por WhatsApp
-            </a>
+            <div className="flex flex-col items-center gap-3">
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-whatsapp px-7 py-3 font-heading font-bold text-primary-foreground shadow-md hover:brightness-95">
+                <MessageCircle className="w-5 h-5" /> Consultar por WhatsApp
+              </a>
+              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" aria-label="Instagram de Cativa, @cativa.ar" className="inline-flex items-center gap-2 rounded-full border border-cativa/30 px-5 py-2 text-sm font-medium text-cativa hover:bg-cativa/5 transition-colors">
+                <Instagram className="w-4 h-4" /> @cativa.ar
+              </a>
+            </div>
           </div>
         </section>
       </main>
@@ -270,11 +277,24 @@ const Cativa = () => {
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 justify-center sm:justify-start hover:text-cativa">
               <MessageCircle className="w-4 h-4" /> WhatsApp
             </a>
-            <span className="flex items-center gap-2 justify-center sm:justify-start opacity-60"><Instagram className="w-4 h-4" /> Instagram (próximamente)</span>
+            <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" aria-label="Instagram de Cativa, @cativa.ar" className="flex items-center gap-2 justify-center sm:justify-start hover:text-cativa">
+              <Instagram className="w-4 h-4" /> @cativa.ar
+            </a>
             <p className="pt-2">Una marca distribuida por <Link to="/" className="font-semibold hover:text-cativa">Pet Planet</Link></p>
           </div>
         </div>
       </footer>
+
+      {/* Acceso flotante secundario: Instagram. WhatsApp sigue siendo el acceso principal (botón global). */}
+      <a
+        href={INSTAGRAM_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram de Cativa, @cativa.ar"
+        className="fixed bottom-24 right-6 z-50 flex w-11 h-11 items-center justify-center rounded-full border border-cativa/25 bg-card text-cativa shadow-lg transition-transform duration-200 hover:scale-110 hover:border-cativa/50"
+      >
+        <Instagram className="w-5 h-5" />
+      </a>
     </div>
   );
 };
