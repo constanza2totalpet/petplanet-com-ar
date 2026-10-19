@@ -67,7 +67,12 @@ export default {
         "brand-yellow": "hsl(var(--brand-yellow))",
         "brand-pink": "hsl(var(--brand-pink))",
         "brand-purple": "hsl(var(--brand-purple))",
-        cativa: "hsl(var(--cativa))",
+        cativa: {
+          DEFAULT: "hsl(var(--cativa))",
+          sage: "hsl(var(--cativa-sage))",
+          cream: "hsl(var(--cativa-cream))",
+          stone: "hsl(var(--cativa-stone))",
+        },
         whatsapp: "hsl(var(--whatsapp))",
         "coming-soon": "hsl(var(--coming-soon))",
         sidebar: {

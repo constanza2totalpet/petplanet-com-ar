@@ -74,7 +74,7 @@ const slides: Slide[] = [
     titleLine2: "Consciente con el planeta.",
     subtitle: "Piedras sanitarias de mandioca con una nueva forma de cuidar.",
     accent: "bg-cativa hover:bg-cativa/90",
-    cta: { label: "Conocé Cativa", href: "#productos" },
+    cta: { label: "Conocé Cativa", href: "/cativa" },
   },
   {
     variant: "centered",
