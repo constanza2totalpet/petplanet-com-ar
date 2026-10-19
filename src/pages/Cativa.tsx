@@ -6,6 +6,7 @@ import cativaLogoGreen from "@/assets/cativa-logo-green.png";
 import cativaScene from "@/assets/cativa-scene.jpg";
 import cativaSceneMobile from "@/assets/cativa-scene-mobile.jpg";
 import cativaCard from "@/assets/cativa-card.png.asset.json";
+import petplanetLogo from "@/assets/petplanet-logo.png";
 
 const WHATSAPP_URL =
   "https://wa.me/5491123190096?text=" +
@@ -41,6 +42,25 @@ const stores: { name: string; url: string | null }[] = [
 
 const Logo = ({ className = "" }: { className?: string }) => (
   <img src={cativaLogoGreen} alt="Cativa" className={`w-auto object-contain ${className}`} />
+);
+
+const PETPLANET_URL = "https://www.petplanet.com.ar/";
+
+// Logo oficial de Pet Planet (archivo original del proyecto, sin retocar).
+// El PNG trae márgenes transparentes: se recortan solo con CSS, sin alterar el archivo.
+const PetPlanetLink = ({ imgClassName = "" }: { imgClassName?: string }) => (
+  <a
+    href={PETPLANET_URL}
+    title="Pet Planet — sitio principal"
+    aria-label="Pet Planet, ir al sitio principal de Pet Planet"
+    className="group inline-flex shrink-0 cursor-pointer items-center opacity-80 transition-opacity duration-200 hover:opacity-100"
+  >
+    <img
+      src={petplanetLogo}
+      alt="Pet Planet"
+      className={`w-auto origin-center transition-transform duration-200 group-hover:scale-[1.03] ${imgClassName}`}
+    />
+  </a>
 );
 
 const btnPrimary =
