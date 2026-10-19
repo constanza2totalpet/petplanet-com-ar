@@ -195,7 +195,16 @@ const Cativa = () => {
               </div>
             </div>
             <figure className="min-w-0">
-              <img src={cativaCard.url} alt="Packaging original de Cativa en tres presentaciones, junto a un gato y su arena sanitaria de mandioca" className="w-full h-auto rounded-lg" loading="lazy" />
+              <img
+                src={cativaCard.url}
+                alt="Packaging de Cativa junto a un gato y su arena sanitaria de mandioca"
+                className="w-full h-auto rounded-lg"
+                loading="lazy"
+                onError={(event) => {
+                  const image = event.currentTarget;
+                  if (image.getAttribute("src") !== cativaSceneMobile) image.src = cativaSceneMobile;
+                }}
+              />
             </figure>
           </div>
         </section>

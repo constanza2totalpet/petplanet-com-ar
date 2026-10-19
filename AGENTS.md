@@ -1,0 +1,2 @@
+# Architecture rules
+- Keep Cativa's educational product section within its existing landing page and reuse project imagery; this preserves page-specific scope and avoids altering shared brand sections.
