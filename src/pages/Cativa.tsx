@@ -10,7 +10,7 @@ import petplanetLogo from "@/assets/petplanet-logo-trimmed.png";
 
 const WHATSAPP_URL =
   "https://wa.me/5491123190096?text=" +
-  encodeURIComponent("Hola! Quiero recibir más información sobre Cativa.");
+  encodeURIComponent("Hola! Quiero consultar por Cativa.");
 
 const INSTAGRAM_URL = "https://www.instagram.com/cativa.ar/";
 
