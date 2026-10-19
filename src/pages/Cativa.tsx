@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { Sprout, Sparkles, Hand, Globe2, Menu, X, MessageCircle, Instagram, Store } from "lucide-react";
+import { Sprout, Sparkles, Hand, Globe2, Menu, X, MessageCircle, Instagram, Handshake } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { CATIVA_MERCADO_LIBRE_URL, CATIVA_WHOLESALE_WHATSAPP_URL } from "@/lib/cativa-purchase";
 import cativaLogoGreen from "@/assets/cativa-logo-green.png";
 import cativaScene from "@/assets/cativa-scene.jpg";
 import cativaSceneMobile from "@/assets/cativa-scene-mobile.jpg";
@@ -33,13 +35,6 @@ const presentations = [
   { name: "Granulado grueso", dot: "bg-cativa" },
   { name: "Granulado fino", dot: "bg-brand-orange" },
   { name: "Mixto", dot: "bg-crystal" },
-];
-
-// Completar con las URLs oficiales cuando estén disponibles
-const stores: { name: string; url: string | null }[] = [
-  { name: "Tienda online oficial", url: null },
-  { name: "Mercado Libre", url: null },
-  { name: "Pet shops adheridos", url: null },
 ];
 
 const Logo = ({ className = "" }: { className?: string }) => (
@@ -272,27 +267,44 @@ const Cativa = () => {
         </section>
 
         {/* Dónde comprar */}
-        <section id="donde-comprar" className="py-16 md:py-24">
+        <section id="donde-comprar" className="py-16 md:py-24 scroll-mt-32 md:scroll-mt-24">
           <div className="container max-w-4xl px-5 text-center">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold text-cativa mb-4">Dónde comprar</h2>
             <p className="text-cativa-stone mb-10">Encontrá Cativa en nuestros canales oficiales.</p>
-            <div className="grid sm:grid-cols-3 gap-5 mb-10">
-              {stores.map((s) => (
-                <div key={s.name} className="rounded-2xl border border-cativa/10 bg-card p-6 flex flex-col items-center gap-3">
-                  <Store className="w-7 h-7 text-cativa" strokeWidth={1.5} />
-                  <h3 className="font-heading font-bold text-cativa">{s.name}</h3>
-                  {s.url ? (
-                    <a href={s.url} target="_blank" rel="noopener noreferrer" className={`${btnSecondary} !py-2 text-sm`}>Ir a comprar</a>
+            <div className="grid md:grid-cols-2 gap-5 md:gap-6 mb-10 text-left">
+              <div className="rounded-lg border border-cativa/15 bg-card p-6 md:p-8 flex flex-col">
+                <p className="text-xs font-semibold uppercase tracking-widest text-cativa-stone mb-4">Compras minoristas</p>
+                <h3 className="text-xl font-heading font-bold text-cativa mb-3">¿Querés Cativa para tu gato?</h3>
+                <p className="text-cativa-stone leading-relaxed mb-6">Encontrá Cativa en Mercado Libre y recibila en tu casa.</p>
+                <div className="mt-auto">
+                  {CATIVA_MERCADO_LIBRE_URL ? (
+                    <Button asChild className={`${btnPrimary} h-auto w-full whitespace-normal text-center text-xs sm:text-sm`}>
+                      <a href={CATIVA_MERCADO_LIBRE_URL} target="_blank" rel="noopener noreferrer">
+                        <Handshake aria-hidden="true" /> COMPRAR EN MERCADO LIBRE
+                      </a>
+                    </Button>
                   ) : (
-                    <span className="text-sm text-cativa-stone">Próximamente</span>
+                    <>
+                      <Button disabled aria-describedby="cativa-retail-pending" className={`${btnPrimary} h-auto w-full whitespace-normal text-center text-xs sm:text-sm`}>
+                        <Handshake aria-hidden="true" /> COMPRAR EN MERCADO LIBRE
+                      </Button>
+                      <p id="cativa-retail-pending" className="text-sm text-cativa-stone mt-3">Próximamente en Mercado Libre.</p>
+                    </>
                   )}
                 </div>
-              ))}
+              </div>
+              <div className="rounded-lg border border-cativa/15 bg-card p-6 md:p-8 flex flex-col">
+                <p className="text-xs font-semibold uppercase tracking-widest text-cativa-stone mb-4">Compras mayoristas</p>
+                <h3 className="text-xl font-heading font-bold text-cativa mb-3">¿Tenés un comercio?</h3>
+                <p className="text-cativa-stone leading-relaxed mb-6">Sumá Cativa a tu negocio. Contactanos por WhatsApp para conocer las condiciones comerciales y las opciones de compra mayorista.</p>
+                <Button asChild className={`${btnPrimary} h-auto mt-auto w-full whitespace-normal text-center text-xs sm:text-sm`}>
+                  <a href={CATIVA_WHOLESALE_WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                    <MessageCircle aria-hidden="true" /> CONSULTAR POR MAYORISTA
+                  </a>
+                </Button>
+              </div>
             </div>
             <div className="flex flex-col items-center gap-3">
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-whatsapp px-7 py-3 font-heading font-bold text-primary-foreground shadow-md hover:brightness-95">
-                <MessageCircle className="w-5 h-5" /> Consultar por WhatsApp
-              </a>
               <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" aria-label="Instagram de Cativa, @cativa.ar" className="inline-flex items-center gap-2 rounded-full border border-cativa/30 px-5 py-2 text-sm font-medium text-cativa hover:bg-cativa/5 transition-colors">
                 <Instagram className="w-4 h-4" /> @cativa.ar
               </a>
