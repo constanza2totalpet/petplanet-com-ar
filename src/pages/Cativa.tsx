@@ -90,7 +90,7 @@ const Cativa = () => {
       <header className="sticky top-0 z-50 bg-cativa-cream/90 backdrop-blur-md border-b border-cativa/10">
         {/* Mobile: la marca madre ocupa una franja superior propia para no competir con la fila principal */}
         <div className="md:hidden border-b border-cativa/10 bg-cativa/5">
-          <div className="container flex items-center h-11 px-5">
+          <div className="container flex items-center h-12 px-5">
             <PetPlanetLink imgClassName="h-9" />
           </div>
         </div>
