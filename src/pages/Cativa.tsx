@@ -6,6 +6,7 @@ import cativaLogoGreen from "@/assets/cativa-logo-green.png";
 import cativaScene from "@/assets/cativa-scene.jpg";
 import cativaSceneMobile from "@/assets/cativa-scene-mobile.jpg";
 import cativaCard from "@/assets/cativa-card.png.asset.json";
+import petplanetLogo from "@/assets/petplanet-logo.png";
 
 const WHATSAPP_URL =
   "https://wa.me/5491123190096?text=" +
@@ -43,6 +44,25 @@ const Logo = ({ className = "" }: { className?: string }) => (
   <img src={cativaLogoGreen} alt="Cativa" className={`w-auto object-contain ${className}`} />
 );
 
+const PETPLANET_URL = "https://www.petplanet.com.ar/";
+
+// Logo oficial de Pet Planet (archivo original del proyecto, sin retocar).
+// El PNG trae márgenes transparentes: se recortan solo con CSS, sin alterar el archivo.
+const PetPlanetLink = ({ imgClassName = "" }: { imgClassName?: string }) => (
+  <a
+    href={PETPLANET_URL}
+    title="Pet Planet — sitio principal"
+    aria-label="Pet Planet, ir al sitio principal de Pet Planet"
+    className="group inline-flex shrink-0 cursor-pointer items-center opacity-80 transition-opacity duration-200 hover:opacity-100"
+  >
+    <img
+      src={petplanetLogo}
+      alt="Pet Planet"
+      className={`w-auto origin-center transition-transform duration-200 group-hover:scale-[1.03] ${imgClassName}`}
+    />
+  </a>
+);
+
 const btnPrimary =
   "inline-flex items-center justify-center rounded-full bg-cativa px-7 py-3 font-heading font-bold text-primary-foreground shadow-md hover:bg-cativa/90 transition-colors";
 const btnSecondary =
@@ -67,8 +87,22 @@ const Cativa = () => {
 
       {/* Header */}
       <header className="sticky top-0 z-50 bg-cativa-cream/90 backdrop-blur-md border-b border-cativa/10">
+        {/* Mobile: la marca madre ocupa una franja superior propia para no competir con la fila principal */}
+        <div className="md:hidden border-b border-cativa/10 bg-cativa/5">
+          <div className="container flex items-center h-8 px-5">
+            <PetPlanetLink imgClassName="h-[56px] -mt-[16px] -mb-[17px] -ml-[19px] -mr-[19px]" />
+          </div>
+        </div>
+
         <div className="container flex items-center justify-between h-16 md:h-20 px-5">
-          <a href="#inicio" aria-label="Cativa, inicio"><Logo className="h-8 md:h-10" /></a>
+          <div className="flex min-w-0 items-center gap-3 md:gap-5">
+            {/* Marca madre: identificación y acceso de regreso al sitio principal */}
+            <PetPlanetLink imgClassName="hidden md:block h-[72px] -mt-[21px] -mb-[22px] -ml-[25px] -mr-[24px]" />
+            <span aria-hidden="true" className="hidden md:block h-8 w-px shrink-0 bg-cativa/15" />
+            <a href="#inicio" aria-label="Cativa, inicio" className="shrink-0">
+              <Logo className="h-8 md:h-10" />
+            </a>
+          </div>
           <nav className="hidden md:flex gap-8">
             {nav.map((l) => (
               <a key={l.href} href={l.href} className="text-sm font-medium text-cativa-stone hover:text-cativa transition-colors">
