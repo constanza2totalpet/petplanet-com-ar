@@ -197,8 +197,8 @@ const Cativa = () => {
                 <p>Por eso elegimos la mandioca como base de nuestra arena sanitaria, una materia prima de origen vegetal que nos permite ofrecer una alternativa cálida y consciente para el día a día en casa.</p>
               </div>
             </div>
-            <div className="relative max-w-md mx-auto md:max-w-none w-full">
-              <div aria-hidden="true" className="absolute -top-4 -right-4 md:-top-6 md:-right-6 w-full h-full rounded-[2rem] border border-cativa/20" />
+            <div className="relative max-w-md mx-auto md:max-w-none w-full pb-4 pl-4 md:pb-6 md:pl-6">
+              <div aria-hidden="true" className="absolute inset-0 rounded-[2rem] border border-cativa/20" />
               <img
                 src={cativaLifestyle}
                 alt="Gato relajado en un living luminoso con plantas"
