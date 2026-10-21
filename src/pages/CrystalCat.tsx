@@ -1,470 +1,159 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import {
-  Package,
-  Feather,
-  Hand,
-  Ruler,
-  MapPin,
-  Trash2,
-  RefreshCw,
-  Lightbulb,
-  ArrowLeft,
-  Sparkles,
-  MessageCircle,
-  Star,
-  ExternalLink,
-  BadgeCheck,
-  User,
-} from "lucide-react";
-
-import iconCalendar from "@/assets/icon-calendar.png";
+import { ArrowRight, ArrowUpRight, Menu, X, MessageCircle, Instagram, Package, Ruler, MapPin, Trash2, RefreshCw } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import crystalcatLogo from "@/assets/crystalcat-logo-transparent.png";
+import petplanetLogo from "@/assets/petplanet-logo-trimmed.png";
+import catHero from "@/assets/crystal-cat-hero.jpg";
+import originalPack from "@/assets/crystalcat-original-pack.png.asset.json";
+import lifestyle from "@/assets/crystalcat-lifestyle.jpg.asset.json";
+import crystals from "@/assets/crystalcat-crystals.jpg.asset.json";
+import tray from "@/assets/crystalcat-tray.jpg.asset.json";
 import iconDrops from "@/assets/icon-drops.png";
 import iconLeaf from "@/assets/icon-leaf.png";
 import iconWaves from "@/assets/icon-waves.png";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import bolsaImg from "@/assets/bolsa-crystalcat.png";
-import crystalcatLogo from "@/assets/crystalcat-logo-transparent.png";
-import crystalCatHero from "@/assets/crystal-cat-hero-product.jpg";
+import { CRYSTALCAT_WHATSAPP_URL, CRYSTALCAT_INSTAGRAM_URL, CRYSTALCAT_PRESENTATIONS, crystalcatLeadUrl } from "@/lib/crystalcat";
+import "./CrystalCat.css";
 
-
-
-
-const WHATSAPP_NUMBER = "5491123190096";
-const WHATSAPP_DEFAULT_MSG = "Hola! Quiero consultar por Crystal Cat.";
-const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_DEFAULT_MSG)}`;
-
+const nav = [
+  { label: "Conocé CrystalCat", href: "#conoce" },
+  { label: "Beneficios", href: "#beneficios" },
+  { label: "Cómo se usa", href: "#uso" },
+  { label: "Presentación", href: "#producto" },
+];
+const primary = "h-auto min-h-11 rounded-full bg-crystal-dark px-6 py-3 text-primary-foreground font-heading font-bold hover:bg-crystal";
+const secondary = "h-auto min-h-11 rounded-full border-crystal/30 bg-background/80 px-6 py-3 text-crystal-dark font-heading font-bold hover:bg-crystal-light";
+const steps = [
+  { icon: Ruler, title: "Prepará la bandeja", text: "Colocá el producto en una bandeja limpia. Seguí las indicaciones del envase para la cantidad de uso." },
+  { icon: MapPin, title: "Elegí su lugar", text: "Ubicá la bandeja en un lugar seco y ventilado, de fácil acceso para tu gato." },
+  { icon: Trash2, title: "Cuidala cada día", text: "Retirá los desechos sólidos diariamente para mantener su espacio de higiene." },
+  { icon: RefreshCw, title: "Renová el contenido", text: "Revisá el estado de los cristales y renovalos según el uso y las indicaciones del envase." },
+];
 const benefits = [
-  { icon: iconCalendar, title: "Rinden más", desc: "Hasta 30 días de duración por carga.", bg: "bg-brand-pink", ring: "bg-brand-pink/25" },
-  { icon: iconDrops, title: "Alta absorción", desc: "Libre de polvo, limpio y seguro.", bg: "bg-brand-orange", ring: "bg-brand-orange/25" },
-  { icon: iconLeaf, title: "Natural e hipoalergénico", desc: "Apto para gatos sensibles.", bg: "bg-brand-green", ring: "bg-brand-green/25" },
-  { icon: iconWaves, title: "Neutraliza olores", desc: "Control superior de aromas.", bg: "bg-brand-purple", ring: "bg-brand-purple/25" },
+  { image: iconDrops, title: "Absorción", text: "Cristales de sílice para absorber la humedad en la bandeja.", accent: "text-brand-orange" },
+  { image: iconWaves, title: "Control de olores", text: "Una propuesta para el cuidado de los olores en su espacio de higiene.", accent: "text-brand-purple" },
+  { image: iconLeaf, title: "100% natural", text: "Una característica indicada en el packaging de CrystalCat.", accent: "text-brand-green" },
+  { title: "Presentación de 3,8 L", text: "El formato de CrystalCat para la rutina de higiene de tu gato.", accent: "text-crystal-dark" },
 ];
 
-const productDetails = [
-  { icon: Package, label: "3,8 L" },
-  { icon: Feather, label: "Liviano" },
-  { icon: Hand, label: "Fácil de manipular" },
-];
-
-const instructions = [
-  { icon: Ruler, title: "Llená la litera", desc: "Cubrí la bandeja con 3 a 4 cm de producto." },
-  { icon: MapPin, title: "Ubicación", desc: "Colocá la litera en un lugar seco y ventilado." },
-  { icon: Trash2, title: "Mantenimiento diario", desc: "Retirá los desechos sólidos cada día." },
-  { icon: RefreshCw, title: "Reposición", desc: "Reponé el producto regularmente para mejor rendimiento." },
-];
-
-const tips = [
-  "Mezclá Crystal Cat con la arena anterior durante los primeros días para facilitar la transición.",
-  "Si tenés más de un gato, cambiá el contenido con mayor frecuencia para mantener la higiene.",
-];
-
-const reviews: { rating: number; text: string; date?: string }[] = [
-  { rating: 5, text: "Excelente producto! Dura muchísimo más que la arena tradicional y no tiene olor. Mi gato se adaptó enseguida." },
-  { rating: 5, text: "La verdad superó mis expectativas. Una bolsa me dura casi un mes con un gato. Súper recomendado." },
-  { rating: 4, text: "Muy buena absorción y prácticamente sin polvo. Llegó rápido y bien embalado. Lo vuelvo a comprar." },
-  { rating: 5, text: "Hace meses que lo uso, no vuelvo más a la arena común. Limpio, liviano y sin olores en casa." },
-];
-
-const overallRating = 4.8;
-const reviewsCount = 124;
-
-// WhatsApp icon (oficial)
-const WhatsAppIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
-  <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden>
-    <path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.554-5.338 11.89-11.893 11.89a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/>
-  </svg>
+const WhatsAppCTA = ({ children = "Consultar por WhatsApp", className = "" }: { children?: React.ReactNode; className?: string }) => (
+  <Button asChild className={`${primary} whitespace-normal ${className}`}>
+    <a href={CRYSTALCAT_WHATSAPP_URL} target="_blank" rel="noopener noreferrer"><MessageCircle />{children}</a>
+  </Button>
 );
 
-const WhatsAppCTA = ({ className = "", children = "Consultar por WhatsApp" }: { className?: string; children?: React.ReactNode }) => (
-  <a
-    href={WHATSAPP_URL}
-    target="_blank"
-    rel="noopener noreferrer"
-    className={`inline-flex items-center gap-2 rounded-lg bg-whatsapp px-7 py-3 font-heading font-bold text-white shadow-lg hover:brightness-110 hover:shadow-xl transition-all ${className}`}
-  >
-    <WhatsAppIcon className="w-5 h-5" />
-    {children}
-  </a>
-);
-
-const LeadFormSection = () => {
+function LeadForm() {
   const [form, setForm] = useState({ nombre: "", localidad: "", negocio: "", whatsapp: "" });
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const [opened, setOpened] = useState(false);
+  const submit = (e: React.FormEvent) => {
     e.preventDefault();
-    const { nombre, localidad, negocio, whatsapp } = form;
-    if (!nombre.trim() || !localidad.trim() || !whatsapp.trim()) return;
-    const msg = `Hola! Quiero recibir información sobre Crystal Cat.\nNombre: ${nombre}\nLocalidad: ${localidad}\nNegocio: ${negocio || "-"}\nWhatsApp: ${whatsapp}`;
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+    const url = crystalcatLeadUrl(form);
+    if (!url) return;
     window.open(url, "_blank", "noopener,noreferrer");
+    setOpened(true);
   };
-
-  const inputCls =
-    "rounded-lg border bg-card px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-crystal/50 focus:border-crystal/50";
-
   return (
-    <section id="contacto" className="py-16 md:py-24 bg-gradient-to-b from-background via-crystal-light/40 to-brand-orange-light/30 relative">
-      <div aria-hidden className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-crystal via-brand-green to-brand-orange" />
-      <div className="container max-w-2xl px-5">
-        <div className="text-center mb-8 md:mb-10">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold mb-3">
-            ¿Querés vender Crystal Cat en tu negocio?
-          </h2>
-          <p className="text-muted-foreground text-sm sm:text-base max-w-lg mx-auto">
-            Dejanos tus datos y te contactamos por WhatsApp.
-          </p>
+    <section id="contacto" className="crystalcat-section bg-crystal-light border-t border-crystal/10">
+      <div className="container px-5 grid md:grid-cols-2 gap-10 lg:gap-20 items-start">
+        <div>
+          <p className="crystalcat-kicker text-crystal-dark">Contacto comercial</p>
+          <h2 className="crystalcat-title mb-5">Sumá CrystalCat<br />a tu negocio.</h2>
+          <p className="text-muted-foreground leading-relaxed max-w-md mb-7">Contanos sobre tu comercio y consultá las condiciones de compra con el equipo de Pet Planet.</p>
+          <a href={CRYSTALCAT_INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-crystal-dark hover:text-brand-orange transition-colors"><Instagram className="w-5 h-5" /> @crystalcat.ar <ArrowUpRight className="w-4 h-4" /></a>
         </div>
-
-        <form
-          onSubmit={handleSubmit}
-          className="flex flex-col gap-3 sm:gap-4 bg-card border rounded-2xl p-5 sm:p-8 shadow-sm"
-        >
-          <input
-            type="text"
-            placeholder="Nombre y apellido *"
-            required
-            value={form.nombre}
-            onChange={(e) => setForm({ ...form, nombre: e.target.value })}
-            className={inputCls}
-          />
-          <input
-            type="text"
-            placeholder="Localidad *"
-            required
-            value={form.localidad}
-            onChange={(e) => setForm({ ...form, localidad: e.target.value })}
-            className={inputCls}
-          />
-          <input
-            type="text"
-            placeholder="Nombre del negocio (opcional)"
-            value={form.negocio}
-            onChange={(e) => setForm({ ...form, negocio: e.target.value })}
-            className={inputCls}
-          />
-          <input
-            type="tel"
-            placeholder="Número de WhatsApp *"
-            required
-            value={form.whatsapp}
-            onChange={(e) => setForm({ ...form, whatsapp: e.target.value })}
-            className={inputCls}
-          />
-          <button
-            type="submit"
-            className="mt-2 inline-flex items-center justify-center gap-2 rounded-lg bg-whatsapp px-6 py-3 font-heading font-bold text-white shadow-md hover:brightness-110 hover:shadow-lg transition-all"
-          >
-            <WhatsAppIcon className="w-5 h-5" />
-            Quiero más información
-          </button>
-          <p className="text-xs text-muted-foreground text-center mt-1">
-            Al enviar abrimos WhatsApp con tu mensaje listo.
-          </p>
+        <form onSubmit={submit} className="grid sm:grid-cols-2 gap-5">
+          {[
+            { key: "nombre", label: "Nombre y apellido", required: true, type: "text", autoComplete: "name" },
+            { key: "localidad", label: "Localidad", required: true, type: "text", autoComplete: "address-level2" },
+            { key: "negocio", label: "Nombre del negocio (opcional)", required: false, type: "text", autoComplete: "organization" },
+            { key: "whatsapp", label: "Número de WhatsApp", required: true, type: "tel", autoComplete: "tel" },
+          ].map(field => (
+            <label key={field.key} className="text-sm font-medium flex flex-col gap-2">
+              {field.label}
+              <input name={field.key} type={field.type} autoComplete={field.autoComplete} required={field.required} value={form[field.key as keyof typeof form]} onChange={e => { setForm({ ...form, [field.key]: e.target.value }); setOpened(false); }} className="w-full min-w-0 rounded-lg border border-crystal/20 bg-background px-4 py-3 font-normal" />
+            </label>
+          ))}
+          <Button type="submit" className={`${primary} sm:col-span-2`}><MessageCircle /> Quiero más información</Button>
+          {opened && <p role="status" className="sm:col-span-2 text-sm text-crystal-dark">Tu consulta está lista en WhatsApp. Enviá el mensaje para contactar al equipo.</p>}
         </form>
       </div>
     </section>
   );
-};
+}
 
-const SEO_TITLE = "Crystal Cat | Piedras sanitarias de sílica para gatos";
-const SEO_DESC = "Piedras sanitarias de sílica Crystal Cat 3,8 L: alta absorción, neutralizan olores, sin polvo e hipoalergénicas. Rinden hasta 30 días.";
-const SEO_URL = "https://petplanet.com.ar/crystal-cat";
-
-const CrystalCat = () => (
-  <div className="min-h-screen flex flex-col">
-    <Helmet>
-      <title>{SEO_TITLE}</title>
-      <meta name="description" content={SEO_DESC} />
-      <link rel="canonical" href={SEO_URL} />
-      <meta property="og:title" content={SEO_TITLE} />
-      <meta property="og:description" content={SEO_DESC} />
-      <meta property="og:url" content={SEO_URL} />
-      <meta property="og:type" content="product" />
-      <meta name="twitter:title" content={SEO_TITLE} />
-      <meta name="twitter:description" content={SEO_DESC} />
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Product",
-          name: "Crystal Cat — Piedras sanitarias de sílica 3,8 L",
-          description: SEO_DESC,
-          image: `https://petplanet.com.ar${bolsaImg}`,
-          brand: { "@type": "Brand", name: "Crystal Cat" },
-          url: SEO_URL,
-        })}
-      </script>
-    </Helmet>
-    <Header />
-
-    <main className="flex-1">
-      {/* Breadcrumb */}
-      <div className="container px-5 pt-5 md:pt-6">
-        <Link
-          to="/"
-          className="inline-flex items-center gap-1 text-xs sm:text-sm text-muted-foreground hover:text-crystal transition-colors"
-        >
-          <ArrowLeft className="w-3.5 h-3.5" />
-          Volver a Pet Planet
-        </Link>
-      </div>
-
-      {/* HERO */}
-      <section className="relative overflow-hidden">
-        <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-brand-orange-light via-background to-crystal-light/60" />
-        <div aria-hidden className="absolute -top-24 left-1/2 -translate-x-1/2 w-[680px] h-[680px] rounded-full bg-gradient-to-br from-brand-orange/20 via-crystal/15 to-brand-green/15 blur-3xl opacity-70" />
-
-        <div className="container relative px-5 py-10 md:py-14">
-          <div className="max-w-3xl mx-auto text-center animate-fade-in-up">
-            <img src={crystalcatLogo} alt="Crystal Cat" className="h-12 sm:h-14 md:h-16 w-auto mx-auto mb-3 md:mb-4 drop-shadow-sm" />
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-heading font-extrabold leading-tight mb-4 md:mb-5">
-              Piedras sanitarias de <span className="text-crystal">sílica</span> para gatos
-            </h1>
-            <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-7 md:mb-9 max-w-xl mx-auto">
-              Alta absorción · Mayor duración · Control de olores
-            </p>
-            <div className="flex flex-wrap justify-center gap-3">
-              <a
-                href="#contacto"
-                className="inline-block rounded-lg bg-crystal px-7 py-3 font-heading font-bold text-white shadow-lg hover:bg-crystal-dark transition-colors"
-              >
-                Quiero recibir más información
-              </a>
-              <WhatsAppCTA />
+export default function CrystalCat() {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="crystalcat-page min-h-screen bg-background text-foreground">
+      <Helmet>
+        <title>CrystalCat | Arena sanitaria de sílice para gatos</title>
+        <meta name="description" content="Conocé CrystalCat, arena sanitaria de sílice para gatos en presentación de 3,8 L. Descubrí el producto, su uso y consultá dónde comprar con Pet Planet." />
+        <link rel="canonical" href="https://petplanet.com.ar/crystal-cat" />
+        <meta property="og:title" content="CrystalCat | Arena sanitaria de sílice para gatos" />
+        <meta property="og:description" content="Conocé el producto, su uso y dónde comprar CrystalCat con Pet Planet." />
+        <meta property="og:url" content="https://petplanet.com.ar/crystal-cat" />
+        <meta property="og:type" content="product" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "Product", name: "CrystalCat 3,8 L", description: "Arena sanitaria de sílice para gatos", image: new URL(originalPack.url, "https://petplanet.com.ar").href, brand: { "@type": "Brand", name: "CrystalCat" }, url: "https://petplanet.com.ar/crystal-cat" })}</script>
+      </Helmet>
+      <header className="sticky top-0 z-50 border-b border-crystal/10 bg-background/95 backdrop-blur-md">
+        <div className="container h-20 px-5 flex items-center justify-between gap-4">
+          <div className="flex items-center gap-4 md:gap-6 min-w-0">
+            <a href="https://www.petplanet.com.ar/" aria-label="Pet Planet, volver al sitio principal" className="shrink-0 opacity-80 hover:opacity-100 transition-opacity"><img src={petplanetLogo} alt="Pet Planet" className="h-6 md:h-[30px] w-auto" /></a>
+            <a href="#inicio" aria-label="CrystalCat, inicio"><img src={crystalcatLogo} alt="CrystalCat" className="crystalcat-wordmark" /></a>
+          </div>
+          <nav aria-label="Navegación principal" className="hidden lg:flex gap-6">{nav.map(l => <a key={l.href} href={l.href} className="text-sm text-muted-foreground hover:text-crystal-dark transition-colors">{l.label}</a>)}</nav>
+          <Button asChild className={`${primary} hidden lg:inline-flex text-sm`}><a href="#donde-comprar">Dónde comprar</a></Button>
+          <Button variant="ghost" size="icon" className="lg:hidden shrink-0 text-crystal-dark" onClick={() => setOpen(!open)} aria-label={open ? "Cerrar menú" : "Abrir menú"} aria-expanded={open} aria-controls="crystalcat-menu">{open ? <X /> : <Menu />}</Button>
+        </div>
+        {open && <nav id="crystalcat-menu" aria-label="Navegación móvil" className="lg:hidden border-t bg-background px-5 py-5 flex flex-col gap-4">{nav.map(l => <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-sm text-foreground">{l.label}</a>)}<Button asChild className={primary}><a href="#donde-comprar" onClick={() => setOpen(false)}>Dónde comprar</a></Button></nav>}
+      </header>
+      <main>
+        <section id="inicio" className="crystalcat-hero relative overflow-hidden flex items-center">
+          <img src={catHero} alt="Gato junto a una bandeja con cristales de sílice en un hogar luminoso" className="crystalcat-hero-photo absolute inset-0 w-full h-full object-cover" width={1920} height={1080} fetchPriority="high" />
+          <div aria-hidden="true" className="crystalcat-hero-shade absolute inset-0" />
+          <img src={originalPack.url} alt="Packaging original CrystalCat de 3,8 L" className="crystalcat-hero-pack" />
+          <div className="relative container px-5 md:px-12 py-10 md:py-16">
+            <div className="max-w-lg text-center md:text-left">
+              <p className="crystalcat-kicker text-brand-orange">CrystalCat · Higiene para gatos</p>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold leading-[1.12] mb-5">Arena sanitaria<br />de <span className="text-crystal-dark">sílice.</span></h1>
+              <p className="text-base md:text-lg text-foreground/75 leading-relaxed mb-7 max-w-sm mx-auto md:mx-0">Cristales para la higiene de tu gato.<br />CrystalCat, en su presentación de 3,8 L.</p>
+              <div className="flex flex-wrap justify-center md:justify-start gap-3"><Button asChild className={primary}><a href="#donde-comprar">Dónde comprar <ArrowRight /></a></Button><Button asChild variant="outline" className={secondary}><a href="#beneficios">Conocé sus beneficios</a></Button></div>
             </div>
           </div>
-
-          <div className="relative mt-10 md:mt-14 max-w-6xl mx-auto">
-            <img
-              src={crystalCatHero}
-              alt="Bolsa Crystal Cat con litera y piedras de sílica en un hogar"
-              className="w-full h-auto object-contain drop-shadow-2xl"
-              width={1920}
-              height={1080}
-            />
-            <div aria-hidden className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-crystal-light/60 pointer-events-none" />
-          </div>
+        </section>
+        <div className="bg-crystal-dark text-primary-foreground py-4">
+          <div className="container px-5 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-xs sm:text-sm"><span>Arena sanitaria de sílice</span><span aria-hidden="true" className="hidden sm:block text-brand-orange">•</span><span>Presentación de 3,8 L</span><span aria-hidden="true" className="hidden sm:block text-brand-orange">•</span><span>Distribuida por Pet Planet</span></div>
         </div>
-      </section>
-
-      {/* BENEFICIOS */}
-      <section className="py-14 md:py-20 bg-muted/30">
-        <div className="container px-5">
-          <p className="text-xs font-semibold tracking-widest uppercase text-brand-orange text-center mb-2">Beneficios</p>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold text-center mb-10 md:mb-14">
-            Por qué elegir Crystal Cat
-          </h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {benefits.map((b) => (
-              <div key={b.title} className="group rounded-2xl border border-border/60 bg-card p-6 sm:p-7 shadow-sm hover:shadow-md transition-all">
-                <img src={b.icon} alt={b.title} className="w-20 h-20 mb-5 object-contain rounded-full" loading="lazy" />
-                <h3 className="font-heading font-bold text-lg mb-1.5 text-foreground">{b.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
-              </div>
-            ))}
+        <section id="conoce" className="crystalcat-section">
+          <div className="container px-5 grid md:grid-cols-2 gap-10 lg:gap-20 items-center">
+            <div><p className="crystalcat-kicker text-brand-orange">Conocé CrystalCat</p><h2 className="crystalcat-title mb-6">Su higiene también<br />forma parte de tu hogar.</h2><div className="space-y-4 text-muted-foreground leading-relaxed md:text-lg"><p>CrystalCat ofrece arena sanitaria de sílice para gatos: cristales que se utilizan en su bandeja para acompañar la rutina de higiene.</p><p>Una propuesta distribuida por Pet Planet, con una presentación de 3,8 L y una identidad que reconocés desde su envase.</p></div><Button asChild variant="link" className="px-0 mt-5 text-crystal-dark"><a href="#producto">Conocé el producto <ArrowRight /></a></Button></div>
+            <img src={lifestyle.url} alt="Gato descansando en un living junto a su espacio de higiene" className="w-full aspect-[4/3] object-cover rounded-lg" loading="lazy" />
           </div>
-        </div>
-      </section>
-
-      {/* PRODUCTO */}
-      <section className="py-14 md:py-20 bg-background">
-        <div className="container px-5">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-            <div className="rounded-2xl bg-gradient-to-br from-crystal/5 to-brand-orange/5 p-6 sm:p-10 flex items-center justify-center">
-              <img src={bolsaImg} alt="Crystal Cat 3.8L packaging" className="w-full max-w-sm object-contain" width={500} height={500} />
-            </div>
-            <div>
-              <p className="text-xs font-semibold tracking-widest uppercase text-crystal mb-2">El producto</p>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold mb-4">Crystal Cat 3,8 L</h2>
-              <p className="text-muted-foreground mb-6 md:mb-8 leading-relaxed text-sm sm:text-base">
-                Una presentación pensada para el uso diario: práctica, liviana y fácil de almacenar.
-                Cada bolsa rinde hasta 30 días por gato, manteniendo la litera limpia y seca.
-              </p>
-              <div className="space-y-3">
-                {productDetails.map((d) => (
-                  <div key={d.label} className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-crystal/10 flex items-center justify-center shrink-0">
-                      <d.icon className="w-5 h-5 text-crystal" />
-                    </div>
-                    <span className="font-heading font-semibold text-sm sm:text-base">{d.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+        </section>
+        <section id="silice" className="crystalcat-section bg-crystal-light border-y border-crystal/10">
+          <div className="container px-5 grid md:grid-cols-5 gap-10 lg:gap-16 items-center">
+            <figure className="md:col-span-2"><img src={crystals.url} alt="Detalle de los cristales de sílice de la escena CrystalCat" className="w-full aspect-[4/3] object-cover rounded-lg" loading="lazy" /><figcaption className="text-xs text-crystal-dark mt-3">Cristales de sílice · CrystalCat</figcaption></figure>
+            <div className="md:col-span-3"><p className="crystalcat-kicker text-crystal-dark">El material</p><h2 className="crystalcat-title mb-6">¿Qué es la arena<br />sanitaria de sílice?</h2><p className="text-muted-foreground leading-relaxed mb-6">Es una arena sanitaria compuesta por cristales de sílice. Se coloca en la bandeja de tu gato para absorber la humedad durante el uso cotidiano.</p><div className="border-t border-crystal/20 pt-5"><h3 className="font-heading font-bold text-lg mb-2">Una rutina sencilla</h3><p className="text-muted-foreground leading-relaxed">Prepará la bandeja, retirá los desechos sólidos cada día y renová el contenido siguiendo las indicaciones del envase.</p></div></div>
           </div>
-        </div>
-      </section>
-
-      {/* INSTRUCCIONES */}
-      <section className="py-14 md:py-20 bg-muted/30">
-        <div className="container px-5">
-          <p className="text-xs font-semibold tracking-widest uppercase text-brand-orange text-center mb-2">Modo de uso</p>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold text-center mb-10 md:mb-14">
-            Fácil de usar en 4 pasos
-          </h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {instructions.map((step, i) => (
-              <div key={step.title} className="relative rounded-xl border bg-card p-5 sm:p-6">
-                <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-brand-orange text-white font-heading font-bold text-sm flex items-center justify-center shadow-md">
-                  {i + 1}
-                </div>
-                <div className="w-12 h-12 rounded-full bg-crystal/10 flex items-center justify-center mb-4">
-                  <step.icon className="w-6 h-6 text-crystal" />
-                </div>
-                <h3 className="font-heading font-bold text-base mb-1">{step.title}</h3>
-                <p className="text-sm text-muted-foreground">{step.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CONSEJOS */}
-      <section className="py-14 md:py-20 bg-background">
-        <div className="container px-5 max-w-4xl">
-          <div className="flex items-center gap-3 mb-6 md:mb-8 justify-center">
-            <div className="w-12 h-12 rounded-full bg-brand-green/10 flex items-center justify-center">
-              <Lightbulb className="w-6 h-6 text-brand-green" />
-            </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold">Consejos</h2>
-          </div>
-          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
-            {tips.map((tip, i) => (
-              <div key={i} className="rounded-xl border bg-card p-5 sm:p-6 hover:border-brand-green/30 transition-colors">
-                <p className="text-sm sm:text-base text-foreground/80 leading-relaxed">{tip}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* RESEÑAS */}
-      <section className="py-14 md:py-20 bg-muted/30">
-        <div className="container px-5">
-          <div className="text-center mb-10 md:mb-14">
-            <p className="text-xs font-semibold tracking-widest uppercase text-brand-orange mb-3">Opiniones</p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold mb-5">
-              Lo que opinan los clientes
-            </h2>
-            <div className="inline-flex flex-col sm:flex-row items-center gap-3 sm:gap-5 bg-card border border-border/60 rounded-2xl px-6 py-4 shadow-sm">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-brand-yellow/90 text-foreground font-heading font-bold text-sm">
-                Mercado Libre
-              </span>
-              <div className="flex items-center gap-2">
-                <div className="flex">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star
-                      key={i}
-                      className={`w-5 h-5 ${i < Math.round(overallRating) ? "fill-brand-yellow text-brand-yellow" : "text-muted-foreground/40"}`}
-                    />
-                  ))}
-                </div>
-                <span className="font-heading font-extrabold text-lg">{overallRating}</span>
-                <span className="text-sm text-muted-foreground">({reviewsCount} opiniones)</span>
-              </div>
-            </div>
-            <p className="mt-4 text-sm text-muted-foreground">Reseñas reales de compradores verificados</p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto">
-            {reviews.map((r, i) => (
-              <article key={i} className="rounded-2xl border border-border/60 bg-card p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex">
-                    {Array.from({ length: 5 }).map((_, idx) => (
-                      <Star key={idx} className={`w-4 h-4 ${idx < r.rating ? "fill-brand-yellow text-brand-yellow" : "text-muted-foreground/30"}`} />
-                    ))}
-                  </div>
-                  <span className="inline-flex items-center gap-1 text-[11px] font-medium text-brand-green bg-brand-green/10 px-2 py-0.5 rounded-full">
-                    <BadgeCheck className="w-3 h-3" />
-                    Compra verificada
-                  </span>
-                </div>
-                <p className="text-sm text-foreground/80 leading-relaxed mb-4 line-clamp-5 flex-1">“{r.text}”</p>
-                <div className="pt-3 border-t border-border/60 flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-crystal/10 text-crystal flex items-center justify-center shrink-0">
-                    <User className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <p className="font-heading font-semibold text-sm text-foreground">Comprador verificado</p>
-                    {r.date && <p className="text-xs text-muted-foreground">{r.date}</p>}
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-
-          <div className="text-center mt-10">
-            <a
-              href={"https://wa.me/5491123190096?text=" + encodeURIComponent("Hola! Quiero recibir más información sobre los productos de Pet Planet.")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-whatsapp px-6 py-3 font-heading font-bold text-white shadow hover:brightness-95 transition-all"
-            >
-              <MessageCircle className="w-4 h-4" />
-              Consultar por WhatsApp
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* PRÓXIMAMENTE */}
-      <section className="py-14 md:py-20 bg-gradient-to-br from-crystal/5 via-background to-brand-orange/5">
-        <div className="container px-5 max-w-2xl text-center">
-          <div className="relative inline-flex items-center justify-center mb-6">
-            <div className="absolute inset-0 bg-brand-orange/20 blur-2xl rounded-full" />
-            <div className="relative w-14 h-14 rounded-full bg-brand-orange/10 flex items-center justify-center">
-              <Sparkles className="w-7 h-7 text-brand-orange" />
-            </div>
-          </div>
-          <p className="text-xs font-semibold tracking-widest uppercase text-brand-orange mb-3">Próximamente</p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold mb-4">
-            Una nueva presentación está en camino
-          </h2>
-          <p className="text-base sm:text-lg text-muted-foreground mb-2 leading-relaxed">
-            Muy pronto, una nueva presentación de Crystal Cat para seguir mejorando la experiencia.
-          </p>
-          <p className="text-sm sm:text-base font-heading font-semibold text-crystal">
-            Más opciones. Mismo rendimiento.
-          </p>
-        </div>
-      </section>
-
-      {/* CTA FINAL — para negocios */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-crystal to-crystal-dark text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 pointer-events-none">
-          <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-brand-orange blur-3xl" />
-          <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-brand-yellow blur-3xl" />
-        </div>
-        <div className="container px-5 max-w-3xl text-center relative">
-          <p className="text-xs font-semibold tracking-widest uppercase text-brand-yellow mb-3">Para tu negocio</p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold mb-5 leading-tight">
-            Sumá Crystal Cat a tu negocio
-          </h2>
-          <p className="text-base sm:text-lg text-white/85 mb-8 max-w-xl mx-auto leading-relaxed">
-            Ofrecé un producto de alto rendimiento y fácil rotación en tu punto de venta.
-          </p>
-          <div className="flex flex-wrap gap-3 justify-center">
-            <a
-              href="#contacto"
-              className="inline-flex items-center gap-2 rounded-lg bg-white px-7 py-3 font-heading font-bold text-crystal shadow-lg hover:bg-white/95 transition-all"
-            >
-              <MessageCircle className="w-5 h-5" />
-              Quiero más información
-            </a>
-            <WhatsAppCTA />
-          </div>
-        </div>
-      </section>
-
-      {/* LEAD FORM (WhatsApp) */}
-      <LeadFormSection />
-    </main>
-
-    <Footer />
-  </div>
-);
-
-export default CrystalCat;
+        </section>
+        <section id="beneficios" className="crystalcat-section bg-crystal-dark">
+          <div className="container px-5"><div className="text-center mb-10"><p className="crystalcat-kicker text-primary-foreground/75">Los atributos del producto</p><h2 className="crystalcat-title text-primary-foreground">Por qué elegir CrystalCat</h2></div><div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">{benefits.map(b => <article key={b.title} className="rounded-lg bg-background p-6 md:p-7"><div className="h-16 mb-5 flex items-center">{b.image ? <img src={b.image} alt="" className="w-14 h-14 object-contain" loading="lazy" /> : <Package className="w-12 h-12 text-crystal-dark" strokeWidth={1.5} />}</div><h3 className={`font-heading font-bold text-lg mb-3 ${b.accent}`}>{b.title}</h3><p className="text-sm text-muted-foreground leading-relaxed">{b.text}</p></article>)}</div></div>
+        </section>
+        <section id="uso" className="crystalcat-section">
+          <div className="container px-5"><div className="flex flex-col md:flex-row md:items-end justify-between gap-5 mb-10"><div><p className="crystalcat-kicker text-brand-orange">Uso y experiencia</p><h2 className="crystalcat-title">Un espacio para su rutina.</h2></div><p className="max-w-sm text-muted-foreground leading-relaxed">Pequeños cuidados cotidianos para mantener su bandeja en casa.</p></div><div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center"><img src={tray.url} alt="Bandeja sanitaria con cristales en un ambiente doméstico" className="w-full aspect-[4/3] rounded-lg object-cover" loading="lazy" /><div>{steps.map((step,i) => <div key={step.title} className="flex gap-4 py-5 border-b border-border first:pt-0"><span className="text-crystal/50 text-sm font-bold pt-1">0{i+1}</span><div><h3 className="font-heading font-bold text-lg mb-1 flex items-center gap-2"><step.icon className="w-4 h-4 text-crystal-dark" />{step.title}</h3><p className="text-sm text-muted-foreground leading-relaxed">{step.text}</p></div></div>)}</div></div></div>
+        </section>
+        <section id="producto" className="crystalcat-section bg-muted/40 border-y">
+          <div className="container px-5"><div className="text-center mb-10"><p className="crystalcat-kicker text-brand-orange">La presentación</p><h2 className="crystalcat-title">Tu CrystalCat de siempre.</h2></div>{CRYSTALCAT_PRESENTATIONS.map(p => <article key={p.name} className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 md:gap-14 items-center rounded-lg border bg-background p-6 md:p-10"><img src={p.image} alt="Envase original CrystalCat 3,8 L" className="w-full h-80 md:h-96 object-contain" loading="lazy" /><div><span className="inline-flex items-center gap-2 text-sm font-semibold text-crystal-dark"><Package className="w-4 h-4" /> {p.volume}</span><h3 className="text-3xl font-heading font-extrabold mt-3 mb-4">{p.name}</h3><p className="text-muted-foreground leading-relaxed mb-7">{p.description}</p><Button asChild className={primary}><a href="#donde-comprar">Dónde comprar <ArrowRight /></a></Button></div></article>)}</div>
+        </section>
+        <section className="bg-brand-orange-light border-b border-brand-orange/15 py-16 md:py-20"><div className="container px-5 text-center"><img src={crystalcatLogo} alt="CrystalCat" className="h-10 md:h-14 w-auto max-w-full mx-auto mb-6" loading="lazy" /><h2 className="crystalcat-title mb-4">El cuidado empieza en casa.</h2><p className="text-muted-foreground mb-7">Conocé CrystalCat y encontrá tu próximo punto de compra.</p><Button asChild className={primary}><a href="#donde-comprar">Dónde comprar <ArrowRight /></a></Button></div></section>
+        <section id="donde-comprar" className="crystalcat-section">
+          <div className="container px-5 max-w-5xl"><div className="text-center mb-10"><p className="crystalcat-kicker text-brand-orange">Nuestros canales</p><h2 className="crystalcat-title mb-4">Dónde comprar</h2><p className="text-muted-foreground">Consultá con Pet Planet y encontrá la opción para vos.</p></div><div className="grid md:grid-cols-2 gap-6"><article className="rounded-lg border border-crystal/20 p-7 md:p-8 flex flex-col"><p className="crystalcat-kicker text-crystal-dark">Para tu gato</p><h3 className="text-2xl font-heading font-bold mb-4">¿Buscás CrystalCat?</h3><p className="text-muted-foreground leading-relaxed mb-7">Escribinos para consultar cómo comprar y conocer las opciones de atención.</p><WhatsAppCTA className="mt-auto" /></article><article className="rounded-lg border border-crystal/20 bg-crystal-light p-7 md:p-8 flex flex-col"><p className="crystalcat-kicker text-crystal-dark">Para tu negocio</p><h3 className="text-2xl font-heading font-bold mb-4">Compras mayoristas</h3><p className="text-muted-foreground leading-relaxed mb-7">Consultá condiciones comerciales para tu pet shop o veterinaria con nuestro equipo.</p><WhatsAppCTA className="mt-auto">Consultar por mayorista</WhatsAppCTA></article></div></div>
+        </section>
+        <LeadForm />
+      </main>
+      <footer className="py-12 border-t bg-background"><div className="container px-5 grid sm:grid-cols-3 gap-8"><div><img src={crystalcatLogo} alt="CrystalCat" className="h-8 w-auto mb-4" loading="lazy" /><p className="text-sm text-muted-foreground">Arena sanitaria de sílice para gatos.</p><p className="text-sm text-muted-foreground mt-3">Distribuida por <Link to="/" className="font-semibold text-foreground hover:text-crystal-dark">Pet Planet</Link>.</p></div><nav aria-label="Navegación del pie" className="flex flex-col items-start gap-3 text-sm text-muted-foreground">{nav.map(l => <a key={l.href} href={l.href} className="hover:text-crystal-dark">{l.label}</a>)}<a href="#donde-comprar" className="hover:text-crystal-dark">Dónde comprar</a></nav><div className="space-y-4 text-sm"><a href={CRYSTALCAT_WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-crystal-dark hover:text-brand-orange transition-colors"><MessageCircle className="w-4 h-4" /> WhatsApp</a><a href={CRYSTALCAT_INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-crystal-dark hover:text-brand-orange transition-colors"><Instagram className="w-4 h-4" /> @crystalcat.ar</a></div></div></footer>
+    </div>
+  );
+}
