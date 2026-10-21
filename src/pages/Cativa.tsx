@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import mlWordmark from "@/assets/mercado-libre-wordmark.svg";
 import { CATIVA_MERCADO_LIBRE_URL, CATIVA_WHOLESALE_WHATSAPP_URL } from "@/lib/cativa-purchase";
 import cativaLogoGreen from "@/assets/cativa-logo-green.png";
-import cativaLogoWhite from "@/assets/cativa-logo-white.png.asset.json";
+import cativaLogoClosing from "@/assets/cativa-logo-white-wordmark.png";
 import cativaScene from "@/assets/cativa-scene.jpg";
 import cativaSceneMobile from "@/assets/cativa-scene-mobile.jpg";
 import cativaLifestyle from "@/assets/cativa-lifestyle.jpg";
@@ -406,7 +406,7 @@ const Cativa = () => {
             <path d="M720,20 C1000,20 1220,160 1220,320 C1220,480 1000,620 720,620 C440,620 220,480 220,320 C220,160 440,20 720,20 Z" fill="currentColor" />
           </svg>
           <div className="relative container px-5 py-16 md:py-24 text-center">
-            <img src={cativaLogoWhite.url} alt="Cativa" className="h-10 md:h-14 w-auto mx-auto mb-6" loading="lazy" />
+            <img src={cativaLogoClosing} alt="Cativa" className="h-10 sm:h-12 md:h-16 w-auto mx-auto mb-6" loading="lazy" />
             <p className="font-heading font-extrabold text-cativa-cream text-2xl sm:text-3xl md:text-4xl mb-3">Naturalmente, Cativa.</p>
             <p className="text-cativa-cream/80 mb-8 max-w-md mx-auto">Descubrí una forma más natural de cuidar la higiene de tu gato.</p>
             <a href="#donde-comprar" className="inline-flex items-center justify-center rounded-full bg-cativa-cream px-7 py-3 font-heading font-bold text-cativa shadow-md hover:bg-white transition-colors">
