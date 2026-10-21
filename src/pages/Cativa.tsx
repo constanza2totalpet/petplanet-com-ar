@@ -393,7 +393,10 @@ const Cativa = () => {
                   ) : (
                     <>
                       <Button disabled aria-describedby="cativa-retail-pending" className={`${btnPrimary} h-auto w-full whitespace-normal text-center text-xs sm:text-sm`}>
-                        <Handshake aria-hidden="true" /> COMPRAR EN MERCADO LIBRE
+                        <span className="inline-flex items-center rounded-md bg-white px-2 py-1 shadow-sm">
+                          <img src={mlWordmark.url} alt="" aria-hidden="true" className="h-4 w-auto" />
+                        </span>
+                        COMPRAR EN MERCADO LIBRE
                       </Button>
                       <p id="cativa-retail-pending" className="text-sm text-cativa-stone mt-3">Próximamente en Mercado Libre.</p>
                     </>
