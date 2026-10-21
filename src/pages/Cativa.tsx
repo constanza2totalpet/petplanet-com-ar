@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { Sprout, Sparkles, Hand, Globe2, Menu, X, MessageCircle, Instagram, Handshake } from "lucide-react";
+import { Sprout, Sparkles, Hand, Globe2, Menu, X, MessageCircle, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import mlWordmark from "@/assets/mercado-libre-wordmark.svg.asset.json";
 import { CATIVA_MERCADO_LIBRE_URL, CATIVA_WHOLESALE_WHATSAPP_URL } from "@/lib/cativa-purchase";
 import cativaLogoGreen from "@/assets/cativa-logo-green.png";
 import cativaLogoWhite from "@/assets/cativa-logo-white.png.asset.json";
@@ -383,7 +384,10 @@ const Cativa = () => {
                   {CATIVA_MERCADO_LIBRE_URL ? (
                     <Button asChild className={`${btnPrimary} h-auto w-full whitespace-normal text-center text-xs sm:text-sm`}>
                       <a href={CATIVA_MERCADO_LIBRE_URL} target="_blank" rel="noopener noreferrer">
-                        <Handshake aria-hidden="true" /> COMPRAR EN MERCADO LIBRE
+                        <span className="inline-flex items-center rounded-md bg-white px-2 py-1 shadow-sm">
+                          <img src={mlWordmark.url} alt="" aria-hidden="true" className="h-4 w-auto" />
+                        </span>
+                        COMPRAR EN MERCADO LIBRE
                       </a>
                     </Button>
                   ) : (
