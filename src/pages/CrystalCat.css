@@ -16,10 +16,10 @@
   .crystalcat-hero-pack { right: 2%; height: 60%; }
 }
 @media (max-width: 767px) {
-  .crystalcat-hero { height: auto; min-height: 790px; display: block; }
-  .crystalcat-hero-photo { object-position: 58% bottom; height: 53%; top: auto; }
+  .crystalcat-page .crystalcat-hero { height: 740px; min-height: 740px; display: block; }
+  .crystalcat-page .crystalcat-hero-photo { object-position: 58% bottom; height: 53%; top: auto; }
   .crystalcat-hero-shade { background: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--background)) 43%, hsl(var(--background) / .2) 60%, transparent 75%); }
-  .crystalcat-hero-pack { max-width: 40%; height: 35%; right: 1%; bottom: 2%; }
+  .crystalcat-hero-pack { max-width: 38%; height: 34%; right: 1%; bottom: 2%; }
   .crystalcat-wordmark { height: 27px; max-width: 155px; }
   .crystalcat-section { padding-block: 56px; }
   .crystalcat-title { font-size: 30px; }
