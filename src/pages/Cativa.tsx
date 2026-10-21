@@ -5,9 +5,16 @@ import { Sprout, Sparkles, Hand, Globe2, Menu, X, MessageCircle, Instagram, Hand
 import { Button } from "@/components/ui/button";
 import { CATIVA_MERCADO_LIBRE_URL, CATIVA_WHOLESALE_WHATSAPP_URL } from "@/lib/cativa-purchase";
 import cativaLogoGreen from "@/assets/cativa-logo-green.png";
+import cativaLogoWhite from "@/assets/cativa-logo-white.png.asset.json";
 import cativaScene from "@/assets/cativa-scene.jpg";
 import cativaSceneMobile from "@/assets/cativa-scene-mobile.jpg";
-import cativaCard from "@/assets/cativa-card.png.asset.json";
+import cativaLifestyle from "@/assets/cativa-lifestyle.jpg";
+import cativaTexture from "@/assets/cativa-texture.jpg";
+import cativaTray from "@/assets/cativa-tray.jpg";
+import cativaCatTray from "@/assets/cativa-cat-tray.jpg";
+import cativaBagGrueso from "@/assets/cativa-bag-grueso.jpg";
+import cativaBagFino from "@/assets/cativa-bag-fino.jpg";
+import cativaBagMixto from "@/assets/cativa-bag-mixto.jpg";
 import petplanetLogo from "@/assets/petplanet-logo-trimmed.png";
 
 const WHATSAPP_URL =
@@ -32,9 +39,27 @@ const benefits = [
 
 // Presentaciones visibles en el packaging oficial
 const presentations = [
-  { name: "Granulado grueso", dot: "bg-cativa" },
-  { name: "Granulado fino", dot: "bg-brand-orange" },
-  { name: "Mixto", dot: "bg-crystal" },
+  {
+    name: "Granulado grueso",
+    description: "Gránulos de tamaño grueso.",
+    image: cativaBagGrueso,
+    alt: "Packaging de Cativa granulado grueso",
+    accent: "bg-cativa",
+  },
+  {
+    name: "Granulado fino",
+    description: "Gránulos de tamaño fino.",
+    image: cativaBagFino,
+    alt: "Packaging de Cativa granulado fino junto a un gato",
+    accent: "bg-brand-orange",
+  },
+  {
+    name: "Mixto",
+    description: "Combinación de gránulos gruesos y finos.",
+    image: cativaBagMixto,
+    alt: "Packaging de Cativa mixto",
+    accent: "bg-crystal",
+  },
 ];
 
 const Logo = ({ className = "" }: { className?: string }) => (
@@ -65,6 +90,10 @@ const btnPrimary =
   "inline-flex items-center justify-center rounded-full bg-cativa px-7 py-3 font-heading font-bold text-primary-foreground shadow-md hover:bg-cativa/90 transition-colors";
 const btnSecondary =
   "inline-flex items-center justify-center rounded-full border border-cativa/40 px-7 py-3 font-heading font-bold text-cativa hover:bg-cativa/5 transition-colors";
+
+const whatsappIcon = (
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.83 9.83 0 0 1 9.88 9.89c0 5.45-4.44 9.88-9.89 9.88zm8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41z"/></svg>
+);
 
 const Cativa = () => {
   const [open, setOpen] = useState(false);
@@ -148,121 +177,195 @@ const Cativa = () => {
               </div>
             </div>
           </div>
+          {/* Detalle orgánico inspirado en las curvas del logo */}
+          <svg viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true" className="absolute bottom-0 left-0 w-full h-16 md:h-24 text-cativa-cream">
+            <path d="M0,64 C240,110 480,20 760,50 C1040,80 1240,110 1440,60 L1440,120 L0,120 Z" fill="currentColor" />
+          </svg>
         </section>
 
-        {/* Conocé Cativa */}
-        <section id="conoce" className="py-16 md:py-24">
-          <div className="container max-w-3xl px-5 text-center">
-            <p className="text-xs font-semibold tracking-widest uppercase text-cativa-sage mb-3">Conocé Cativa</p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold text-cativa mb-6">
-              La naturaleza también forma parte de su cuidado
-            </h2>
-            <div className="space-y-4 text-cativa-stone leading-relaxed">
-              <p>Cativa nace de una idea simple: que la higiene de tu gato puede ser más natural.</p>
-              <p>Por eso elegimos la mandioca como base de nuestra arena sanitaria, una materia prima de origen vegetal que nos permite ofrecer una alternativa cálida y consciente para el día a día en casa.</p>
-            </div>
-          </div>
-        </section>
-
-        {/* Arena sanitaria de mandioca */}
-        <section id="arena-de-mandioca" aria-labelledby="arena-de-mandioca-title" className="border-t border-cativa/10 py-16 md:py-24">
-          <div className="container px-5 grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <div className="space-y-8">
-              <div>
-                <h2 id="arena-de-mandioca-title" className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold text-cativa mb-5">
-                  ¿Qué es la arena sanitaria de mandioca?
-                </h2>
-                <p className="text-cativa-stone leading-relaxed">
-                  Cativa es una arena sanitaria para gatos elaborada a base de mandioca, una materia prima de origen vegetal. Es una alternativa a las arenas sanitarias tradicionales que invita a descubrir una nueva forma de cuidar la higiene diaria de tu gato.
-                </p>
-              </div>
-              <div className="border-t border-cativa/15 pt-6">
-                <h3 className="text-xl font-heading font-bold text-cativa mb-3">¿Cómo funciona?</h3>
-                <p className="text-cativa-stone leading-relaxed">
-                  La arena sanitaria se utiliza en la bandeja de tu gato para acompañar su rutina de higiene. Su composición a base de mandioca es el punto de partida de una propuesta que busca integrar practicidad y origen vegetal en el cuidado cotidiano.
-                </p>
-              </div>
-              <div className="border-t border-cativa/15 pt-6">
-                <h3 className="text-xl font-heading font-bold text-cativa mb-3">¿Por qué elegir Cativa?</h3>
-                <p className="text-cativa-stone leading-relaxed">
-                  Porque la elección de la arena sanitaria también forma parte del bienestar diario de tu gato. Con Cativa, incorporás una alternativa de origen vegetal a su rutina de higiene.
-                </p>
+        {/* Conocé Cativa — composición editorial */}
+        <section id="conoce" className="py-16 md:py-28 scroll-mt-24">
+          <div className="container px-5 grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div className="text-center md:text-left">
+              <p className="text-xs font-semibold tracking-widest uppercase text-cativa-sage mb-4">Conocé Cativa</p>
+              <h2 className="text-2xl sm:text-3xl md:text-[2.75rem] md:leading-[1.15] font-heading font-extrabold text-cativa mb-6">
+                La naturaleza también forma parte de su cuidado
+              </h2>
+              <div className="space-y-4 text-cativa-stone leading-relaxed md:text-lg">
+                <p>Cativa nace de una idea simple: que la higiene de tu gato puede ser más natural.</p>
+                <p>Por eso elegimos la mandioca como base de nuestra arena sanitaria, una materia prima de origen vegetal que nos permite ofrecer una alternativa cálida y consciente para el día a día en casa.</p>
               </div>
             </div>
-            <figure className="min-w-0">
+            <div className="relative max-w-md mx-auto md:max-w-none w-full">
+              <div aria-hidden="true" className="absolute -top-4 -right-4 md:-top-6 md:-right-6 w-full h-full rounded-[2rem] border border-cativa/20" />
               <img
-                src={cativaCard.url}
-                alt="Packaging de Cativa junto a un gato y su arena sanitaria de mandioca"
-                className="w-full h-auto rounded-lg"
+                src={cativaLifestyle}
+                alt="Gato relajado en un living luminoso con plantas"
+                className="relative w-full h-auto rounded-[2rem] object-cover"
                 loading="lazy"
-                onError={(event) => {
-                  const image = event.currentTarget;
-                  if (image.getAttribute("src") !== cativaSceneMobile) image.src = cativaSceneMobile;
-                }}
+                width={1280}
+                height={960}
               />
-            </figure>
+            </div>
           </div>
         </section>
 
-        {/* Beneficios */}
-        <section id="beneficios" className="py-16 md:py-24 bg-card">
+        {/* ¿Qué es la arena sanitaria de mandioca? — composición asimétrica */}
+        <section id="arena-de-mandioca" aria-labelledby="arena-de-mandioca-title" className="bg-card border-y border-cativa/10 py-16 md:py-28">
+          <div className="container px-5 grid md:grid-cols-5 gap-10 lg:gap-16 items-center">
+            <figure className="relative md:col-span-2 min-w-0">
+              <img
+                src={cativaTexture}
+                alt="Detalle de la textura de la arena sanitaria de mandioca"
+                className="w-full h-auto rounded-[2rem] object-cover"
+                loading="lazy"
+                width={1024}
+                height={1024}
+              />
+              <figcaption className="absolute bottom-4 left-4 rounded-full bg-cativa-cream/90 backdrop-blur px-4 py-1.5 text-xs font-semibold tracking-wide uppercase text-cativa">
+                Arena de mandioca
+              </figcaption>
+            </figure>
+            <div className="md:col-span-3">
+              <p className="text-xs font-semibold tracking-widest uppercase text-cativa-sage mb-4">El producto</p>
+              <h2 id="arena-de-mandioca-title" className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold text-cativa mb-8">
+                ¿Qué es la arena sanitaria de mandioca?
+              </h2>
+              <div className="space-y-0">
+                <div className="border-t border-cativa/15 py-6 flex gap-5">
+                  <span aria-hidden="true" className="font-heading font-extrabold text-cativa/25 text-2xl leading-none pt-1">01</span>
+                  <div>
+                    <h3 className="text-xl font-heading font-bold text-cativa mb-2">¿Qué es?</h3>
+                    <p className="text-cativa-stone leading-relaxed">
+                      Cativa es una arena sanitaria para gatos elaborada a base de mandioca, una materia prima de origen vegetal. Es una alternativa a las arenas sanitarias tradicionales que invita a descubrir una nueva forma de cuidar la higiene diaria de tu gato.
+                    </p>
+                  </div>
+                </div>
+                <div className="border-t border-cativa/15 py-6 flex gap-5">
+                  <span aria-hidden="true" className="font-heading font-extrabold text-cativa/25 text-2xl leading-none pt-1">02</span>
+                  <div>
+                    <h3 className="text-xl font-heading font-bold text-cativa mb-2">¿Cómo funciona?</h3>
+                    <p className="text-cativa-stone leading-relaxed">
+                      La arena sanitaria se utiliza en la bandeja de tu gato para acompañar su rutina de higiene. Su composición a base de mandioca es el punto de partida de una propuesta que busca integrar practicidad y origen vegetal en el cuidado cotidiano.
+                    </p>
+                  </div>
+                </div>
+                <div className="border-t border-b border-cativa/15 py-6 flex gap-5">
+                  <span aria-hidden="true" className="font-heading font-extrabold text-cativa/25 text-2xl leading-none pt-1">03</span>
+                  <div>
+                    <h3 className="text-xl font-heading font-bold text-cativa mb-2">¿Por qué elegir Cativa?</h3>
+                    <p className="text-cativa-stone leading-relaxed">
+                      Porque la elección de la arena sanitaria también forma parte del bienestar diario de tu gato. Con Cativa, incorporás una alternativa de origen vegetal a su rutina de higiene.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Beneficios — bloque verde oscuro */}
+        <section id="beneficios" className="bg-cativa py-16 md:py-28 scroll-mt-24">
           <div className="container px-5">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold text-cativa text-center mb-10 md:mb-14">
+            <p className="text-xs font-semibold tracking-widest uppercase text-cativa-cream/70 text-center mb-4">Beneficios</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold text-cativa-cream text-center mb-12 md:mb-16">
               Pensada para su bienestar
             </h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
               {benefits.map(({ icon: Icon, title, text }) => (
-                <div key={title} className="rounded-2xl border border-cativa/10 bg-cativa-cream p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all">
-                  <div className="mx-auto mb-4 w-14 h-14 rounded-full border border-cativa/30 flex items-center justify-center">
+                <div key={title} className="rounded-3xl bg-cativa-cream p-7 text-center hover:-translate-y-1 transition-transform">
+                  <div className="mx-auto mb-5 w-14 h-14 rounded-full border border-cativa/30 flex items-center justify-center">
                     <Icon className="w-6 h-6 text-cativa" strokeWidth={1.5} />
                   </div>
-                  <h3 className="font-heading font-bold text-cativa mb-2">{title}</h3>
-                  <p className="text-sm text-cativa-stone">{text}</p>
+                  <h3 className="font-heading font-bold text-cativa text-lg mb-2">{title}</h3>
+                  <p className="text-sm text-cativa-stone leading-relaxed">{text}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Lifestyle */}
-        <section className="py-16 md:py-24">
-          <div className="container px-5 grid md:grid-cols-2 gap-10 items-center">
-            <div className="rounded-3xl overflow-hidden shadow-xl aspect-[4/3]">
-              <img src={cativaScene} alt="Gato en un hogar luminoso" className="w-full h-full object-cover object-right" loading="lazy" />
-            </div>
-            <div className="text-center md:text-left">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold text-cativa mb-5">
-                Un cuidado que se siente natural
+        {/* Uso y experiencia */}
+        <section id="uso" aria-labelledby="uso-title" className="py-16 md:py-28">
+          <div className="container px-5">
+            <div className="max-w-2xl mb-12 md:mb-16 text-center mx-auto">
+              <p className="text-xs font-semibold tracking-widest uppercase text-cativa-sage mb-4">Uso y experiencia</p>
+              <h2 id="uso-title" className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold text-cativa">
+                Parte de la rutina de tu hogar
               </h2>
-              <p className="text-cativa-stone leading-relaxed">
-                Un hogar limpio, un gato tranquilo y una convivencia en armonía. Cativa acompaña ese equilibrio con una propuesta simple y natural.
-              </p>
+            </div>
+            <div className="grid md:grid-cols-2 gap-5 md:gap-6">
+              <img
+                src={cativaCatTray}
+                alt="Gato entrando naturalmente a su bandeja sanitaria"
+                className="w-full h-full min-h-[320px] rounded-[2rem] object-cover md:row-span-2"
+                loading="lazy"
+                width={1024}
+                height={1280}
+              />
+              <img
+                src={cativaTray}
+                alt="Bandeja sanitaria con arena de mandioca en un ambiente doméstico limpio"
+                className="w-full h-64 md:h-auto rounded-[2rem] object-cover"
+                loading="lazy"
+                width={1024}
+                height={768}
+              />
+              <div className="rounded-[2rem] border border-cativa/15 bg-card p-8 md:p-10 flex flex-col justify-center">
+                <h3 className="text-xl md:text-2xl font-heading font-bold text-cativa mb-3">El gesto de todos los días</h3>
+                <p className="text-cativa-stone leading-relaxed">
+                  Servir, mantener y renovar la arena de la bandeja es parte del cuidado diario. Cativa acompaña esa rutina con una propuesta de origen vegetal, simple de integrar a tu hogar.
+                </p>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Producto */}
-        <section id="producto" className="py-16 md:py-24 bg-card">
-          <div className="container px-5 grid md:grid-cols-2 gap-10 items-center">
-            <div className="order-2 md:order-1 text-center md:text-left">
-              <p className="text-xs font-semibold tracking-widest uppercase text-cativa-sage mb-3">El producto</p>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold text-cativa mb-5">
+        {/* Variedades */}
+        <section id="producto" className="bg-card border-y border-cativa/10 py-16 md:py-28 scroll-mt-24">
+          <div className="container px-5">
+            <div className="max-w-2xl mb-12 md:mb-16 text-center mx-auto">
+              <p className="text-xs font-semibold tracking-widest uppercase text-cativa-sage mb-4">Las variedades</p>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold text-cativa mb-4">
                 Arena sanitaria para gatos a base de mandioca
               </h2>
-              <p className="text-cativa-stone mb-6">Disponible en tres presentaciones:</p>
-              <ul className="space-y-3 mb-8 inline-block text-left">
-                {presentations.map((p) => (
-                  <li key={p.name} className="flex items-center gap-3 font-medium">
-                    <span className={`w-3 h-3 rounded-full ${p.dot}`} />
-                    {p.name}
-                  </li>
-                ))}
-              </ul>
-              <div><a href="#donde-comprar" className={btnPrimary}>Encontrá tu Cativa</a></div>
+              <p className="text-cativa-stone">Disponible en tres presentaciones.</p>
             </div>
-            <div className="order-1 md:order-2 rounded-3xl overflow-hidden shadow-xl">
-              <img src={cativaCard.url} alt="Packaging de Cativa en sus tres presentaciones" className="w-full h-auto" loading="lazy" />
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
+              {presentations.map((p) => (
+                <article key={p.name} className="rounded-3xl border border-cativa/15 bg-cativa-cream overflow-hidden flex flex-col hover:-translate-y-1 transition-transform">
+                  <div className={`h-1.5 ${p.accent}`} />
+                  <img
+                    src={p.image}
+                    alt={p.alt}
+                    className="w-full aspect-[3/5] object-cover object-top"
+                    loading="lazy"
+                  />
+                  <div className="p-6 md:p-7 text-center">
+                    <h3 className="font-heading font-bold text-cativa text-xl mb-2">{p.name}</h3>
+                    <p className="text-sm text-cativa-stone">{p.description}</p>
+                  </div>
+                </article>
+              ))}
             </div>
+            <div className="text-center mt-12">
+              <a href="#donde-comprar" className={btnPrimary}>Encontrá tu Cativa</a>
+            </div>
+          </div>
+        </section>
+
+        {/* Franja de cierre de marca */}
+        <section aria-label="Naturalmente, Cativa" className="relative bg-cativa overflow-hidden">
+          <svg viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true" className="absolute -bottom-10 -right-24 w-[480px] h-[320px] text-cativa-cream/5 rotate-12">
+            <path d="M720,20 C1000,20 1220,160 1220,320 C1220,480 1000,620 720,620 C440,620 220,480 220,320 C220,160 440,20 720,20 Z" fill="currentColor" />
+          </svg>
+          <div className="relative container px-5 py-16 md:py-24 text-center">
+            <img src={cativaLogoWhite.url} alt="Cativa" className="h-10 md:h-14 w-auto mx-auto mb-6" loading="lazy" />
+            <p className="font-heading font-extrabold text-cativa-cream text-2xl sm:text-3xl md:text-4xl mb-3">Naturalmente, Cativa.</p>
+            <p className="text-cativa-cream/80 mb-8 max-w-md mx-auto">Descubrí una forma más natural de cuidar la higiene de tu gato.</p>
+            <a href="#donde-comprar" className="inline-flex items-center justify-center rounded-full bg-cativa-cream px-7 py-3 font-heading font-bold text-cativa shadow-md hover:bg-white transition-colors">
+              Dónde comprar
+            </a>
           </div>
         </section>
 
@@ -272,7 +375,7 @@ const Cativa = () => {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold text-cativa mb-4">Dónde comprar</h2>
             <p className="text-cativa-stone mb-10">Encontrá Cativa en nuestros canales oficiales.</p>
             <div className="grid md:grid-cols-2 gap-5 md:gap-6 mb-10 text-left">
-              <div className="rounded-lg border border-cativa/15 bg-card p-6 md:p-8 flex flex-col">
+              <div className="rounded-3xl border border-cativa/15 bg-card p-6 md:p-8 flex flex-col shadow-sm">
                 <p className="text-xs font-semibold uppercase tracking-widest text-cativa-stone mb-4">Compras minoristas</p>
                 <h3 className="text-xl font-heading font-bold text-cativa mb-3">¿Querés Cativa para tu gato?</h3>
                 <p className="text-cativa-stone leading-relaxed mb-6">Comprá Cativa en Mercado Libre y recibila en tu casa.</p>
@@ -293,13 +396,13 @@ const Cativa = () => {
                   )}
                 </div>
               </div>
-              <div className="rounded-lg border border-cativa/15 bg-cativa/5 p-6 md:p-8 flex flex-col">
+              <div className="rounded-3xl border border-cativa/15 bg-cativa/5 p-6 md:p-8 flex flex-col shadow-sm">
                 <p className="text-xs font-semibold uppercase tracking-widest text-cativa-stone mb-4">Compras mayoristas</p>
                 <h3 className="text-xl font-heading font-bold text-cativa mb-3">¿Tenés un pet shop o una veterinaria?</h3>
                 <p className="text-cativa-stone leading-relaxed mb-6">Sumá Cativa a tu negocio. Escribinos por WhatsApp para conocer las condiciones comerciales y realizar consultas sobre compras mayoristas.</p>
                 <Button asChild className={`${btnPrimary} h-auto mt-auto w-full whitespace-normal text-center text-xs sm:text-sm`}>
                   <a href={CATIVA_WHOLESALE_WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.83 9.83 0 0 1 9.88 9.89c0 5.45-4.44 9.88-9.89 9.88zm8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41z"/></svg> CONSULTAR POR MAYORISTA
+                    {whatsappIcon} CONSULTAR POR MAYORISTA
                   </a>
                 </Button>
               </div>
