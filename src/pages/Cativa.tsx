@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Sprout, Sparkles, Hand, Globe2, Menu, X, MessageCircle, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import mlWordmark from "@/assets/mercado-libre-wordmark.svg.asset.json";
+import mlWordmark from "@/assets/mercado-libre-wordmark.svg";
 import { CATIVA_MERCADO_LIBRE_URL, CATIVA_WHOLESALE_WHATSAPP_URL } from "@/lib/cativa-purchase";
 import cativaLogoGreen from "@/assets/cativa-logo-green.png";
 import cativaLogoWhite from "@/assets/cativa-logo-white.png.asset.json";
