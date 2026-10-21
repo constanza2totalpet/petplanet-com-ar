@@ -16,6 +16,8 @@
   .crystalcat-hero-pack { right: 2%; height: 60%; }
 }
 @media (max-width: 767px) {
+  body:has(.crystalcat-page) a[aria-label="Contactar por WhatsApp"] { right: 6px; bottom: 12px; width: 40px; height: 40px; }
+  body:has(.crystalcat-page) a[aria-label="Contactar por WhatsApp"] svg { width: 22px; height: 22px; }
   .crystalcat-page .crystalcat-hero { height: 740px; min-height: 740px; display: block; }
   .crystalcat-page .crystalcat-hero-photo { object-position: 58% bottom; height: 53%; top: auto; }
   .crystalcat-hero-shade { background: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--background)) 43%, hsl(var(--background) / .2) 60%, transparent 75%); }

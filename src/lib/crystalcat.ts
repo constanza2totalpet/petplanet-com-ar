@@ -1,4 +1,4 @@
-import originalPack from "@/assets/crystalcat-original-pack.png.asset.json";
+import originalPack from "@/assets/crystalcat-original-pack-v2.png.asset.json";
 
 export const CRYSTALCAT_WHATSAPP_NUMBER = "5491123190096";
 export const CRYSTALCAT_WHATSAPP_MESSAGE = "Hola! Quiero consultar por Crystal Cat.";

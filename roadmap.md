@@ -1,6 +1,6 @@
 # Tasks
-- [ ] Redesign the existing CrystalCat landing with its original assets and verified content.
-- [ ] Verify CrystalCat navigation, contacts, lead form and desktop/mobile layout.
+- [x] Redesign the existing CrystalCat landing with its original assets and verified content.
+- [x] Verify CrystalCat navigation, contacts, lead form and desktop/mobile layout.
 - [x] Cativa visual redesign (new imagery, section rhythm, varieties cards).
 - [x] Replace handshake icon with official Mercado Libre logo on the retail button.
 - [x] Separate Cativa retail and wholesale buying options without changing other sections.

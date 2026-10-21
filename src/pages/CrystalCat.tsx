@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import crystalcatLogo from "@/assets/crystalcat-logo-transparent.png";
 import petplanetLogo from "@/assets/petplanet-logo-trimmed.png";
 import catHero from "@/assets/crystal-cat-hero.jpg";
-import originalPack from "@/assets/crystalcat-original-pack.png.asset.json";
+import originalPack from "@/assets/crystalcat-original-pack-v2.png.asset.json";
 import lifestyle from "@/assets/crystalcat-lifestyle.jpg.asset.json";
 import crystals from "@/assets/crystalcat-crystals.jpg.asset.json";
 import tray from "@/assets/crystalcat-tray.jpg.asset.json";
