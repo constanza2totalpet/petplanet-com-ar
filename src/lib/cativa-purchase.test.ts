@@ -8,11 +8,13 @@ describe("Cativa purchase destinations", () => {
 
   it("prefills the requested wholesale inquiry", () => {
     expect(new URL(CATIVA_WHOLESALE_WHATSAPP_URL).searchParams.get("text")).toBe(
-      "¡Hola! Quiero recibir información sobre la compra mayorista de Cativa para mi comercio.",
+      "¡Hola! Quiero consultar por la compra mayorista de Cativa para mi comercio.",
     );
   });
 
-  it("keeps retail buying unavailable until an official URL is supplied", () => {
-    expect(CATIVA_MERCADO_LIBRE_URL).toBeNull();
+  it("links retail buying to the official Mercado Libre listing", () => {
+    expect(CATIVA_MERCADO_LIBRE_URL).toBe(
+      "https://www.mercadolibre.com.ar/arena-sanitaria-de-mandioca-cativa-para-gatos-4kg/up/MLAU5642849316?pdp_filters=item_id:MLA4108631228",
+    );
   });
 });
