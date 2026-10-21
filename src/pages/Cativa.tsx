@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { Sprout, Sparkles, Hand, Globe2, Menu, X, MessageCircle, Instagram } from "lucide-react";
+import { Sprout, Sparkles, Hand, Globe2, Menu, X, MessageCircle, Instagram, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import mlWordmark from "@/assets/mercado-libre-wordmark.svg";
 import { CATIVA_MERCADO_LIBRE_URL, CATIVA_WHOLESALE_WHATSAPP_URL } from "@/lib/cativa-purchase";
@@ -39,29 +39,60 @@ const benefits = [
 ];
 
 // Presentaciones visibles en el packaging oficial
-const presentations = [
+type VarietyStatus = "disponible" | "proximamente";
+
+type Variety = {
+  name: string;
+  description: string;
+  image: string;
+  alt: string;
+  accent: string;
+  status: VarietyStatus;
+};
+
+// Presentaciones visibles en el packaging oficial
+const presentations: Variety[] = [
   {
-    name: "MEDIO",
-    description: "Granulado de tamaño medio",
+    name: "Granulado medio",
+    description: "Arena sanitaria para gatos a base de mandioca",
     image: cativaBagMedio,
     alt: "Packaging verde de Cativa granulado medio 4 kg",
     accent: "bg-cativa",
+    status: "disponible",
   },
   {
-    name: "GRUESO",
-    description: "Gránulos de mayor tamaño",
+    name: "Granulado grueso",
+    description: "Muy pronto, una nueva variedad para descubrir",
     image: cativaBagGrueso,
     alt: "Packaging marrón de Cativa granulado grueso 4 kg",
     accent: "bg-brand-orange",
+    status: "proximamente",
   },
   {
-    name: "FINO",
-    description: "Gránulos de tamaño fino",
+    name: "Granulado fino",
+    description: "Muy pronto, una nueva variedad para descubrir",
     image: cativaBagFino,
     alt: "Packaging azul de Cativa granulado fino 4 kg",
     accent: "bg-crystal",
+    status: "proximamente",
   },
 ];
+
+const StatusLabel = ({ status }: { status: VarietyStatus }) => (
+  <span
+    className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] ring-1 ring-inset ${
+      status === "disponible"
+        ? "bg-cativa/10 text-cativa ring-cativa/20"
+        : "bg-cativa-stone/10 text-cativa-stone ring-cativa-stone/25"
+    }`}
+  >
+    <span
+      className={`h-1.5 w-1.5 rounded-full ${status === "disponible" ? "bg-cativa" : "bg-brand-orange"}`}
+      aria-hidden="true"
+    />
+    {status === "disponible" ? "Disponible" : "Próximamente"}
+  </span>
+);
 
 const Logo = ({ className = "" }: { className?: string }) => (
   <img src={cativaLogoGreen} alt="Cativa" className={`w-auto object-contain ${className}`} />
@@ -330,7 +361,7 @@ const Cativa = () => {
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold text-cativa mb-4">
                 Arena sanitaria para gatos a base de mandioca
               </h2>
-              <p className="text-cativa-stone">Disponible en tres presentaciones.</p>
+              <p className="text-cativa-stone">Una variedad disponible hoy y dos que están por llegar.</p>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
               {presentations.map((p) => (
@@ -344,9 +375,21 @@ const Cativa = () => {
                       loading="lazy"
                     />
                   </div>
-                  <div className="p-6 md:p-7 text-center">
-                    <h3 className="font-heading font-bold text-cativa text-xl mb-2">{p.name}</h3>
+                  <div className="p-6 md:p-7 text-center flex flex-1 flex-col">
+                    <StatusLabel status={p.status} />
+                    <h3 className="font-heading font-bold text-cativa text-xl mt-3 mb-2">{p.name}</h3>
                     <p className="text-sm text-cativa-stone">{p.description}</p>
+                    <div className="mt-auto pt-5">
+                      {p.status === "disponible" && (
+                        <a
+                          href="#donde-comprar"
+                          className="inline-flex items-center gap-1.5 text-sm font-semibold text-cativa transition-colors hover:text-cativa/75"
+                        >
+                          Dónde comprar
+                          <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </article>
               ))}
