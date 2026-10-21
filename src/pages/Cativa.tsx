@@ -379,7 +379,7 @@ const Cativa = () => {
                     <StatusLabel status={p.status} />
                     <h3 className="font-heading font-bold text-cativa text-xl mt-3 mb-2">{p.name}</h3>
                     <p className="text-sm text-cativa-stone">{p.description}</p>
-                    <div className="mt-auto pt-5 min-h-5">
+                    <div className="mt-auto pt-5 min-h-11">
                       {p.status === "disponible" && (
                         <a
                           href="#donde-comprar"
