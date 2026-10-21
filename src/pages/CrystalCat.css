@@ -1,0 +1,32 @@
+.crystalcat-page { --radius: 0.5rem; }
+.crystalcat-page section[id] { scroll-margin-top: 6.5rem; }
+.crystalcat-hero { min-height: 640px; height: min(740px, 78svh); }
+.crystalcat-hero-photo { object-position: center; }
+.crystalcat-hero-shade { background: linear-gradient(90deg, hsl(var(--background) / .98) 0%, hsl(var(--background) / .92) 28%, hsl(var(--background) / .25) 58%, transparent 75%); }
+.crystalcat-hero-pack { position: absolute; right: 4%; bottom: 4%; height: 72%; width: auto; max-width: 32%; object-fit: contain; }
+.crystalcat-wordmark { height: 32px; width: auto; max-width: 195px; object-fit: contain; }
+.crystalcat-section { padding-block: 88px; }
+.crystalcat-title { font-size: 40px; line-height: 1.18; font-weight: 800; }
+.crystalcat-kicker { font-size: 11px; font-weight: 700; text-transform: uppercase; margin-bottom: 16px; }
+.crystalcat-page a, .crystalcat-page button { scroll-margin-top: 100px; }
+.crystalcat-page a:focus-visible { outline: 2px solid hsl(var(--crystal)); outline-offset: 5px; }
+.crystalcat-page input:focus-visible { outline: 2px solid hsl(var(--crystal)); outline-offset: 2px; }
+@media (max-width: 1023px) {
+  .crystalcat-hero { min-height: 590px; }
+  .crystalcat-hero-pack { right: 2%; height: 60%; }
+}
+@media (max-width: 767px) {
+  body:has(.crystalcat-page) a[aria-label="Contactar por WhatsApp"] { right: 6px; bottom: 12px; width: 40px; height: 40px; }
+  body:has(.crystalcat-page) a[aria-label="Contactar por WhatsApp"] svg { width: 22px; height: 22px; }
+  .crystalcat-page .crystalcat-hero { height: 740px; min-height: 740px; display: block; }
+  .crystalcat-page .crystalcat-hero-photo { object-position: 58% bottom; height: 53%; top: auto; }
+  .crystalcat-hero-shade { background: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--background)) 43%, hsl(var(--background) / .2) 60%, transparent 75%); }
+  .crystalcat-hero-pack { max-width: 38%; height: 34%; right: 1%; bottom: 2%; }
+  .crystalcat-wordmark { height: 27px; max-width: 155px; }
+  .crystalcat-section { padding-block: 56px; }
+  .crystalcat-title { font-size: 30px; }
+  .crystalcat-page section[id] { scroll-margin-top: 5.5rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .crystalcat-page *, .crystalcat-page *::before, .crystalcat-page *::after { animation: none !important; transition: none !important; scroll-behavior: auto; }
+}
