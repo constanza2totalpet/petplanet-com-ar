@@ -1,4 +1,6 @@
 # Tasks
+- [x] Adjust only CrystalCat's header and hero to Cativa's layout with original branding.
+- [x] Verify header anchors, hero imagery and desktop/mobile layout without changing other sections.
 - [x] Redesign the existing CrystalCat landing with its original assets and verified content.
 - [x] Verify CrystalCat navigation, contacts, lead form and desktop/mobile layout.
 - [x] Cativa visual redesign (new imagery, section rhythm, varieties cards).

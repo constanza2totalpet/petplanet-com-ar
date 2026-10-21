@@ -22,6 +22,13 @@ const nav = [
   { label: "Cómo se usa", href: "#uso" },
   { label: "Presentación", href: "#producto" },
 ];
+const headerNav = [
+  { label: "Inicio", href: "#inicio" },
+  { label: "Conocé CrystalCat", href: "#conoce" },
+  { label: "Beneficios", href: "#beneficios" },
+  { label: "Dónde comprar", href: "#donde-comprar" },
+];
+const heroPrimary = "h-auto min-h-11 rounded-full bg-brand-orange px-6 py-3 text-primary-foreground font-heading font-bold hover:bg-brand-orange/90";
 const primary = "h-auto min-h-11 rounded-full bg-crystal-dark px-6 py-3 text-primary-foreground font-heading font-bold hover:bg-crystal";
 const secondary = "h-auto min-h-11 rounded-full border-crystal/30 bg-background/80 px-6 py-3 text-crystal-dark font-heading font-bold hover:bg-crystal-light";
 const steps = [
@@ -98,28 +105,29 @@ export default function CrystalCat() {
         <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "Product", name: "CrystalCat 3,8 L", description: "Arena sanitaria de sílice para gatos", image: new URL(originalPack.url, "https://petplanet.com.ar").href, brand: { "@type": "Brand", name: "CrystalCat" }, url: "https://petplanet.com.ar/crystal-cat" })}</script>
       </Helmet>
       <header className="sticky top-0 z-50 border-b border-crystal/10 bg-background/95 backdrop-blur-md">
-        <div className="container h-20 px-5 flex items-center justify-between gap-4">
+        <div className="crystalcat-header-row container h-20 px-5 gap-4">
           <div className="flex items-center gap-4 md:gap-6 min-w-0">
             <a href="https://www.petplanet.com.ar/" aria-label="Pet Planet, volver al sitio principal" className="shrink-0 opacity-80 hover:opacity-100 transition-opacity"><img src={petplanetLogo} alt="Pet Planet" className="h-6 md:h-[30px] w-auto" /></a>
             <a href="#inicio" aria-label="CrystalCat, inicio"><img src={crystalcatLogo} alt="CrystalCat" className="crystalcat-wordmark" /></a>
           </div>
-          <nav aria-label="Navegación principal" className="hidden lg:flex gap-6">{nav.map(l => <a key={l.href} href={l.href} className="text-sm text-muted-foreground hover:text-crystal-dark transition-colors">{l.label}</a>)}</nav>
-          <Button asChild className={`${primary} hidden lg:inline-flex text-sm`}><a href="#donde-comprar">Dónde comprar</a></Button>
+          <nav aria-label="Navegación principal" className="hidden lg:flex justify-center gap-6">{headerNav.map(l => <a key={l.href} href={l.href} className="text-sm whitespace-nowrap text-muted-foreground hover:text-crystal-dark transition-colors">{l.label}</a>)}</nav>
+          <Button asChild className={`${heroPrimary} hidden lg:inline-flex justify-self-end text-sm`}><a href="#donde-comprar">Dónde comprar</a></Button>
           <Button variant="ghost" size="icon" className="lg:hidden shrink-0 text-crystal-dark" onClick={() => setOpen(!open)} aria-label={open ? "Cerrar menú" : "Abrir menú"} aria-expanded={open} aria-controls="crystalcat-menu">{open ? <X /> : <Menu />}</Button>
         </div>
-        {open && <nav id="crystalcat-menu" aria-label="Navegación móvil" className="lg:hidden border-t bg-background px-5 py-5 flex flex-col gap-4">{nav.map(l => <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-sm text-foreground">{l.label}</a>)}<Button asChild className={primary}><a href="#donde-comprar" onClick={() => setOpen(false)}>Dónde comprar</a></Button></nav>}
+        {open && <nav id="crystalcat-menu" aria-label="Navegación móvil" className="lg:hidden border-t bg-background px-5 py-5 flex flex-col gap-4">{headerNav.map(l => <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-sm text-foreground">{l.label}</a>)}</nav>}
       </header>
       <main>
-        <section id="inicio" className="crystalcat-hero relative overflow-hidden flex items-center">
-          <img src={catHero} alt="Gato junto a una bandeja con cristales de sílice en un hogar luminoso" className="crystalcat-hero-photo absolute inset-0 w-full h-full object-cover" width={1920} height={1080} fetchPriority="high" />
-          <div aria-hidden="true" className="crystalcat-hero-shade absolute inset-0" />
-          <img src={originalPack.url} alt="Packaging original CrystalCat de 3,8 L" className="crystalcat-hero-pack" />
-          <div className="relative container px-5 md:px-12 py-10 md:py-16">
-            <div className="max-w-lg text-center md:text-left">
-              <p className="crystalcat-kicker text-brand-orange">CrystalCat · Higiene para gatos</p>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold leading-[1.12] mb-5">Arena sanitaria<br />de <span className="text-crystal-dark">sílice.</span></h1>
-              <p className="text-base md:text-lg text-foreground/75 leading-relaxed mb-7 max-w-sm mx-auto md:mx-0">Cristales para la higiene de tu gato.<br />CrystalCat, en su presentación de 3,8 L.</p>
-              <div className="flex flex-wrap justify-center md:justify-start gap-3"><Button asChild className={primary}><a href="#donde-comprar">Dónde comprar <ArrowRight /></a></Button><Button asChild variant="outline" className={secondary}><a href="#beneficios">Conocé sus beneficios</a></Button></div>
+        <section id="inicio" className="crystalcat-hero overflow-hidden bg-background">
+          <div className="crystalcat-hero-layout container px-5 md:px-8 lg:px-12">
+            <div className="crystalcat-hero-copy min-w-0 text-left">
+              <p className="crystalcat-kicker text-brand-orange">Higiene felina</p>
+              <h1 className="text-4xl md:text-5xl font-heading font-extrabold leading-[1.12] mb-6">Piedras sanitarias de <span className="text-crystal">sílice</span> para gatos</h1>
+              <p className="text-base md:text-lg text-foreground/75 leading-relaxed mb-8 max-w-md">Cristales de sílice para la higiene cotidiana de tu gato. Conocé CrystalCat en su presentación de 3,8 L.</p>
+              <div className="flex flex-wrap justify-start gap-3"><Button asChild className={heroPrimary}><a href="#donde-comprar">Dónde comprar <ArrowRight /></a></Button><Button asChild variant="outline" className={secondary}><a href="#beneficios">Conocé sus beneficios</a></Button></div>
+            </div>
+            <div className="crystalcat-hero-media relative min-w-0">
+              <img src={catHero} alt="Gato junto a una bandeja con cristales de sílice en un hogar luminoso" className="crystalcat-hero-photo w-full h-full object-cover" width={1920} height={1080} fetchPriority="high" />
+              <img src={originalPack.url} alt="Packaging original CrystalCat de 3,8 L" className="crystalcat-hero-pack" />
             </div>
           </div>
         </section>
