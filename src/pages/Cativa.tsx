@@ -13,9 +13,9 @@ import cativaLifestyle from "@/assets/cativa-lifestyle.jpg";
 import cativaTexture from "@/assets/cativa-texture.jpg";
 import cativaTray from "@/assets/cativa-tray.jpg";
 import cativaCatTray from "@/assets/cativa-cat-tray.jpg";
+import cativaBagMedio from "@/assets/cativa-bag-medio.jpg";
 import cativaBagGrueso from "@/assets/cativa-bag-grueso.jpg";
 import cativaBagFino from "@/assets/cativa-bag-fino.jpg";
-import cativaBagMixto from "@/assets/cativa-bag-mixto.jpg";
 import petplanetLogo from "@/assets/petplanet-logo-trimmed.png";
 
 const WHATSAPP_URL =
@@ -41,24 +41,24 @@ const benefits = [
 // Presentaciones visibles en el packaging oficial
 const presentations = [
   {
-    name: "Granulado grueso",
-    description: "Gránulos de tamaño grueso.",
-    image: cativaBagGrueso,
-    alt: "Packaging de Cativa granulado grueso",
+    name: "MEDIO",
+    description: "Granulado de tamaño medio",
+    image: cativaBagMedio,
+    alt: "Packaging verde de Cativa granulado medio 4 kg",
     accent: "bg-cativa",
   },
   {
-    name: "Granulado fino",
-    description: "Gránulos de tamaño fino.",
-    image: cativaBagFino,
-    alt: "Packaging de Cativa granulado fino junto a un gato",
+    name: "GRUESO",
+    description: "Gránulos de mayor tamaño",
+    image: cativaBagGrueso,
+    alt: "Packaging marrón de Cativa granulado grueso 4 kg",
     accent: "bg-brand-orange",
   },
   {
-    name: "Mixto",
-    description: "Combinación de gránulos gruesos y finos.",
-    image: cativaBagMixto,
-    alt: "Packaging de Cativa mixto",
+    name: "FINO",
+    description: "Gránulos de tamaño fino",
+    image: cativaBagFino,
+    alt: "Packaging azul de Cativa granulado fino 4 kg",
     accent: "bg-crystal",
   },
 ];
@@ -336,12 +336,14 @@ const Cativa = () => {
               {presentations.map((p) => (
                 <article key={p.name} className="rounded-3xl border border-cativa/15 bg-cativa-cream overflow-hidden flex flex-col hover:-translate-y-1 transition-transform">
                   <div className={`h-1.5 ${p.accent}`} />
-                  <img
-                    src={p.image}
-                    alt={p.alt}
-                    className="w-full aspect-[3/5] object-cover object-top"
-                    loading="lazy"
-                  />
+                  <div className="bg-white">
+                    <img
+                      src={p.image}
+                      alt={p.alt}
+                      className="w-full aspect-[10/13] object-contain"
+                      loading="lazy"
+                    />
+                  </div>
                   <div className="p-6 md:p-7 text-center">
                     <h3 className="font-heading font-bold text-cativa text-xl mb-2">{p.name}</h3>
                     <p className="text-sm text-cativa-stone">{p.description}</p>
