@@ -385,7 +385,7 @@ const Cativa = () => {
                     <Button asChild className={`${btnPrimary} h-auto w-full whitespace-normal text-center text-xs sm:text-sm`}>
                       <a href={CATIVA_MERCADO_LIBRE_URL} target="_blank" rel="noopener noreferrer">
                         <span className="inline-flex items-center rounded-md bg-white px-2 py-1 shadow-sm">
-                          <img src={mlWordmark.url} alt="" aria-hidden="true" className="h-4 w-auto" />
+                          <img src={mlWordmark} alt="" aria-hidden="true" className="h-4 w-auto" />
                         </span>
                         COMPRAR EN MERCADO LIBRE
                       </a>
@@ -394,7 +394,7 @@ const Cativa = () => {
                     <>
                       <Button disabled aria-describedby="cativa-retail-pending" className={`${btnPrimary} h-auto w-full whitespace-normal text-center text-xs sm:text-sm`}>
                         <span className="inline-flex items-center rounded-md bg-white px-2 py-1 shadow-sm">
-                          <img src={mlWordmark.url} alt="" aria-hidden="true" className="h-4 w-auto" />
+                          <img src={mlWordmark} alt="" aria-hidden="true" className="h-4 w-auto" />
                         </span>
                         COMPRAR EN MERCADO LIBRE
                       </Button>
