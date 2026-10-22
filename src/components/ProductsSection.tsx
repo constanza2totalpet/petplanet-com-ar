@@ -34,7 +34,7 @@ const brands: Brand[] = [
     phrase: "Piedras sanitarias de sílice para gatos en presentación de 3,8 L.",
     image: crystalcatPack.url,
     imageAlt: "Envase de piedras sanitarias de sílice CrystalCat de 3,8 L",
-    imageBg: "bg-crystal-light",
+    imageBg: "bg-card",
     cta: "Conocé CrystalCat",
     ctaClass: "bg-crystal hover:bg-crystal-dark",
     href: HOME_BRAND_LINKS.crystalcat,
@@ -49,7 +49,7 @@ const brands: Brand[] = [
     phrase: "Higiene natural para gatos, a base de mandioca.",
     image: cativaBag,
     imageAlt: "Envase de arena sanitaria de mandioca Cativa",
-    imageBg: "bg-cativa/10",
+    imageBg: "bg-card",
     cta: "Conocé Cativa",
     ctaClass: "bg-cativa hover:bg-cativa/90",
     href: HOME_BRAND_LINKS.cativa,
@@ -64,7 +64,7 @@ const brands: Brand[] = [
     phrase: "Juguetes importados de goma, soga y estimulación para el juego activo.",
     image: furacaoProducts,
     imageAlt: "Juguetes de goma Furaçao Pet: pelota, mancuerna y hueso",
-    imageBg: "bg-muted",
+    imageBg: "bg-card",
     cta: "Consultar por Furaçao Pet",
     ctaClass: "bg-brand-pink hover:bg-brand-pink/90",
     href: HOME_BRAND_LINKS.furacao,
@@ -91,7 +91,7 @@ const ProductsSection = () => (
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         {brands.map((b) => (
           <article key={b.key} className="flex flex-col rounded-2xl border bg-card overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-            <div className={`${b.imageBg} aspect-[4/3] flex items-center justify-center p-6`}>
+            <div className={`${b.imageBg} aspect-[4/3] flex items-center justify-center p-6 border-b`}>
               <img
                 src={b.image}
                 alt={b.imageAlt}
