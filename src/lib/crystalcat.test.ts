@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { CRYSTALCAT_WHATSAPP_URL, CRYSTALCAT_RETAIL_URL, CRYSTALCAT_WHOLESALE_URL, CRYSTALCAT_INSTAGRAM_URL, CRYSTALCAT_PRESENTATIONS, crystalcatLeadUrl } from "./crystalcat";
+import { CRYSTALCAT_WHATSAPP_URL, CRYSTALCAT_RETAIL_URL, CRYSTALCAT_WHOLESALE_URL, CRYSTALCAT_INSTAGRAM_URL, CRYSTALCAT_INSTAGRAM_FLOATING_URL, CRYSTALCAT_PRESENTATIONS, crystalcatLeadUrl } from "./crystalcat";
 
 describe("CrystalCat original product and contacts", () => {
   it("uses the exact supplied retail listing including its tracking fragment", () => {

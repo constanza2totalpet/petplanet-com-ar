@@ -6,6 +6,7 @@ export const CRYSTALCAT_WHATSAPP_URL = `https://wa.me/${CRYSTALCAT_WHATSAPP_NUMB
 export const CRYSTALCAT_RETAIL_URL = "https://www.mercadolibre.com.ar/piedras-sanitarias-silica-crystalcat-para-gatos-x-38l/p/MLA24808114#polycard_client=search-desktop&be_origin=backend&overlay_label=not_apply&search_layout=grid&position=1&type=product&tracking_id=317415de-0866-421d-b937-875c2e239436&overlay_label_capability=not_apply&wid=MLA3927016674&sid=search";
 export const CRYSTALCAT_WHOLESALE_URL = `https://wa.me/${CRYSTALCAT_WHATSAPP_NUMBER}?text=${encodeURIComponent("¡Hola! Quiero consultar por las condiciones de compra mayorista de CrystalCat para mi comercio.")}`;
 export const CRYSTALCAT_INSTAGRAM_URL = "https://instagram.com/crystalcat.ar";
+export const CRYSTALCAT_INSTAGRAM_FLOATING_URL = "https://www.instagram.com/crystalcat.ar?exln=MXQ1cmw2OXFibDRrdQ==";
 export const CRYSTALCAT_PRESENTATIONS = [
   { name: "CrystalCat", volume: "3,8 L", image: originalPack.url, description: "Piedras sanitarias de sílice para gatos." },
 ];
