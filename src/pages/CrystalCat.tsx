@@ -48,11 +48,11 @@ function LeadForm() {
     setOpened(true);
   };
   return (
-    <section id="contacto" className="crystalcat-section bg-crystal-light border-t border-crystal/10">
-      <div className="container px-5 grid md:grid-cols-2 gap-10 lg:gap-20 items-start">
+    <section id="contacto" className="py-14 md:py-16 bg-muted/40 border-t">
+      <div className="container px-5 max-w-5xl grid md:grid-cols-2 gap-8 lg:gap-14 items-start">
         <div>
           <p className="crystalcat-kicker text-crystal-dark">Contacto comercial</p>
-          <h2 className="crystalcat-title mb-5">Sumá CrystalCat<br />a tu negocio.</h2>
+          <h2 className="text-2xl md:text-3xl font-heading font-extrabold mb-4">Sumá CrystalCat a tu negocio</h2>
           <p className="text-muted-foreground leading-relaxed max-w-md mb-7">Contanos sobre tu comercio y consultá las condiciones de compra con el equipo de Pet Planet.</p>
           <a href={CRYSTALCAT_INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-crystal-dark hover:text-brand-orange transition-colors"><Instagram className="w-5 h-5" /> @crystalcat.ar <ArrowUpRight className="w-4 h-4" /></a>
         </div>
@@ -149,7 +149,7 @@ export default function CrystalCat() {
         </section>
         <LeadForm />
       </main>
-      <footer className="py-12 border-t bg-background"><div className="container px-5 grid sm:grid-cols-3 gap-8"><div><img src={crystalcatLogo} alt="CrystalCat" className="h-8 w-auto mb-4" loading="lazy" /><p className="text-sm text-muted-foreground">Piedras sanitarias de sílice para gatos.</p><p className="text-sm text-muted-foreground mt-3">Distribuida por <Link to="/" className="font-semibold text-foreground hover:text-crystal-dark">Pet Planet</Link>.</p></div><nav aria-label="Navegación del pie" className="flex flex-col items-start gap-3 text-sm text-muted-foreground">{nav.map(l => <a key={l.href} href={l.href} className="hover:text-crystal-dark">{l.label}</a>)}</nav><div className="space-y-4 text-sm"><a href={CRYSTALCAT_WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-crystal-dark hover:text-brand-orange transition-colors"><MessageCircle className="w-4 h-4" /> WhatsApp</a><a href={CRYSTALCAT_INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-crystal-dark hover:text-brand-orange transition-colors"><Instagram className="w-4 h-4" /> @crystalcat.ar</a></div></div></footer>
+      <footer className="pt-12 pb-24 md:pb-12 border-t bg-background"><div className="container px-5 grid sm:grid-cols-3 gap-8"><div><img src={crystalcatLogo} alt="CrystalCat" className="h-8 w-auto mb-4" loading="lazy" /><p className="text-sm text-muted-foreground">Piedras sanitarias de sílice para gatos.</p><p className="text-sm text-muted-foreground mt-3">Distribuida por <Link to="/" className="font-semibold text-foreground hover:text-crystal-dark">Pet Planet</Link>.</p></div><nav aria-label="Navegación del pie" className="flex flex-col items-start gap-3 text-sm text-muted-foreground">{nav.map(l => <a key={l.href} href={l.href} className="hover:text-crystal-dark">{l.label}</a>)}</nav><div className="space-y-4 text-sm"><a href={CRYSTALCAT_WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-crystal-dark hover:text-brand-orange transition-colors"><MessageCircle className="w-4 h-4" /> WhatsApp</a><a href={CRYSTALCAT_INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-crystal-dark hover:text-brand-orange transition-colors"><Instagram className="w-4 h-4" /> @crystalcat.ar</a></div></div></footer>
     </div>
   );
 }
