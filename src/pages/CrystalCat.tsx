@@ -5,6 +5,7 @@ import { ArrowRight, ArrowUpRight, Menu, X, MessageCircle, Instagram, Package, R
 import { Button } from "@/components/ui/button";
 import crystalcatLogo from "@/assets/crystalcat-logo-transparent.png";
 import petplanetLogo from "@/assets/petplanet-logo-trimmed.png";
+import mercadoLibreLogo from "@/assets/mercado-libre-wordmark.svg";
 import catHero from "@/assets/crystal-cat-hero.jpg";
 import originalPack from "@/assets/crystalcat-original-pack-v2.png.asset.json";
 import lifestyle from "@/assets/crystalcat-lifestyle.jpg.asset.json";
@@ -13,7 +14,7 @@ import tray from "@/assets/crystalcat-tray.jpg.asset.json";
 import iconDrops from "@/assets/icon-drops.png";
 import iconLeaf from "@/assets/icon-leaf.png";
 import iconWaves from "@/assets/icon-waves.png";
-import { CRYSTALCAT_WHATSAPP_URL, CRYSTALCAT_INSTAGRAM_URL, CRYSTALCAT_PRESENTATIONS, crystalcatLeadUrl } from "@/lib/crystalcat";
+import { CRYSTALCAT_WHATSAPP_URL, CRYSTALCAT_RETAIL_URL, CRYSTALCAT_WHOLESALE_URL, CRYSTALCAT_INSTAGRAM_URL, CRYSTALCAT_PRESENTATIONS, crystalcatLeadUrl } from "@/lib/crystalcat";
 import "./CrystalCat.css";
 
 const nav = [
@@ -158,7 +159,25 @@ export default function CrystalCat() {
         </section>
         <section className="bg-brand-orange-light border-b border-brand-orange/15 py-16 md:py-20"><div className="container px-5 text-center"><img src={crystalcatLogo} alt="CrystalCat" className="h-10 md:h-14 w-auto max-w-full mx-auto mb-6" loading="lazy" /><h2 className="crystalcat-title mb-4">El cuidado empieza en casa.</h2><p className="text-muted-foreground mb-7">Conocé CrystalCat y encontrá tu próximo punto de compra.</p><Button asChild className={primary}><a href="#donde-comprar">Dónde comprar <ArrowRight /></a></Button></div></section>
         <section id="donde-comprar" className="crystalcat-section">
-          <div className="container px-5 max-w-5xl"><div className="text-center mb-10"><p className="crystalcat-kicker text-brand-orange">Nuestros canales</p><h2 className="crystalcat-title mb-4">Dónde comprar</h2><p className="text-muted-foreground">Consultá con Pet Planet y encontrá la opción para vos.</p></div><div className="grid md:grid-cols-2 gap-6"><article className="rounded-lg border border-crystal/20 p-7 md:p-8 flex flex-col"><p className="crystalcat-kicker text-crystal-dark">Para tu gato</p><h3 className="text-2xl font-heading font-bold mb-4">¿Buscás CrystalCat?</h3><p className="text-muted-foreground leading-relaxed mb-7">Escribinos para consultar cómo comprar y conocer las opciones de atención.</p><WhatsAppCTA className="mt-auto" /></article><article className="rounded-lg border border-crystal/20 bg-crystal-light p-7 md:p-8 flex flex-col"><p className="crystalcat-kicker text-crystal-dark">Para tu negocio</p><h3 className="text-2xl font-heading font-bold mb-4">Compras mayoristas</h3><p className="text-muted-foreground leading-relaxed mb-7">Consultá condiciones comerciales para tu pet shop o veterinaria con nuestro equipo.</p><WhatsAppCTA className="mt-auto">Consultar por mayorista</WhatsAppCTA></article></div></div>
+          <div className="container px-5 max-w-5xl">
+            <div className="text-center mb-10"><p className="crystalcat-kicker text-brand-orange">Nuestros canales</p><h2 className="crystalcat-title mb-4">Dónde comprar</h2><p className="text-muted-foreground">Consultá con Pet Planet y encontrá la opción para vos.</p></div>
+            <div className="grid md:grid-cols-2 gap-6">
+              <article className="rounded-lg border border-crystal/20 p-7 md:p-8 flex flex-col">
+                <p className="crystalcat-kicker text-crystal-dark">Para tu gato</p>
+                <h3 className="text-2xl font-heading font-bold mb-4">¿Buscás CrystalCat?</h3>
+                <p className="text-muted-foreground leading-relaxed mb-7">Comprá CrystalCat en Mercado Libre y recibí tu arena sanitaria para gatos en tu casa.</p>
+                <Button asChild className={`${primary} mt-auto min-h-[52px] whitespace-normal text-sm`}>
+                  <a href={CRYSTALCAT_RETAIL_URL} target="_blank" rel="noopener noreferrer"><span className="shrink-0 rounded-sm bg-background px-1.5 py-1"><img src={mercadoLibreLogo} alt="" className="h-5 w-12 object-contain" /></span><span>COMPRAR EN MERCADO LIBRE</span></a>
+                </Button>
+              </article>
+              <article className="rounded-lg border border-crystal/20 bg-crystal-light p-7 md:p-8 flex flex-col">
+                <p className="crystalcat-kicker text-crystal-dark">Para tu negocio</p>
+                <h3 className="text-2xl font-heading font-bold mb-4">Compras mayoristas</h3>
+                <p className="text-muted-foreground leading-relaxed mb-7">¿Tenés un pet shop o una veterinaria? Contactanos por WhatsApp para conocer las condiciones comerciales de CrystalCat.</p>
+                <Button asChild className={`${primary} mt-auto min-h-[52px] whitespace-normal text-sm`}><a href={CRYSTALCAT_WHOLESALE_URL} target="_blank" rel="noopener noreferrer"><MessageCircle className="shrink-0" /><span>CONSULTAR POR MAYORISTA</span></a></Button>
+              </article>
+            </div>
+          </div>
         </section>
         <LeadForm />
       </main>
