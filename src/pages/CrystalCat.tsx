@@ -119,7 +119,7 @@ export default function CrystalCat() {
         {open && <nav id="crystalcat-menu" aria-label="Navegación móvil" className="lg:hidden border-t bg-background px-5 py-5 flex flex-col gap-4">{headerNav.map(l => <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-sm text-foreground">{l.label}</a>)}<Button asChild className={`${primary} self-start`}><a href="#donde-comprar" onClick={() => setOpen(false)}><ShoppingBag />Dónde comprar</a></Button></nav>}
       </header>
       <main>
-        <section id="inicio" className="crystalcat-hero overflow-hidden bg-background">
+        <section id="inicio" className="crystalcat-hero overflow-hidden">
           <div className="crystalcat-hero-layout container px-5 md:px-8 lg:px-12">
             <div className="crystalcat-hero-copy min-w-0 text-left">
               <p className="crystalcat-kicker text-brand-orange">Higiene felina</p>
