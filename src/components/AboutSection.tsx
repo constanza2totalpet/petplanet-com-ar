@@ -1,22 +1,18 @@
 const AboutSection = () => (
-  <section id="nosotros" className="py-14 md:py-20 bg-gradient-to-b from-brand-orange-light via-background to-crystal-light relative">
-    <div aria-hidden className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-brand-orange via-crystal to-brand-green" />
-    <div className="container max-w-3xl text-center px-5">
-      <p className="text-xs font-semibold tracking-widest uppercase text-crystal mb-2">
-        Sobre nosotros
-      </p>
-      <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold mb-5 md:mb-6">
-        Quiénes somos
-      </h2>
-      <div className="space-y-4 text-muted-foreground leading-relaxed text-sm sm:text-base">
+  <section id="nosotros" className="py-16 md:py-24 bg-crystal-light/40 scroll-mt-20">
+    <div className="container px-5 grid md:grid-cols-5 gap-6 md:gap-12 items-start max-w-5xl">
+      <div className="md:col-span-2">
+        <p className="text-xs font-semibold tracking-[0.2em] uppercase text-crystal mb-3">Quiénes somos</p>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold leading-tight">
+          Un socio para desarrollar y hacer crecer marcas del mundo pet.
+        </h2>
+      </div>
+      <div className="md:col-span-3 space-y-4 text-muted-foreground leading-relaxed text-sm sm:text-base">
         <p>
-          En Pet Planet desarrollamos y acompañamos marcas dentro del mundo pet, con foco en la calidad, la identidad y el crecimiento a largo plazo.
+          En Pet Planet trabajamos en el desarrollo, la importación y la distribución de marcas de productos para mascotas. Acompañamos cada propuesta desde su identidad y desarrollo comercial hasta su llegada al mercado.
         </p>
         <p>
-          Desde hace más de 10 años en el rubro, trabajamos en la creación de productos que aporten valor real, cuidando cada detalle desde su desarrollo hasta su llegada al mercado.
-        </p>
-        <p>
-          Nuestro objetivo es construir propuestas sólidas, pensadas tanto para quienes conviven con mascotas como para los negocios que buscan diferenciarse dentro del rubro.
+          Trabajamos para construir marcas con una identidad clara, una propuesta de valor definida y oportunidades de crecimiento dentro del sector.
         </p>
       </div>
     </div>
