@@ -166,7 +166,7 @@ export default function CrystalCat() {
                 <p className="crystalcat-kicker text-crystal-dark">Para tu gato</p>
                 <h3 className="text-2xl font-heading font-bold mb-4">¿Buscás CrystalCat?</h3>
                 <p className="text-muted-foreground leading-relaxed mb-7">Comprá CrystalCat en Mercado Libre y recibí tu arena sanitaria para gatos en tu casa.</p>
-                <Button asChild className={`${primary} mt-auto whitespace-normal text-sm`}>
+                <Button asChild className={`${primary} mt-auto min-h-[52px] whitespace-normal text-sm`}>
                   <a href={CRYSTALCAT_RETAIL_URL} target="_blank" rel="noopener noreferrer"><span className="shrink-0 rounded-sm bg-background px-1.5 py-1"><img src={mercadoLibreLogo} alt="" className="h-5 w-12 object-contain" /></span><span>COMPRAR EN MERCADO LIBRE</span></a>
                 </Button>
               </article>
@@ -174,7 +174,7 @@ export default function CrystalCat() {
                 <p className="crystalcat-kicker text-crystal-dark">Para tu negocio</p>
                 <h3 className="text-2xl font-heading font-bold mb-4">Compras mayoristas</h3>
                 <p className="text-muted-foreground leading-relaxed mb-7">¿Tenés un pet shop o una veterinaria? Contactanos por WhatsApp para conocer las condiciones comerciales de CrystalCat.</p>
-                <Button asChild className={`${primary} mt-auto whitespace-normal text-sm`}><a href={CRYSTALCAT_WHOLESALE_URL} target="_blank" rel="noopener noreferrer"><MessageCircle className="shrink-0" /><span>CONSULTAR POR MAYORISTA</span></a></Button>
+                <Button asChild className={`${primary} mt-auto min-h-[52px] whitespace-normal text-sm`}><a href={CRYSTALCAT_WHOLESALE_URL} target="_blank" rel="noopener noreferrer"><MessageCircle className="shrink-0" /><span>CONSULTAR POR MAYORISTA</span></a></Button>
               </article>
             </div>
           </div>

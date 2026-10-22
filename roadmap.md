@@ -1,5 +1,5 @@
 # Tasks
-- [ ] Update only CrystalCat buying cards and verify exact retail/wholesale destinations on desktop/mobile.
+- [x] Update only CrystalCat buying cards and verify exact retail/wholesale destinations on desktop/mobile.
 - [x] Correct only CrystalCat's existing header with both original logos, separator and WhatsApp; verify desktop/mobile and no return strip.
 - [x] Adjust only CrystalCat's header and hero to Cativa's layout with original branding.
 - [x] Verify header anchors, hero imagery and desktop/mobile layout without changing other sections.
