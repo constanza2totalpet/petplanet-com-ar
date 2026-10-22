@@ -131,9 +131,6 @@ export default function CrystalCat() {
             </div>
           </div>
         </section>
-        <div className="bg-crystal-dark text-primary-foreground py-3 md:py-3.5">
-          <div className="w-full px-5 sm:px-8 flex flex-wrap items-center justify-center gap-x-6 sm:gap-x-8 gap-y-1.5 text-xs sm:text-sm"><span>Arena sanitaria de sílice</span><span aria-hidden="true" className="hidden sm:block text-brand-orange">•</span><span>Presentación de 3,8 L</span><span aria-hidden="true" className="hidden sm:block text-brand-orange">•</span><span>Distribuida por Pet Planet</span></div>
-        </div>
         <section id="conoce" className="crystalcat-section">
           <div className="container px-5 grid md:grid-cols-2 gap-10 lg:gap-20 items-center">
             <div><p className="crystalcat-kicker text-brand-orange">Conocé CrystalCat</p><h2 className="crystalcat-title mb-6">Su higiene también<br />forma parte de tu hogar.</h2><div className="space-y-4 text-muted-foreground leading-relaxed md:text-lg"><p>CrystalCat ofrece arena sanitaria de sílice para gatos: cristales que se utilizan en su bandeja para acompañar la rutina de higiene.</p><p>Una propuesta distribuida por Pet Planet, con una presentación de 3,8 L y una identidad que reconocés desde su envase.</p></div><Button asChild variant="link" className="px-0 mt-5 text-crystal-dark"><a href="#producto">Conocé el producto <ArrowRight /></a></Button></div>
