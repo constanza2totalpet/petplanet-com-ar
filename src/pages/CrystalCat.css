@@ -1,6 +1,6 @@
 .crystalcat-page { --radius: 0.5rem; }
 .crystalcat-page section[id] { scroll-margin-top: 6.5rem; }
-.crystalcat-header-row { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; }
+.crystalcat-header-row { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; }
 .crystalcat-hero-layout { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: 48px; align-items: center; padding-block: 40px; min-height: 620px; }
 .crystalcat-hero-media { height: 540px; overflow: hidden; }
 .crystalcat-hero-photo { object-position: 48% center; }

@@ -24,9 +24,9 @@ const nav = [
 ];
 const headerNav = [
   { label: "Inicio", href: "#inicio" },
-  { label: "Conocé CrystalCat", href: "#conoce" },
-  { label: "Beneficios", href: "#beneficios" },
-  { label: "Dónde comprar", href: "#donde-comprar" },
+  { label: "Marcas", href: "#producto" },
+  { label: "Nosotros", href: "#conoce" },
+  { label: "Contacto", href: "#contacto" },
 ];
 const heroPrimary = "h-auto min-h-11 rounded-full bg-brand-orange px-6 py-3 text-primary-foreground font-heading font-bold hover:bg-brand-orange/90";
 const primary = "h-auto min-h-11 rounded-full bg-crystal-dark px-6 py-3 text-primary-foreground font-heading font-bold hover:bg-crystal";
@@ -106,15 +106,16 @@ export default function CrystalCat() {
       </Helmet>
       <header className="sticky top-0 z-50 border-b border-crystal/10 bg-background/95 backdrop-blur-md">
         <div className="crystalcat-header-row container h-20 px-5 gap-4">
-          <div className="flex items-center gap-4 md:gap-6 min-w-0">
+          <div className="flex items-center gap-3 md:gap-4 min-w-0 shrink-0">
             <a href="https://www.petplanet.com.ar/" aria-label="Pet Planet, volver al sitio principal" className="shrink-0 opacity-80 hover:opacity-100 transition-opacity"><img src={petplanetLogo} alt="Pet Planet" className="h-6 md:h-[30px] w-auto" /></a>
-            <a href="#inicio" aria-label="CrystalCat, inicio"><img src={crystalcatLogo} alt="CrystalCat" className="crystalcat-wordmark" /></a>
+            <span aria-hidden="true" className="h-8 w-px shrink-0 bg-crystal/20" />
+            <a href="#inicio" aria-label="CrystalCat, inicio" className="shrink-0"><img src={crystalcatLogo} alt="CrystalCat" className="crystalcat-wordmark" /></a>
           </div>
           <nav aria-label="Navegación principal" className="hidden lg:flex justify-center gap-6">{headerNav.map(l => <a key={l.href} href={l.href} className="text-sm whitespace-nowrap text-muted-foreground hover:text-crystal-dark transition-colors">{l.label}</a>)}</nav>
-          <Button asChild className={`${heroPrimary} hidden lg:inline-flex justify-self-end text-sm`}><a href="#donde-comprar">Dónde comprar</a></Button>
+          <Button asChild className={`${primary} hidden lg:inline-flex justify-self-end text-sm`}><a href={CRYSTALCAT_WHATSAPP_URL} target="_blank" rel="noopener noreferrer"><MessageCircle />Consultar por WhatsApp</a></Button>
           <Button variant="ghost" size="icon" className="lg:hidden shrink-0 text-crystal-dark" onClick={() => setOpen(!open)} aria-label={open ? "Cerrar menú" : "Abrir menú"} aria-expanded={open} aria-controls="crystalcat-menu">{open ? <X /> : <Menu />}</Button>
         </div>
-        {open && <nav id="crystalcat-menu" aria-label="Navegación móvil" className="lg:hidden border-t bg-background px-5 py-5 flex flex-col gap-4">{headerNav.map(l => <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-sm text-foreground">{l.label}</a>)}</nav>}
+        {open && <nav id="crystalcat-menu" aria-label="Navegación móvil" className="lg:hidden border-t bg-background px-5 py-5 flex flex-col gap-4">{headerNav.map(l => <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-sm text-foreground">{l.label}</a>)}<WhatsAppCTA className="self-start" /></nav>}
       </header>
       <main>
         <section id="inicio" className="crystalcat-hero overflow-hidden bg-background">
