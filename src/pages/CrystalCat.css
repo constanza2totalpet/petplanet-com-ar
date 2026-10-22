@@ -1,9 +1,10 @@
 .crystalcat-page { --radius: 0.5rem; }
 .crystalcat-page section[id] { scroll-margin-top: 6.5rem; }
 .crystalcat-header-row { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; }
-.crystalcat-hero-layout { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: 48px; align-items: center; padding-block: 40px; min-height: 620px; }
-.crystalcat-hero-media { height: 540px; overflow: hidden; }
-.crystalcat-hero-photo { object-position: 48% center; }
+.crystalcat-hero-layout { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 48px; align-items: center; padding-block: 56px; }
+.crystalcat-hero-media { overflow: hidden; border-radius: 1rem; }
+.crystalcat-hero { background: linear-gradient(90deg, hsl(36 60% 98%) 0%, hsl(36 50% 97%) 45%, hsl(var(--background)) 100%); }
+.crystalcat-hero-photo { display: block; width: 100%; height: auto; aspect-ratio: 1672 / 941; object-fit: cover; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 9%); mask-image: linear-gradient(90deg, transparent 0, #000 9%); }
 .crystalcat-hero-pack { position: absolute; right: 2%; bottom: 3%; height: 51%; width: auto; max-width: 43%; object-fit: contain; }
 .crystalcat-wordmark { height: 40px; width: auto; max-width: 210px; object-fit: contain; }
 .crystalcat-section { padding-block: 88px; }
@@ -15,16 +16,13 @@
 .crystalcat-page input:focus-visible { outline: 2px solid hsl(var(--crystal)); outline-offset: 2px; }
 @media (max-width: 1023px) {
   .crystalcat-header-row { display: flex; justify-content: space-between; }
-  .crystalcat-hero-layout { gap: 24px; min-height: 560px; }
-  .crystalcat-hero-media { height: 470px; }
+  .crystalcat-hero-layout { gap: 24px; }
 }
 @media (max-width: 767px) {
   body:has(.crystalcat-page) a[aria-label="Contactar por WhatsApp"] { right: 6px; bottom: 12px; width: 40px; height: 40px; }
   body:has(.crystalcat-page) a[aria-label="Contactar por WhatsApp"] svg { width: 22px; height: 22px; }
   .crystalcat-hero-layout { grid-template-columns: minmax(0, 1fr); gap: 28px; min-height: 0; padding-block: 32px 24px; }
-  .crystalcat-hero-media { height: auto; aspect-ratio: 1.15; }
-  .crystalcat-hero-photo { position: absolute; inset: 0; object-position: center; }
-  .crystalcat-hero-pack { max-width: 39%; height: 54%; }
+  .crystalcat-hero-photo { -webkit-mask-image: none; mask-image: none; }
   .crystalcat-wordmark { height: 32px; max-width: 165px; }
   .crystalcat-section { padding-block: 56px; }
   .crystalcat-title { font-size: 30px; }

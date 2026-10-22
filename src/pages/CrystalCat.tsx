@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import crystalcatLogo from "@/assets/crystalcat-logo-transparent.png";
 import petplanetLogo from "@/assets/petplanet-logo-trimmed.png";
 import mercadoLibreLogo from "@/assets/mercado-libre-wordmark.svg";
-import catHero from "@/assets/crystalcat-hero-v2.jpg";
+import heroHome from "@/assets/crystalcat-hero-home.png.asset.json";
 import originalPack from "@/assets/crystalcat-original-pack-v2.png.asset.json";
 import lifestyle from "@/assets/crystalcat-lifestyle.jpg.asset.json";
 import crystals from "@/assets/crystalcat-crystals.jpg.asset.json";
@@ -119,7 +119,7 @@ export default function CrystalCat() {
         {open && <nav id="crystalcat-menu" aria-label="Navegación móvil" className="lg:hidden border-t bg-background px-5 py-5 flex flex-col gap-4">{headerNav.map(l => <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-sm text-foreground">{l.label}</a>)}<Button asChild className={`${primary} self-start`}><a href="#donde-comprar" onClick={() => setOpen(false)}><ShoppingBag />Dónde comprar</a></Button></nav>}
       </header>
       <main>
-        <section id="inicio" className="crystalcat-hero overflow-hidden bg-background">
+        <section id="inicio" className="crystalcat-hero overflow-hidden">
           <div className="crystalcat-hero-layout container px-5 md:px-8 lg:px-12">
             <div className="crystalcat-hero-copy min-w-0 text-left">
               <p className="crystalcat-kicker text-brand-orange">Higiene felina</p>
@@ -128,8 +128,7 @@ export default function CrystalCat() {
               <div className="flex flex-wrap justify-start gap-3"><Button asChild className={heroPrimary}><a href="#donde-comprar">Dónde comprar <ArrowRight /></a></Button><Button asChild variant="outline" className={secondary}><a href="#beneficios">Conocé sus beneficios</a></Button></div>
             </div>
             <div className="crystalcat-hero-media relative min-w-0">
-              <img src={catHero} alt="Gato junto a una bandeja con cristales de sílice en un hogar luminoso" className="crystalcat-hero-photo w-full h-full object-cover" width={1920} height={1080} fetchPriority="high" />
-              <img src={originalPack.url} alt="Packaging original CrystalCat de 3,8 L" className="crystalcat-hero-pack" />
+              <img src={heroHome.url} alt="Gato junto a una bandeja con piedras de sílice y el envase CrystalCat de 3,8 L en un hogar luminoso" className="crystalcat-hero-photo" width={1672} height={941} fetchPriority="high" />
             </div>
           </div>
         </section>
