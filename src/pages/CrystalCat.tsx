@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { ArrowRight, ArrowUpRight, Menu, X, MessageCircle, Instagram, Package, Ruler, MapPin, Trash2, RefreshCw } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Menu, X, MessageCircle, Instagram, Package, ShoppingBag, Ruler, MapPin, Trash2, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import crystalcatLogo from "@/assets/crystalcat-logo-transparent.png";
 import petplanetLogo from "@/assets/petplanet-logo-trimmed.png";
 import mercadoLibreLogo from "@/assets/mercado-libre-wordmark.svg";
-import catHero from "@/assets/crystal-cat-hero.jpg";
+import catHero from "@/assets/crystalcat-hero-v2.jpg";
 import originalPack from "@/assets/crystalcat-original-pack-v2.png.asset.json";
 import lifestyle from "@/assets/crystalcat-lifestyle.jpg.asset.json";
 import crystals from "@/assets/crystalcat-crystals.jpg.asset.json";
@@ -113,10 +113,10 @@ export default function CrystalCat() {
             <a href="#inicio" aria-label="CrystalCat, inicio" className="shrink-0"><img src={crystalcatLogo} alt="CrystalCat" className="crystalcat-wordmark" /></a>
           </div>
           <nav aria-label="Navegación principal" className="hidden lg:flex justify-center gap-6">{headerNav.map(l => <a key={l.href} href={l.href} className="text-sm whitespace-nowrap text-muted-foreground hover:text-crystal-dark transition-colors">{l.label}</a>)}</nav>
-          <Button asChild className={`${primary} hidden lg:inline-flex justify-self-end text-sm`}><a href={CRYSTALCAT_WHATSAPP_URL} target="_blank" rel="noopener noreferrer"><MessageCircle />Consultar por WhatsApp</a></Button>
+          <Button asChild className={`${primary} hidden lg:inline-flex justify-self-end text-sm`}><a href="#donde-comprar"><ShoppingBag />Dónde comprar</a></Button>
           <Button variant="ghost" size="icon" className="lg:hidden shrink-0 text-crystal-dark" onClick={() => setOpen(!open)} aria-label={open ? "Cerrar menú" : "Abrir menú"} aria-expanded={open} aria-controls="crystalcat-menu">{open ? <X /> : <Menu />}</Button>
         </div>
-        {open && <nav id="crystalcat-menu" aria-label="Navegación móvil" className="lg:hidden border-t bg-background px-5 py-5 flex flex-col gap-4">{headerNav.map(l => <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-sm text-foreground">{l.label}</a>)}<WhatsAppCTA className="self-start" /></nav>}
+        {open && <nav id="crystalcat-menu" aria-label="Navegación móvil" className="lg:hidden border-t bg-background px-5 py-5 flex flex-col gap-4">{headerNav.map(l => <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-sm text-foreground">{l.label}</a>)}<Button asChild className={`${primary} self-start`}><a href="#donde-comprar" onClick={() => setOpen(false)}><ShoppingBag />Dónde comprar</a></Button></nav>}
       </header>
       <main>
         <section id="inicio" className="crystalcat-hero overflow-hidden bg-background">
