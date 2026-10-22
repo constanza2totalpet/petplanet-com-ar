@@ -3,7 +3,7 @@
 .crystalcat-header-row { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; }
 .crystalcat-hero-layout { display: flex; align-items: center; min-height: 600px; padding-block: 64px; }
 .crystalcat-hero-copy { max-width: 500px; }
-.crystalcat-hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% center; }
+.crystalcat-hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 12%; }
 .crystalcat-hero-fade { position: absolute; inset: 0; background: linear-gradient(90deg, hsl(36 60% 98%) 0%, hsl(36 60% 98% / .94) 30%, hsl(36 60% 98% / .6) 45%, hsl(36 60% 98% / 0) 60%); }
 .crystalcat-wordmark { height: 40px; width: auto; max-width: 210px; object-fit: contain; }
 .crystalcat-section { padding-block: 88px; }
