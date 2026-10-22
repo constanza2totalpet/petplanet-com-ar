@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { CRYSTALCAT_WHATSAPP_URL, CRYSTALCAT_RETAIL_URL, CRYSTALCAT_WHOLESALE_URL, CRYSTALCAT_INSTAGRAM_URL, CRYSTALCAT_PRESENTATIONS, crystalcatLeadUrl } from "./crystalcat";
+import { CRYSTALCAT_WHATSAPP_URL, CRYSTALCAT_RETAIL_URL, CRYSTALCAT_WHOLESALE_URL, CRYSTALCAT_INSTAGRAM_URL, CRYSTALCAT_INSTAGRAM_FLOATING_URL, CRYSTALCAT_PRESENTATIONS, crystalcatLeadUrl } from "./crystalcat";
 
 describe("CrystalCat original product and contacts", () => {
   it("uses the exact supplied retail listing including its tracking fragment", () => {
@@ -17,6 +17,9 @@ describe("CrystalCat original product and contacts", () => {
   });
   it("keeps CrystalCat's own Instagram", () => {
     expect(CRYSTALCAT_INSTAGRAM_URL).toBe("https://instagram.com/crystalcat.ar");
+  });
+  it("opens the floating Instagram button at the exact supplied profile link", () => {
+    expect(CRYSTALCAT_INSTAGRAM_FLOATING_URL).toBe("https://www.instagram.com/crystalcat.ar?exln=MXQ1cmw2OXFibDRrdQ==");
   });
   it("lists only the confirmed 3.8 litre presentation", () => {
     expect(CRYSTALCAT_PRESENTATIONS.map(p => p.volume)).toEqual(["3,8 L"]);

@@ -13,13 +13,24 @@
 .crystalcat-page section[id] { scroll-margin-top: 80px; }
 .crystalcat-page a:focus-visible { outline: 2px solid hsl(var(--crystal)); outline-offset: 5px; }
 .crystalcat-page input:focus-visible { outline: 2px solid hsl(var(--crystal)); outline-offset: 2px; }
+.crystalcat-floats { position: fixed; right: 24px; bottom: 24px; z-index: 50; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.crystalcat-float { display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; box-shadow: 0 10px 28px -8px rgb(15 23 42 / .3), 0 2px 8px rgb(15 23 42 / .12); transition: transform .2s ease, box-shadow .2s ease; }
+.crystalcat-float:hover { transform: scale(1.08); box-shadow: 0 14px 32px -8px rgb(15 23 42 / .34), 0 2px 8px rgb(15 23 42 / .14); }
+.crystalcat-float:focus-visible { outline: 2px solid hsl(var(--crystal)); outline-offset: 4px; }
+.crystalcat-float-ig { width: 44px; height: 44px; background: hsl(var(--background)); border: 1px solid hsl(var(--crystal) / .14); }
+.crystalcat-float-ig svg { width: 22px; height: 22px; }
+.crystalcat-float-wa { width: 56px; height: 56px; background: hsl(var(--whatsapp)); color: hsl(var(--primary-foreground)); }
+body:has(.crystalcat-page) a[aria-label="Contactar por WhatsApp"] { display: none; }
 @media (max-width: 1023px) {
   .crystalcat-header-row { display: flex; justify-content: space-between; }
   .crystalcat-hero-layout { min-height: 520px; }
 }
 @media (max-width: 767px) {
-  body:has(.crystalcat-page) a[aria-label="Contactar por WhatsApp"] { right: 6px; bottom: 12px; width: 40px; height: 40px; }
-  body:has(.crystalcat-page) a[aria-label="Contactar por WhatsApp"] svg { width: 22px; height: 22px; }
+  .crystalcat-floats { right: 6px; bottom: 12px; gap: 8px; }
+  .crystalcat-float-wa { width: 40px; height: 40px; }
+  .crystalcat-float-wa svg { width: 22px; height: 22px; }
+  .crystalcat-float-ig { width: 34px; height: 34px; }
+  .crystalcat-float-ig svg { width: 19px; height: 19px; }
   .crystalcat-hero-layout { align-items: flex-start; min-height: 0; padding-block: 36px 250px; }
   .crystalcat-hero-bg { top: auto; bottom: 0; height: auto; aspect-ratio: 1672 / 941; }
   .crystalcat-hero-fade { background: linear-gradient(180deg, hsl(36 60% 98%) 0%, hsl(36 60% 98%) calc(100% - 250px), hsl(36 60% 98% / 0) calc(100% - 190px)); }
