@@ -216,7 +216,7 @@ const Cativa = () => {
         </section>
 
         {/* Conocé Cativa — composición editorial */}
-        <section id="conoce" className="py-16 md:py-28 scroll-mt-24">
+        <section id="conoce" className="py-16 md:py-28 scroll-mt-32 md:scroll-mt-24">
           <div className="container px-5 grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div className="text-center md:text-left">
               <p className="text-xs font-semibold tracking-widest uppercase text-cativa-sage mb-4">Conocé Cativa</p>
@@ -297,7 +297,7 @@ const Cativa = () => {
         </section>
 
         {/* Beneficios — bloque verde oscuro */}
-        <section id="beneficios" className="bg-cativa py-16 md:py-28 scroll-mt-24">
+        <section id="beneficios" className="bg-cativa py-16 md:py-28 scroll-mt-32 md:scroll-mt-24">
           <div className="container px-5">
             <p className="text-xs font-semibold tracking-widest uppercase text-cativa-cream/70 text-center mb-4">Beneficios</p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold text-cativa-cream text-center mb-12 md:mb-16">
@@ -354,7 +354,7 @@ const Cativa = () => {
         </section>
 
         {/* Variedades */}
-        <section id="producto" className="bg-card border-y border-cativa/10 py-16 md:py-28 scroll-mt-24">
+        <section id="producto" className="bg-card border-y border-cativa/10 py-16 md:py-28 scroll-mt-32 md:scroll-mt-24">
           <div className="container px-5">
             <div className="max-w-2xl mb-12 md:mb-16 text-center mx-auto">
               <p className="text-xs font-semibold tracking-widest uppercase text-cativa-sage mb-4">Las variedades</p>
