@@ -25,9 +25,9 @@ const nav = [
 ];
 const headerNav = [
   { label: "Inicio", href: "#inicio" },
-  { label: "Marcas", href: "#producto" },
-  { label: "Nosotros", href: "#conoce" },
-  { label: "Contacto", href: "#contacto" },
+  { label: "Conocé CrystalCat", href: "#conoce" },
+  { label: "Beneficios", href: "#beneficios" },
+  { label: "Dónde comprar", href: "#donde-comprar" },
 ];
 const heroPrimary = "h-auto min-h-11 rounded-full bg-brand-orange px-6 py-3 text-primary-foreground font-heading font-bold hover:bg-brand-orange/90";
 const primary = "h-auto min-h-11 rounded-full bg-crystal-dark px-6 py-3 text-primary-foreground font-heading font-bold hover:bg-crystal";
