@@ -7,7 +7,7 @@ export const CRYSTALCAT_RETAIL_URL = "https://www.mercadolibre.com.ar/piedras-sa
 export const CRYSTALCAT_WHOLESALE_URL = `https://wa.me/${CRYSTALCAT_WHATSAPP_NUMBER}?text=${encodeURIComponent("¡Hola! Quiero consultar por las condiciones de compra mayorista de CrystalCat para mi comercio.")}`;
 export const CRYSTALCAT_INSTAGRAM_URL = "https://instagram.com/crystalcat.ar";
 export const CRYSTALCAT_PRESENTATIONS = [
-  { name: "CrystalCat", volume: "3,8 L", image: originalPack.url, description: "Arena sanitaria de sílice para gatos." },
+  { name: "CrystalCat", volume: "3,8 L", image: originalPack.url, description: "Piedras sanitarias de sílice para gatos." },
 ];
 
 export function crystalcatLeadUrl(form: { nombre: string; localidad: string; negocio: string; whatsapp: string }) {
