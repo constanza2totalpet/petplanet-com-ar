@@ -18,6 +18,7 @@
 .crystalcat-float:hover { transform: scale(1.08); box-shadow: 0 14px 32px -8px rgb(15 23 42 / .34), 0 2px 8px rgb(15 23 42 / .14); }
 .crystalcat-float:focus-visible { outline: 2px solid hsl(var(--crystal)); outline-offset: 4px; }
 .crystalcat-float-ig { width: 44px; height: 44px; background: hsl(var(--background)); border: 1px solid hsl(var(--crystal) / .14); }
+.crystalcat-float-ig svg { width: 22px; height: 22px; }
 .crystalcat-float-wa { width: 56px; height: 56px; background: hsl(var(--whatsapp)); color: hsl(var(--primary-foreground)); }
 @media (max-width: 1023px) {
   .crystalcat-header-row { display: flex; justify-content: space-between; }
