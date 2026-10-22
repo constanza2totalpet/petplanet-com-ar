@@ -131,8 +131,8 @@ export default function CrystalCat() {
             </div>
           </div>
         </section>
-        <div className="bg-crystal-dark text-primary-foreground py-4">
-          <div className="container px-5 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-xs sm:text-sm"><span>Arena sanitaria de sílice</span><span aria-hidden="true" className="hidden sm:block text-brand-orange">•</span><span>Presentación de 3,8 L</span><span aria-hidden="true" className="hidden sm:block text-brand-orange">•</span><span>Distribuida por Pet Planet</span></div>
+        <div className="bg-crystal-dark text-primary-foreground py-3 md:py-3.5">
+          <div className="w-full px-5 sm:px-8 flex flex-wrap items-center justify-center gap-x-6 sm:gap-x-8 gap-y-1.5 text-xs sm:text-sm"><span>Arena sanitaria de sílice</span><span aria-hidden="true" className="hidden sm:block text-brand-orange">•</span><span>Presentación de 3,8 L</span><span aria-hidden="true" className="hidden sm:block text-brand-orange">•</span><span>Distribuida por Pet Planet</span></div>
         </div>
         <section id="conoce" className="crystalcat-section">
           <div className="container px-5 grid md:grid-cols-2 gap-10 lg:gap-20 items-center">
