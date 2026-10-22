@@ -20,12 +20,12 @@
 .crystalcat-float-ig { width: 44px; height: 44px; background: hsl(var(--background)); border: 1px solid hsl(var(--crystal) / .14); }
 .crystalcat-float-ig svg { width: 22px; height: 22px; }
 .crystalcat-float-wa { width: 56px; height: 56px; background: hsl(var(--whatsapp)); color: hsl(var(--primary-foreground)); }
+body:has(.crystalcat-page) a[aria-label="Contactar por WhatsApp"] { display: none; }
 @media (max-width: 1023px) {
   .crystalcat-header-row { display: flex; justify-content: space-between; }
   .crystalcat-hero-layout { min-height: 520px; }
 }
 @media (max-width: 767px) {
-  body:has(.crystalcat-page) a[aria-label="Contactar por WhatsApp"] { display: none; }
   .crystalcat-floats { right: 6px; bottom: 12px; gap: 8px; }
   .crystalcat-float-wa { width: 40px; height: 40px; }
   .crystalcat-float-wa svg { width: 22px; height: 22px; }
