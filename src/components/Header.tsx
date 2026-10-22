@@ -3,23 +3,20 @@ import { Menu, X, MessageCircle } from "lucide-react";
 import petplanetLogo from "@/assets/petplanet-logo.png";
 
 const navLinks = [
-  { label: "Inicio", href: "/#inicio" },
-  { label: "Marcas", href: "/#productos" },
-  { label: "Nosotros", href: "/#nosotros" },
-  { label: "Contacto", href: "/#contacto" },
+  { label: "Inicio", href: "#inicio" },
+  { label: "Marcas", href: "#productos" },
+  { label: "Nosotros", href: "#nosotros" },
+  { label: "Contacto", href: "#contacto" },
 ];
 
-const WHATSAPP_URL =
-  "https://wa.me/5491123190096?text=" +
-  encodeURIComponent("Hola! Quiero recibir más información sobre los productos de Pet Planet.");
-
+import { HOME_WHATSAPP_URL as WHATSAPP_URL } from "@/lib/home";
 const Header = () => {
   const [open, setOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 bg-card/90 backdrop-blur-md border-b">
       <div className="container flex items-center justify-between h-16 md:h-20 px-5 gap-4">
-        <a href="/" className="flex items-center">
+        <a href="#inicio" className="flex items-center">
           <img
             src={petplanetLogo}
             alt="Pet Planet"
@@ -45,7 +42,7 @@ const Header = () => {
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden md:inline-flex items-center gap-2 rounded-lg bg-whatsapp px-4 py-2.5 font-heading font-bold text-sm text-white shadow hover:brightness-95 transition-all"
+          className="hidden md:inline-flex items-center gap-2 rounded-lg bg-whatsapp px-4 py-2.5 font-heading font-bold text-sm text-primary-foreground shadow hover:brightness-95 transition-all"
         >
           <MessageCircle className="w-4 h-4" />
           Consultar por WhatsApp
@@ -79,7 +76,7 @@ const Header = () => {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setOpen(false)}
-            className="inline-flex items-center justify-center gap-2 rounded-lg bg-whatsapp px-4 py-2.5 font-heading font-bold text-sm text-white shadow"
+            className="inline-flex items-center justify-center gap-2 rounded-lg bg-whatsapp px-4 py-2.5 font-heading font-bold text-sm text-primary-foreground shadow"
           >
             <MessageCircle className="w-4 h-4" />
             Consultar por WhatsApp

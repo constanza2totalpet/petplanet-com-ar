@@ -1,48 +1,39 @@
-import { Instagram, Facebook } from "lucide-react";
+import { Instagram, Facebook, Mail, MessageCircle } from "lucide-react";
 import petplanetLogo from "@/assets/petplanet-logo.png";
+import { HOME_EMAIL, HOME_FACEBOOK_URL, HOME_INSTAGRAM_URL, HOME_WHATSAPP_URL } from "@/lib/home";
+
+const links = [
+  { label: "Inicio", href: "#inicio" },
+  { label: "Marcas", href: "#productos" },
+  { label: "Nosotros", href: "#nosotros" },
+  { label: "Contacto", href: "#contacto" },
+];
+
+const iconLink = "text-muted-foreground hover:text-crystal transition-colors";
 
 const Footer = () => (
-  <footer className="border-t bg-card py-10 md:py-12">
-    <div className="container px-5">
-      <div className="grid sm:grid-cols-3 gap-8">
-        {/* Brand */}
-        <div>
-          <a href="#inicio" className="flex items-center gap-1 mb-2">
-            <img src={petplanetLogo} alt="Pet Planet" className="h-10 sm:h-12" />
-          </a>
-          <p className="text-sm text-muted-foreground">
-            Desarrollo y distribución de marcas para el mundo pet.
-          </p>
-        </div>
-
-        {/* Links */}
-        <div>
-          <h4 className="font-heading font-bold text-sm mb-3">Navegación</h4>
-          <ul className="space-y-2 text-sm text-muted-foreground">
-            <li><a href="#inicio" className="hover:text-crystal transition-colors">Inicio</a></li>
-            <li><a href="#nosotros" className="hover:text-crystal transition-colors">Nosotros</a></li>
-            <li><a href="#productos" className="hover:text-crystal transition-colors">Marcas</a></li>
-            <li><a href="#contacto" className="hover:text-crystal transition-colors">Contacto</a></li>
-          </ul>
-        </div>
-
-        {/* Social */}
-        <div>
-          <h4 className="font-heading font-bold text-sm mb-3">Redes sociales</h4>
-          <div className="flex gap-4">
-            <a href="https://instagram.com/crystalcat.ar" target="_blank" rel="noopener noreferrer" aria-label="Instagram @crystalcat.ar" className="text-muted-foreground hover:text-crystal hover:scale-110 transition-all duration-200">
-              <Instagram className="w-5 h-5" />
-            </a>
-            <a href="https://www.facebook.com/petplanet" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-muted-foreground hover:text-crystal transition-colors">
-              <Facebook className="w-5 h-5" />
-            </a>
-          </div>
-        </div>
+  <footer className="border-t bg-card pt-10 pb-24 md:pb-10">
+    <div className="container px-5 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+      <div>
+        <a href="#inicio" className="inline-block mb-2">
+          <img src={petplanetLogo} alt="Pet Planet" className="h-10" loading="lazy" />
+        </a>
+        <p className="text-sm text-muted-foreground">Desarrollo, importación y distribución de marcas para el mundo pet</p>
       </div>
-
-      <div className="mt-8 md:mt-10 pt-6 border-t text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} Pet Planet. Todos los derechos reservados.
+      <nav aria-label="Pie de página" className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
+        {links.map((l) => (
+          <a key={l.href} href={l.href} className="hover:text-crystal transition-colors">{l.label}</a>
+        ))}
+      </nav>
+      <div className="flex gap-4">
+        <a href={HOME_WHATSAPP_URL} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className={iconLink}><MessageCircle className="w-5 h-5" /></a>
+        <a href={`mailto:${HOME_EMAIL}`} aria-label="Email" className={iconLink}><Mail className="w-5 h-5" /></a>
+        <a href={HOME_INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" aria-label="Instagram @crystalcat.ar" className={iconLink}><Instagram className="w-5 h-5" /></a>
+        <a href={HOME_FACEBOOK_URL} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className={iconLink}><Facebook className="w-5 h-5" /></a>
       </div>
+    </div>
+    <div className="container px-5 mt-8 pt-5 border-t text-center text-xs text-muted-foreground">
+      © {new Date().getFullYear()} Pet Planet. Todos los derechos reservados.
     </div>
   </footer>
 );
