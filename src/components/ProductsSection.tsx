@@ -84,7 +84,7 @@ const ProductsSection = () => (
           Marcas de productos para mascotas en Argentina
         </h2>
         <p className="text-muted-foreground text-sm sm:text-base">
-          Cada marca tiene su identidad propia. Conocé qué ofrece cada una.
+          Como distribuidora de productos para mascotas, presentamos marcas con identidad propia. Conocé qué ofrece cada una.
         </p>
       </div>
 
