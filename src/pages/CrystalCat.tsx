@@ -119,16 +119,15 @@ export default function CrystalCat() {
         {open && <nav id="crystalcat-menu" aria-label="Navegación móvil" className="lg:hidden border-t bg-background px-5 py-5 flex flex-col gap-4">{headerNav.map(l => <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-sm text-foreground">{l.label}</a>)}<Button asChild className={`${primary} self-start`}><a href="#donde-comprar" onClick={() => setOpen(false)}><ShoppingBag />Dónde comprar</a></Button></nav>}
       </header>
       <main>
-        <section id="inicio" className="crystalcat-hero overflow-hidden">
-          <div className="crystalcat-hero-layout container px-5 md:px-8 lg:px-12">
+        <section id="inicio" className="crystalcat-hero relative overflow-hidden">
+          <img src={heroHome.url} alt="Gato junto a una bandeja con piedras de sílice y el envase CrystalCat de 3,8 L en un hogar luminoso" className="crystalcat-hero-bg" width={1672} height={941} fetchPriority="high" />
+          <div aria-hidden="true" className="crystalcat-hero-fade" />
+          <div className="crystalcat-hero-layout relative container px-5 md:px-8 lg:px-12">
             <div className="crystalcat-hero-copy min-w-0 text-left">
               <p className="crystalcat-kicker text-brand-orange">Higiene felina</p>
               <h1 className="text-4xl md:text-5xl font-heading font-extrabold leading-[1.12] mb-6">Piedras sanitarias de <span className="text-crystal">sílice</span> para gatos</h1>
               <p className="text-base md:text-lg text-foreground/75 leading-relaxed mb-8 max-w-md">Cristales de sílice para la higiene cotidiana de tu gato. Conocé CrystalCat en su presentación de 3,8 L.</p>
               <div className="flex flex-wrap justify-start gap-3"><Button asChild className={heroPrimary}><a href="#donde-comprar">Dónde comprar <ArrowRight /></a></Button><Button asChild variant="outline" className={secondary}><a href="#beneficios">Conocé sus beneficios</a></Button></div>
-            </div>
-            <div className="crystalcat-hero-media relative min-w-0">
-              <img src={heroHome.url} alt="Gato junto a una bandeja con piedras de sílice y el envase CrystalCat de 3,8 L en un hogar luminoso" className="crystalcat-hero-photo" width={1672} height={941} fetchPriority="high" />
             </div>
           </div>
         </section>
