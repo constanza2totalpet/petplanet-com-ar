@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import crystalcatLogo from "@/assets/crystalcat-logo-transparent.png";
 import petplanetLogo from "@/assets/petplanet-logo-trimmed.png";
 import mercadoLibreLogo from "@/assets/mercado-libre-wordmark.svg";
-import catHero from "@/assets/crystalcat-hero-v2.jpg";
+import heroHome from "@/assets/crystalcat-hero-home.png.asset.json";
 import originalPack from "@/assets/crystalcat-original-pack-v2.png.asset.json";
 import lifestyle from "@/assets/crystalcat-lifestyle.jpg.asset.json";
 import crystals from "@/assets/crystalcat-crystals.jpg.asset.json";
@@ -128,8 +128,7 @@ export default function CrystalCat() {
               <div className="flex flex-wrap justify-start gap-3"><Button asChild className={heroPrimary}><a href="#donde-comprar">Dónde comprar <ArrowRight /></a></Button><Button asChild variant="outline" className={secondary}><a href="#beneficios">Conocé sus beneficios</a></Button></div>
             </div>
             <div className="crystalcat-hero-media relative min-w-0">
-              <img src={catHero} alt="Gato junto a una bandeja con cristales de sílice en un hogar luminoso" className="crystalcat-hero-photo w-full h-full object-cover" width={1920} height={1080} fetchPriority="high" />
-              <img src={originalPack.url} alt="Packaging original CrystalCat de 3,8 L" className="crystalcat-hero-pack" />
+              <img src={heroHome.url} alt="Gato junto a una bandeja con piedras de sílice y el envase CrystalCat de 3,8 L en un hogar luminoso" className="crystalcat-hero-photo" width={1672} height={941} fetchPriority="high" />
             </div>
           </div>
         </section>
