@@ -20,9 +20,9 @@
 @media (max-width: 767px) {
   body:has(.crystalcat-page) a[aria-label="Contactar por WhatsApp"] { right: 6px; bottom: 12px; width: 40px; height: 40px; }
   body:has(.crystalcat-page) a[aria-label="Contactar por WhatsApp"] svg { width: 22px; height: 22px; }
-  .crystalcat-hero-layout { align-items: flex-start; min-height: 720px; padding-block: 36px 300px; }
-  .crystalcat-hero-bg { object-position: 72% center; }
-  .crystalcat-hero-fade { background: linear-gradient(180deg, hsl(36 60% 98%) 0%, hsl(36 60% 98% / .95) 48%, hsl(36 60% 98% / 0) 66%); }
+  .crystalcat-hero-layout { align-items: flex-start; min-height: 0; padding-block: 36px 250px; }
+  .crystalcat-hero-bg { top: auto; bottom: 0; height: auto; aspect-ratio: 1672 / 941; }
+  .crystalcat-hero-fade { background: linear-gradient(180deg, hsl(36 60% 98%) 0%, hsl(36 60% 98%) calc(100% - 250px), hsl(36 60% 98% / 0) calc(100% - 190px)); }
     .crystalcat-wordmark { height: 32px; max-width: 165px; }
   .crystalcat-section { padding-block: 56px; }
   .crystalcat-title { font-size: 30px; }
