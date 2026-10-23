@@ -12,4 +12,7 @@ describe("Home commercial links", () => {
   it("keeps the form destination", () => {
     expect(HOME_FORM_ENDPOINT).toBe("https://formspree.io/f/mwvybpvo");
   });
+  it("preserves Furação Pet's exact existing destination", () => {
+    expect(HOME_BRAND_LINKS.furacao).toBe("https://wa.me/5491123190096");
+  });
 });
