@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import crystalcatLogo from "@/assets/crystalcat-logo-transparent.png";
-import crystalcatScene from "@/assets/crystalcat-hero-home.png.asset.json";
+import crystalcatScene from "@/assets/crystalcat-home-banner.jpg.asset.json";
 import cativaLogoGreen from "@/assets/cativa-logo-green.png";
 import cativaBag from "@/assets/cativa-bag-medio.jpg";
 import cativaCat from "@/assets/cativa-cat-tray.jpg";
