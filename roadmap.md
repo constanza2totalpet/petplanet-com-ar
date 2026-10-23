@@ -1,6 +1,6 @@
 # Tasks
-- [ ] Replace only the home brand cards with three banners using original logos and faithful product imagery.
-- [ ] Verify desktop/mobile banners, unchanged destinations and untouched brand landings and other home sections.
+- [x] Replace only the home brand cards with three banners using original logos and faithful product imagery.
+- [x] Verify desktop/mobile banners, unchanged destinations and untouched brand landings and other home sections (CrystalCat image inspected with the original file because sandbox asset serving is unavailable).
 - [x] Update only CrystalCat buying cards and verify exact retail/wholesale destinations on desktop/mobile.
 - [x] Correct only CrystalCat's existing header with both original logos, separator and WhatsApp; verify desktop/mobile and no return strip.
 - [x] Adjust only CrystalCat's header and hero to Cativa's layout with original branding.
