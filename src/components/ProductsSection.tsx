@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import crystalcatLogo from "@/assets/crystalcat-logo-transparent.png";
-import crystalcatPack from "@/assets/crystalcat-original-pack-v2.png.asset.json";
+import crystalcatScene from "@/assets/crystalcat-home-banner.jpg.asset.json";
 import cativaLogoGreen from "@/assets/cativa-logo-green.png";
 import cativaBag from "@/assets/cativa-bag-medio.jpg";
+import cativaCat from "@/assets/cativa-cat-tray.jpg";
 import furacaoLogo from "@/assets/furacao-pet-logo-transparent.png";
-import furacaoProducts from "@/assets/furacao-products-card.png";
+import furacaoScene from "@/assets/furacao-scene.jpg";
 import { HOME_BRAND_LINKS } from "@/lib/home";
 
 type Brand = {
@@ -13,11 +15,10 @@ type Brand = {
   logo: string;
   logoAlt: string;
   category: string;
-  categoryClass: string;
   phrase: string;
   image: string;
   imageAlt: string;
-  imageBg: string;
+  background: string;
   cta: string;
   ctaClass: string;
   href: string;
@@ -30,11 +31,10 @@ const brands: Brand[] = [
     logo: crystalcatLogo,
     logoAlt: "CrystalCat",
     category: "Piedras sanitarias de sílice",
-    categoryClass: "text-brand-orange",
-    phrase: "Piedras sanitarias de sílice para gatos en presentación de 3,8 L.",
-    image: crystalcatPack.url,
-    imageAlt: "Envase de piedras sanitarias de sílice CrystalCat de 3,8 L",
-    imageBg: "bg-card",
+    phrase: "Alta absorción y control de olores.",
+    image: crystalcatScene.url,
+    imageAlt: "Gato blanco junto a una bandeja con cristales de sílice y el envase original CrystalCat de 3,8 L",
+    background: "bg-crystal-light",
     cta: "Conocé CrystalCat",
     ctaClass: "bg-crystal hover:bg-crystal-dark",
     href: HOME_BRAND_LINKS.crystalcat,
@@ -45,11 +45,10 @@ const brands: Brand[] = [
     logo: cativaLogoGreen,
     logoAlt: "Cativa",
     category: "Arena sanitaria de mandioca",
-    categoryClass: "text-cativa",
-    phrase: "Higiene natural para gatos, a base de mandioca.",
+    phrase: "Higiene natural para gatos. Una nueva forma de cuidar su espacio.",
     image: cativaBag,
     imageAlt: "Envase de arena sanitaria de mandioca Cativa",
-    imageBg: "bg-card",
+    background: "bg-cativa-cream",
     cta: "Conocé Cativa",
     ctaClass: "bg-cativa hover:bg-cativa/90",
     href: HOME_BRAND_LINKS.cativa,
@@ -58,22 +57,18 @@ const brands: Brand[] = [
   {
     key: "furacao",
     logo: furacaoLogo,
-    logoAlt: "Furaçao Pet",
-    category: "Juguetes para mascotas",
-    categoryClass: "text-brand-pink",
-    phrase: "Juguetes importados de goma, soga y estimulación para el juego activo.",
-    image: furacaoProducts,
-    imageAlt: "Juguetes de goma Furaçao Pet: pelota, mancuerna y hueso",
-    imageBg: "bg-card",
-    cta: "Consultar por Furaçao Pet",
+    logoAlt: "Furação Pet",
+    category: "Juguetes y accesorios para mascotas",
+    phrase: "Diversión y juego para todos los días.",
+    image: furacaoScene,
+    imageAlt: "Escena de apoyo: perro jugando con una soga junto a juguetes para mascotas",
+    background: "bg-brand-orange-light",
+    cta: "Conocé Furação Pet",
     ctaClass: "bg-brand-pink hover:bg-brand-pink/90",
     href: HOME_BRAND_LINKS.furacao,
     internal: false,
   },
 ];
-
-const ctaBase =
-  "mt-auto inline-flex w-full items-center justify-center gap-2 rounded-lg px-5 py-3 font-heading font-bold text-sm text-primary-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2";
 
 const ProductsSection = () => (
   <section id="productos" className="py-16 md:py-24 bg-background scroll-mt-20">
@@ -81,40 +76,40 @@ const ProductsSection = () => (
       <div className="max-w-2xl mx-auto text-center mb-10 md:mb-14">
         <p className="text-xs font-semibold tracking-[0.2em] uppercase text-crystal mb-3">Nuestras marcas</p>
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold mb-4">
-          Marcas de productos para mascotas en Argentina
+          Conocé nuestras marcas
         </h2>
         <p className="text-muted-foreground text-sm sm:text-base">
           Como distribuidora de productos para mascotas, presentamos marcas con identidad propia. Conocé qué ofrece cada una.
         </p>
       </div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      <div className="grid gap-6 md:gap-8">
         {brands.map((b) => (
-          <article key={b.key} className="flex flex-col rounded-2xl border bg-card overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-            <div className={`${b.imageBg} aspect-[4/3] flex items-center justify-center p-6 border-b`}>
-              <img
-                src={b.image}
-                alt={b.imageAlt}
-                loading="lazy"
-                className="max-h-full max-w-full object-contain"
-              />
+          <article key={b.key} className={`grid overflow-hidden rounded-lg border md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] ${b.background}`}>
+            <div className="flex flex-col items-start justify-center p-6 sm:p-8 lg:p-10">
+              <h3 className="mb-5 flex h-14 items-center">
+                <img src={b.logo} alt={b.logoAlt} loading="lazy" className="max-h-14 max-w-[220px] object-contain" />
+              </h3>
+              <p className="mb-2 max-w-sm font-heading text-lg font-bold leading-snug sm:text-xl">{b.category}</p>
+              <p className="mb-6 max-w-sm text-sm leading-relaxed text-muted-foreground">{b.phrase}</p>
+              <Button asChild size="lg" className={`min-h-12 max-w-full rounded-lg px-6 font-heading font-bold text-primary-foreground ${b.ctaClass}`}>
+                {b.internal ? (
+                  <Link to={b.href}>{b.cta}<ArrowRight aria-hidden="true" /></Link>
+                ) : (
+                  <a href={b.href} target="_blank" rel="noopener noreferrer">{b.cta}<ArrowRight aria-hidden="true" /></a>
+                )}
+              </Button>
             </div>
-            <div className="flex flex-col flex-1 p-6">
-              <div className="h-12 mb-4 flex items-center">
-                <img src={b.logo} alt={b.logoAlt} loading="lazy" className="max-h-12 w-auto object-contain" />
-              </div>
-              <h3 className={`text-xs font-semibold tracking-widest uppercase mb-2 ${b.categoryClass}`}>{b.category}</h3>
-              <p className="text-sm text-muted-foreground mb-6">{b.phrase}</p>
-              {b.internal ? (
-                <Link to={b.href} className={`${ctaBase} ${b.ctaClass}`}>
-                  {b.cta} <ArrowRight className="w-4 h-4" />
-                </Link>
+            <div className="relative min-w-0 aspect-[16/9] md:aspect-auto md:min-h-[330px]">
+              {b.key === "cativa" ? (
+                <div className="grid h-full grid-cols-[0.85fr_1.15fr] bg-card">
+                  <img src={b.image} alt={b.imageAlt} loading="lazy" decoding="async" className="h-full max-h-[330px] w-full object-contain p-3 sm:p-5" />
+                  <img src={cativaCat} alt="Gato junto a una bandeja sanitaria en un ambiente luminoso" loading="lazy" decoding="async" className="h-full max-h-[330px] w-full object-cover object-center" />
+                </div>
               ) : (
-                <a href={b.href} target="_blank" rel="noopener noreferrer" className={`${ctaBase} ${b.ctaClass}`}>
-                  <MessageCircle className="w-4 h-4" /> {b.cta}
-                </a>
+                <img src={b.image} alt={b.imageAlt} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover object-right" />
               )}
-            </div>
+              </div>
           </article>
         ))}
       </div>
