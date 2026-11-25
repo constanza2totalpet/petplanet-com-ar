@@ -18,7 +18,7 @@ describe("Home commercial links", () => {
   it("points Rash-oN to its official site", () => {
     expect(HOME_BRAND_LINKS.rashon).toBe("https://www.rash-on.com.ar");
   });
-  it("sends Numbell enquiries through the site's own WhatsApp link", () => {
-    expect(HOME_BRAND_LINKS.numbell).toBe(HOME_WHATSAPP_URL);
+  it("sends Nunbell enquiries through the site's own WhatsApp link", () => {
+    expect(HOME_BRAND_LINKS.nunbell).toBe(HOME_WHATSAPP_URL);
   });
 });

@@ -73,6 +73,15 @@ export default {
           cream: "hsl(var(--cativa-cream))",
           stone: "hsl(var(--cativa-stone))",
         },
+        nunbell: {
+          DEFAULT: "hsl(var(--nunbell))",
+          light: "hsl(var(--nunbell-light))",
+          dark: "hsl(var(--nunbell-dark))",
+        },
+        rashon: {
+          DEFAULT: "hsl(var(--rashon))",
+          light: "hsl(var(--rashon-light))",
+        },
         whatsapp: "hsl(var(--whatsapp))",
         "coming-soon": "hsl(var(--coming-soon))",
         sidebar: {
