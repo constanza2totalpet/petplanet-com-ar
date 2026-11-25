@@ -9,7 +9,7 @@ import cativaCat from "@/assets/cativa-cat-tray.jpg";
 import furacaoLogo from "@/assets/furacao-pet-logo-transparent.png";
 import furacaoScene from "@/assets/furacao-scene.jpg";
 import nunbellLogo from "@/assets/nunbell-logo.jpg.asset.json";
-import rashonLogo from "@/assets/rashon-logo.jpg.asset.json";
+import rashonLogo from "@/assets/rashon-logo-badge.png.asset.json";
 import { HOME_BRAND_LINKS } from "@/lib/home";
 
 type Brand = {
@@ -17,7 +17,7 @@ type Brand = {
   name: string;
   logo?: string;
   logoAlt?: string;
-  logoCrop?: "nunbell" | "rashon";
+  logoCrop?: "nunbell" | "badge";
   category: string;
   phrase: string;
   image?: string;
@@ -88,7 +88,7 @@ const brands: Brand[] = [
     name: "Rash-oN",
     logo: rashonLogo.url,
     logoAlt: "Rash-oN",
-    logoCrop: "rashon",
+    logoCrop: "badge",
     category: "Juguetes y accesorios para mascotas",
     phrase: "",
     background: "bg-rashon-light",
@@ -140,10 +140,8 @@ const ProductsSection = () => (
                     <span className="relative block h-[90px] w-auto overflow-hidden md:h-[110px]" style={{ aspectRatio: "1 / 0.88" }}>
                       <img src={b.logo} alt={b.logoAlt} loading="lazy" className="absolute inset-x-0 top-0 h-auto w-full object-contain object-top" />
                     </span>
-                  ) : b.logoCrop === "rashon" ? (
-                    <span className="relative block h-[90px] w-[91px] shrink-0 overflow-hidden md:h-[110px] md:w-[112px]">
-                      <img src={b.logo} alt={b.logoAlt} loading="lazy" className="absolute max-w-none" style={{ width: "160%", left: "-30.4%", top: "-19.7%" }} />
-                    </span>
+                  ) : b.logoCrop === "badge" ? (
+                    <img src={b.logo} alt={b.logoAlt} loading="lazy" className="h-[90px] w-auto max-w-[220px] object-contain md:h-[110px]" />
                   ) : (
                     <img src={b.logo} alt={b.logoAlt} loading="lazy" className="max-h-14 max-w-[220px] object-contain" />
                   )
