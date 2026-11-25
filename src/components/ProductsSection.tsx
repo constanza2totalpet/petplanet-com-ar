@@ -12,13 +12,16 @@ import { HOME_BRAND_LINKS } from "@/lib/home";
 
 type Brand = {
   key: string;
-  logo: string;
-  logoAlt: string;
+  name: string;
+  logo?: string;
+  logoAlt?: string;
   category: string;
   phrase: string;
-  image: string;
-  imageAlt: string;
+  image?: string;
+  imageAlt?: string;
   background: string;
+  accent: string;
+  divider: string;
   cta: string;
   ctaClass: string;
   href: string;
@@ -28,6 +31,7 @@ type Brand = {
 const brands: Brand[] = [
   {
     key: "crystalcat",
+    name: "CrystalCat",
     logo: crystalcatLogo,
     logoAlt: "CrystalCat",
     category: "Piedras sanitarias de sílice",
@@ -35,6 +39,8 @@ const brands: Brand[] = [
     image: crystalcatScene.url,
     imageAlt: "Gato blanco junto a una bandeja con cristales de sílice y el envase original CrystalCat de 3,8 L",
     background: "bg-crystal-light",
+    accent: "text-crystal",
+    divider: "border-crystal/25",
     cta: "Conocé CrystalCat",
     ctaClass: "bg-crystal hover:bg-crystal-dark",
     href: HOME_BRAND_LINKS.crystalcat,
@@ -42,6 +48,7 @@ const brands: Brand[] = [
   },
   {
     key: "cativa",
+    name: "Cativa",
     logo: cativaLogoGreen,
     logoAlt: "Cativa",
     category: "Arena sanitaria de mandioca",
@@ -49,6 +56,8 @@ const brands: Brand[] = [
     image: cativaBag,
     imageAlt: "Envase de arena sanitaria de mandioca Cativa",
     background: "bg-cativa-cream",
+    accent: "text-cativa",
+    divider: "border-cativa/25",
     cta: "Conocé Cativa",
     ctaClass: "bg-cativa hover:bg-cativa/90",
     href: HOME_BRAND_LINKS.cativa,
@@ -56,6 +65,7 @@ const brands: Brand[] = [
   },
   {
     key: "furacao",
+    name: "Furação Pet",
     logo: furacaoLogo,
     logoAlt: "Furação Pet",
     category: "Juguetes y accesorios para mascotas",
@@ -63,9 +73,37 @@ const brands: Brand[] = [
     image: furacaoScene,
     imageAlt: "Escena de apoyo: perro jugando con una soga junto a juguetes para mascotas",
     background: "bg-brand-orange-light",
+    accent: "text-brand-pink",
+    divider: "border-brand-pink/25",
     cta: "Conocé Furação Pet",
     ctaClass: "bg-brand-pink hover:bg-brand-pink/90",
     href: HOME_BRAND_LINKS.furacao,
+    internal: false,
+  },
+  {
+    key: "rashon",
+    name: "Rash-oN",
+    category: "Accesorios para mascotas para pet shops y comercios",
+    phrase: "",
+    background: "bg-brand-purple/10",
+    accent: "text-brand-purple",
+    divider: "border-brand-purple/25",
+    cta: "Conocé Rash-oN",
+    ctaClass: "bg-brand-purple hover:bg-brand-purple/90",
+    href: HOME_BRAND_LINKS.rashon,
+    internal: false,
+  },
+  {
+    key: "numbell",
+    name: "Numbell",
+    category: "Accesorios para mascotas",
+    phrase: "",
+    background: "bg-secondary/60",
+    accent: "text-secondary-foreground",
+    divider: "border-secondary-foreground/20",
+    cta: "Consultar por WhatsApp",
+    ctaClass: "bg-whatsapp hover:bg-whatsapp/90",
+    href: HOME_BRAND_LINKS.numbell,
     internal: false,
   },
 ];
@@ -88,10 +126,14 @@ const ProductsSection = () => (
           <article key={b.key} className={`grid overflow-hidden rounded-lg border md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] ${b.background}`}>
             <div className="flex flex-col items-start justify-center p-6 sm:p-8 lg:p-10">
               <h3 className="mb-5 flex h-14 items-center">
-                <img src={b.logo} alt={b.logoAlt} loading="lazy" className="max-h-14 max-w-[220px] object-contain" />
+                {b.logo ? (
+                  <img src={b.logo} alt={b.logoAlt} loading="lazy" className="max-h-14 max-w-[220px] object-contain" />
+                ) : (
+                  <span className={`font-heading text-2xl font-extrabold leading-none sm:text-[28px] ${b.accent}`}>{b.name}</span>
+                )}
               </h3>
-              <p className="mb-2 max-w-sm font-heading text-lg font-bold leading-snug sm:text-xl">{b.category}</p>
-              <p className="mb-6 max-w-sm text-sm leading-relaxed text-muted-foreground">{b.phrase}</p>
+              <p className={`max-w-sm font-heading text-lg font-bold leading-snug sm:text-xl ${b.phrase ? "mb-2" : "mb-6"}`}>{b.category}</p>
+              {b.phrase ? <p className="mb-6 max-w-sm text-sm leading-relaxed text-muted-foreground">{b.phrase}</p> : null}
               <Button asChild size="lg" className={`min-h-12 max-w-full rounded-lg px-6 font-heading font-bold text-primary-foreground ${b.ctaClass}`}>
                 {b.internal ? (
                   <Link to={b.href}>{b.cta}<ArrowRight aria-hidden="true" /></Link>
@@ -106,8 +148,14 @@ const ProductsSection = () => (
                   <img src={b.image} alt={b.imageAlt} loading="lazy" decoding="async" className="h-full max-h-[330px] w-full object-contain p-3 sm:p-5" />
                   <img src={cativaCat} alt="Gato junto a una bandeja sanitaria en un ambiente luminoso" loading="lazy" decoding="async" className="h-full max-h-[330px] w-full object-cover object-center" />
                 </div>
-              ) : (
+              ) : b.image ? (
                 <img src={b.image} alt={b.imageAlt} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover object-right" />
+              ) : (
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-card">
+                  <div aria-hidden className={`absolute inset-3 rounded-md border-2 border-dashed sm:inset-4 ${b.divider}`} />
+                  <span className={`px-4 text-center font-heading text-2xl font-extrabold leading-tight sm:text-3xl ${b.accent}`}>{b.name}</span>
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">Espacio reservado</span>
+                </div>
               )}
               </div>
           </article>

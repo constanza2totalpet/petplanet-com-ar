@@ -25,7 +25,7 @@ const HeroSection = () => (
           Marcas que impulsan el mundo de las mascotas.
         </h1>
         <p className="text-base sm:text-lg text-primary-foreground/90 mb-8">
-          En Pet Planet desarrollamos, importamos y distribuimos marcas de productos para mascotas, conectando propuestas de calidad con comercios y personas que buscan lo mejor para sus animales.
+          En Pet Planet desarrollamos, importamos y distribuimos marcas de productos para mascotas —arena sanitaria, piedras sanitarias y accesorios—, conectando propuestas de calidad con comercios y personas que buscan lo mejor para sus animales.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
           <a

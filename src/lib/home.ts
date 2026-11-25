@@ -11,4 +11,6 @@ export const HOME_BRAND_LINKS = {
   crystalcat: "/crystal-cat",
   cativa: "/cativa",
   furacao: "https://wa.me/5491123190096",
+  rashon: "https://www.rash-on.com.ar",
+  numbell: HOME_WHATSAPP_URL,
 } as const;

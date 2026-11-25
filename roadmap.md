@@ -1,4 +1,7 @@
 # Tasks
+- [x] Add Rash-oN and Numbell home banners with provisional logo/photo slots, keeping existing banners and sections untouched.
+- [x] Mention "Accesorios" in the hero copy alongside the litter mention without layout changes.
+- [x] Keep the three existing banner buttons unchanged ("Conocé …") per user confirmation.
 - [x] Replace only the home brand cards with three banners using original logos and faithful product imagery.
 - [x] Verify desktop/mobile banners, unchanged destinations and untouched brand landings and other home sections (CrystalCat image inspected with the original file because sandbox asset serving is unavailable).
 - [x] Update only CrystalCat buying cards and verify exact retail/wholesale destinations on desktop/mobile.

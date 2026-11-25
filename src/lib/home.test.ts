@@ -15,4 +15,10 @@ describe("Home commercial links", () => {
   it("preserves Furação Pet's exact existing destination", () => {
     expect(HOME_BRAND_LINKS.furacao).toBe("https://wa.me/5491123190096");
   });
+  it("points Rash-oN to its official site", () => {
+    expect(HOME_BRAND_LINKS.rashon).toBe("https://www.rash-on.com.ar");
+  });
+  it("sends Numbell enquiries through the site's own WhatsApp link", () => {
+    expect(HOME_BRAND_LINKS.numbell).toBe(HOME_WHATSAPP_URL);
+  });
 });
