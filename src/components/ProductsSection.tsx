@@ -8,6 +8,8 @@ import cativaBag from "@/assets/cativa-bag-medio.jpg";
 import cativaCat from "@/assets/cativa-cat-tray.jpg";
 import furacaoLogo from "@/assets/furacao-pet-logo-transparent.png";
 import furacaoScene from "@/assets/furacao-scene.jpg";
+import nunbellLogo from "@/assets/nunbell-logo.jpg.asset.json";
+import rashonLogo from "@/assets/rashon-logo.jpg.asset.json";
 import { HOME_BRAND_LINKS } from "@/lib/home";
 
 type Brand = {
@@ -15,6 +17,7 @@ type Brand = {
   name: string;
   logo?: string;
   logoAlt?: string;
+  logoCrop?: "nunbell" | "rashon";
   category: string;
   phrase: string;
   image?: string;
@@ -83,6 +86,9 @@ const brands: Brand[] = [
   {
     key: "rashon",
     name: "Rash-oN",
+    logo: rashonLogo.url,
+    logoAlt: "Rash-oN",
+    logoCrop: "rashon",
     category: "Accesorios para mascotas para pet shops y comercios",
     phrase: "",
     background: "bg-rashon-light",
@@ -96,6 +102,9 @@ const brands: Brand[] = [
   {
     key: "nunbell",
     name: "Nunbell",
+    logo: nunbellLogo.url,
+    logoAlt: "Nunbell",
+    logoCrop: "nunbell",
     category: "Accesorios para mascotas",
     phrase: "",
     background: "bg-nunbell-light",
@@ -127,7 +136,17 @@ const ProductsSection = () => (
             <div className="flex flex-col items-start justify-center p-6 sm:p-8 lg:p-10">
               <h3 className="mb-5 flex h-14 items-center">
                 {b.logo ? (
-                  <img src={b.logo} alt={b.logoAlt} loading="lazy" className="max-h-14 max-w-[220px] object-contain" />
+                  b.logoCrop === "nunbell" ? (
+                    <span className="relative block h-14 w-auto overflow-hidden" style={{ aspectRatio: "1 / 0.88" }}>
+                      <img src={b.logo} alt={b.logoAlt} loading="lazy" className="absolute inset-x-0 top-0 h-auto w-full object-contain object-top" />
+                    </span>
+                  ) : b.logoCrop === "rashon" ? (
+                    <span className="relative block h-14 overflow-hidden" style={{ aspectRatio: "1200 / 1184" }}>
+                      <img src={b.logo} alt={b.logoAlt} loading="lazy" className="absolute max-w-none" style={{ width: "160%", left: "-30.4%", top: "-19.7%" }} />
+                    </span>
+                  ) : (
+                    <img src={b.logo} alt={b.logoAlt} loading="lazy" className="max-h-14 max-w-[220px] object-contain" />
+                  )
                 ) : (
                   <span className={`font-heading text-2xl font-extrabold leading-none sm:text-[28px] ${b.accent}`}>{b.name}</span>
                 )}
