@@ -134,14 +134,14 @@ const ProductsSection = () => (
         {brands.map((b) => (
           <article key={b.key} className={`grid overflow-hidden rounded-lg border md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] ${b.background}`}>
             <div className="flex flex-col items-start justify-center p-6 sm:p-8 lg:p-10">
-              <h3 className="mb-5 flex h-14 items-center">
+              <h3 className="mb-5 flex min-h-14 items-center">
                 {b.logo ? (
                   b.logoCrop === "nunbell" ? (
-                    <span className="relative block h-14 w-auto overflow-hidden" style={{ aspectRatio: "1 / 0.88" }}>
+                    <span className="relative block h-[90px] w-auto overflow-hidden md:h-[110px]" style={{ aspectRatio: "1 / 0.88" }}>
                       <img src={b.logo} alt={b.logoAlt} loading="lazy" className="absolute inset-x-0 top-0 h-auto w-full object-contain object-top" />
                     </span>
                   ) : b.logoCrop === "rashon" ? (
-                    <span className="relative block h-14 w-[57px] shrink-0 overflow-hidden">
+                    <span className="relative block h-[90px] w-[91px] shrink-0 overflow-hidden md:h-[110px] md:w-[112px]">
                       <img src={b.logo} alt={b.logoAlt} loading="lazy" className="absolute max-w-none" style={{ width: "160%", left: "-30.4%", top: "-19.7%" }} />
                     </span>
                   ) : (
