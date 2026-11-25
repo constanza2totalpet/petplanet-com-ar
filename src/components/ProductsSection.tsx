@@ -141,7 +141,7 @@ const ProductsSection = () => (
                       <img src={b.logo} alt={b.logoAlt} loading="lazy" className="absolute inset-x-0 top-0 h-auto w-full object-contain object-top" />
                     </span>
                   ) : b.logoCrop === "rashon" ? (
-                    <span className="relative block h-14 overflow-hidden" style={{ aspectRatio: "1200 / 1184" }}>
+                    <span className="relative block h-14 w-[57px] shrink-0 overflow-hidden">
                       <img src={b.logo} alt={b.logoAlt} loading="lazy" className="absolute max-w-none" style={{ width: "160%", left: "-30.4%", top: "-19.7%" }} />
                     </span>
                   ) : (
